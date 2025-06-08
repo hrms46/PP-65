@@ -169,7 +169,7 @@
         }
         
         .print-btn {
-            background: linear-gradient(to right, #158dbc, #127ebc);
+            background: linear-gradient(to right, #28a745, #2ecc71);
         }
         
         .print-btn:hover {
@@ -177,7 +177,7 @@
         }
         
         .download-btn {
-            background: linear-gradient(to right, #1a92b3, #1a7dcd);
+            background: linear-gradient(to right, #e74c3c, #c0392b);
         }
         
         .download-btn:hover {
@@ -185,7 +185,7 @@
         }
         
         .reset-btn {
-            background: linear-gradient(to right, #0d91e3, #119fce);
+            background: linear-gradient(to right, #f39c12, #e67e22);
         }
         
         .reset-btn:hover {
@@ -220,11 +220,11 @@
         }
         
         .company-logo {
-            width: 201px;
-            height: 201px;
-            margin: 0 auto 40px;
-            background: linear-gradient(135deg, #e2eaeb00, #f1f2f300);
-            border-radius: 1200%;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #d6dadf, #c4cbd1);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -350,6 +350,7 @@
             margin-top: 35px;
             padding-bottom: 25px;
             border-bottom: 1px solid #eee;
+            page-break-inside: avoid;
         }
         
         .form-section:last-child {
@@ -525,10 +526,88 @@
             90% { opacity: 1; transform: translateY(0); }
             100% { opacity: 0; transform: translateY(20px); }
         }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 2000;
+            overflow: auto;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 700px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #777;
+        }
+        
+        .close-btn:hover {
+            color: #333;
+        }
+        
+        .candidate-details {
+            margin-top: 20px;
+        }
+        
+        .candidate-details h3 {
+            margin-top: 20px;
+            color: #1e5799;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .detail-row {
+            display: flex;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            width: 40%;
+            color: #555;
+        }
+        
+        .detail-value {
+            width: 60%;
+            color: #333;
+        }
     </style>
 </head>
 <body>
     <div class="toast" id="toast">Application submitted successfully!</div>
+    
+    <div class="modal" id="candidateModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <h2><i class="fas fa-user"></i> Candidate Details</h2>
+            <div class="candidate-details" id="candidateDetails">
+                <!-- Details will be populated here -->
+            </div>
+        </div>
+    </div>
     
     <div class="container">
         <!-- Admin Login -->
@@ -565,9 +644,6 @@
                 <button class="admin-btn" id="newApplicationBtn">
                     <i class="fas fa-plus"></i> New Application
                 </button>
-                <button class="admin-btn" id="downloadAllBtn">
-                    <i class="fas fa-download"></i> Download All as PDF
-                </button>
             </div>
             
             <div id="candidatesList">
@@ -583,7 +659,7 @@
                         </tr>
                     </thead>
                     <tbody id="candidatesTableBody">
-                        <!-- Candidates will be dynamically added here -->
+                        <!-- Candidate data will be loaded here -->
                     </tbody>
                 </table>
             </div>
@@ -606,7 +682,7 @@
             
             <!-- Sarathy Group Header -->
             <div class="company-header">
-                <div class="company-logo"><img width="200px" src="sarathy.png" alt="Sarathy Group Logo"></div>
+                <div class="company-logo"><img width="200px" src="https://via.placeholder.com/200x200/1e5799/ffffff?text=Sarathy+Group" alt="Sarathy Group Logo"></div>
                 <h1 class="company-name">Sarathy Group</h1>
                 <div class="company-details">
                     <p><strong>HR Department</strong></p>
@@ -894,6 +970,9 @@
     </div>
 
     <script>
+        // Application data storage
+        let applications = JSON.parse(localStorage.getItem('applications')) || [];
+        
         // Set max date for date of birth to today
         document.addEventListener('DOMContentLoaded', function() {
             const today = new Date().toISOString().split('T')[0];
@@ -904,23 +983,25 @@
             document.getElementById('pdfBtn').addEventListener('click', saveAsPDF);
             document.getElementById('resetBtn').addEventListener('click', resetForm);
             document.getElementById('bottomPrintBtn').addEventListener('click', printForm);
-            document.getElementById('downloadAllBtn').addEventListener('click', downloadAllAsPDF);
-            document.getElementById('viewApplicationsBtn').addEventListener('click', viewApplications);
             
-            // Admin login functionality
+            // Admin functionality
             document.getElementById('adminLoginBtn').addEventListener('click', adminLogin);
             document.getElementById('logoutBtn').addEventListener('click', logoutAdmin);
             document.getElementById('newApplicationBtn').addEventListener('click', showApplicationForm);
+            document.getElementById('viewApplicationsBtn').addEventListener('click', loadApplications);
+            document.getElementById('closeModal').addEventListener('click', closeModal);
             
             // Form submission handler
             document.getElementById('employmentForm').addEventListener('submit', function(e) {
                 e.preventDefault();
-                if (validateForm()) {
-                    showToast('Application submitted successfully!');
-                    document.getElementById('bottomPrintBtn').style.display = 'block';
-                    addCandidateToTable();
-                } else {
-                    showToast('Please fill all required fields');
+                saveApplication();
+            });
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', function(event) {
+                const modal = document.getElementById('candidateModal');
+                if (event.target === modal) {
+                    closeModal();
                 }
             });
         });
@@ -930,11 +1011,12 @@
             const username = document.getElementById('adminUsername').value;
             const password = document.getElementById('adminPassword').value;
             
-            if (username === 'Sarathy' && password === 'Sarathy@1987') {
+            if (username === 'admin' && password === 'sarathy123') {
                 document.getElementById('adminPanel').style.display = 'block';
                 document.getElementById('formContainer').style.display = 'none';
                 document.getElementById('adminLogin').style.display = 'none';
                 showToast('Admin login successful!');
+                loadApplications();
             } else {
                 showToast('Invalid admin credentials!');
             }
@@ -956,6 +1038,197 @@
             document.getElementById('formContainer').style.display = 'block';
             document.getElementById('adminLogin').style.display = 'block';
             resetForm();
+        }
+        
+        // Save application to localStorage
+        function saveApplication() {
+            const formData = new FormData(document.getElementById('employmentForm'));
+            const application = {};
+            
+            for (let [key, value] of formData.entries()) {
+                application[key] = value;
+            }
+            
+            // Add application date and ID
+            application.id = 'SG-' + Date.now().toString().slice(-6);
+            application.date = new Date().toISOString().split('T')[0];
+            application.status = 'Pending';
+            
+            // Save to localStorage
+            applications.push(application);
+            localStorage.setItem('applications', JSON.stringify(applications));
+            
+            showToast('Application submitted successfully!');
+            document.getElementById('bottomPrintBtn').style.display = 'block';
+            resetForm();
+        }
+        
+        // Load applications for admin view
+        function loadApplications() {
+            const tableBody = document.getElementById('candidatesTableBody');
+            tableBody.innerHTML = '';
+            
+            applications.forEach((app, index) => {
+                const row = document.createElement('tr');
+                
+                row.innerHTML = `
+                    <td>${app.id}</td>
+                    <td>${app.full_name}</td>
+                    <td>${app.post_applied}</td>
+                    <td>${app.date}</td>
+                    <td><span style="color: ${getStatusColor(app.status)};">${app.status}</span></td>
+                    <td><button class="view-btn" onclick="viewApplication(${index})"><i class="fas fa-eye"></i> View</button></td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+        }
+        
+        // Get status color
+        function getStatusColor(status) {
+            switch(status) {
+                case 'Approved': return '#2ecc71';
+                case 'Rejected': return '#e74c3c';
+                case 'Under Review': return '#3498db';
+                default: return '#f39c12';
+            }
+        }
+        
+        // View application details
+        function viewApplication(index) {
+            const app = applications[index];
+            const details = document.getElementById('candidateDetails');
+            
+            details.innerHTML = `
+                <div class="detail-row">
+                    <div class="detail-label">Application ID:</div>
+                    <div class="detail-value">${app.id}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Status:</div>
+                    <div class="detail-value"><strong style="color:${getStatusColor(app.status)}">${app.status}</strong></div>
+                </div>
+                
+                <h3>Basic Information</h3>
+                <div class="detail-row">
+                    <div class="detail-label">Full Name:</div>
+                    <div class="detail-value">${app.full_name}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Position Applied:</div>
+                    <div class="detail-value">${app.post_applied}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Date of Birth:</div>
+                    <div class="detail-value">${app.dob}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Mobile:</div>
+                    <div class="detail-value">${app.mobile}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Email:</div>
+                    <div class="detail-value">${app.email}</div>
+                </div>
+                
+                <h3>Education</h3>
+                <div class="detail-row">
+                    <div class="detail-label">Highest Qualification:</div>
+                    <div class="detail-value">${app.course1} - ${app.inst1} (${app.year1})</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Previous Qualification:</div>
+                    <div class="detail-value">${app.course2} - ${app.inst2} (${app.year2})</div>
+                </div>
+                
+                <h3>Experience</h3>
+                <div class="detail-row">
+                    <div class="detail-label">Recent Company:</div>
+                    <div class="detail-value">${app.exp_company1} - ${app.exp_designation1}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Duration:</div>
+                    <div class="detail-value">${app.exp_from1} to ${app.exp_to1}</div>
+                </div>
+                
+                <div style="margin-top: 20px; text-align: center;">
+                    <button class="action-btn print-btn" onclick="printForm()" style="margin-right: 10px;">
+                        <i class="fas fa-print"></i> Print Application
+                    </button>
+                    <button class="action-btn download-btn" onclick="downloadCandidatePDF(${index})">
+                        <i class="fas fa-file-pdf"></i> Download as PDF
+                    </button>
+                </div>
+            `;
+            
+            document.getElementById('candidateModal').style.display = 'flex';
+        }
+        
+        // Close modal
+        function closeModal() {
+            document.getElementById('candidateModal').style.display = 'none';
+        }
+        
+        // Download candidate PDF
+        function downloadCandidatePDF(index) {
+            const app = applications[index];
+            const content = `
+                <div style="padding: 20px; font-family: Arial, sans-serif;">
+                    <h1 style="text-align: center; color: #1e5799;">Sarathy Group</h1>
+                    <h2 style="text-align: center; color: #333;">Candidate Application</h2>
+                    
+                    <div style="margin-top: 30px;">
+                        <h3 style="color: #1e5799; border-bottom: 1px solid #eee; padding-bottom: 5px;">Application Details</h3>
+                        <p><strong>ID:</strong> ${app.id}</p>
+                        <p><strong>Date:</strong> ${app.date}</p>
+                        <p><strong>Status:</strong> ${app.status}</p>
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <h3 style="color: #1e5799; border-bottom: 1px solid #eee; padding-bottom: 5px;">Basic Information</h3>
+                        <p><strong>Full Name:</strong> ${app.full_name}</p>
+                        <p><strong>Position Applied:</strong> ${app.post_applied}</p>
+                        <p><strong>Date of Birth:</strong> ${app.dob}</p>
+                        <p><strong>Mobile:</strong> ${app.mobile}</p>
+                        <p><strong>Email:</strong> ${app.email}</p>
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <h3 style="color: #1e5799; border-bottom: 1px solid #eee; padding-bottom: 5px;">Education</h3>
+                        <p><strong>Highest Qualification:</strong> ${app.course1} - ${app.inst1} (${app.year1})</p>
+                        <p><strong>Previous Qualification:</strong> ${app.course2} - ${app.inst2} (${app.year2})</p>
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <h3 style="color: #1e5799; border-bottom: 1px solid #eee; padding-bottom: 5px;">Experience</h3>
+                        <p><strong>Recent Company:</strong> ${app.exp_company1} - ${app.exp_designation1}</p>
+                        <p><strong>Duration:</strong> ${app.exp_from1} to ${app.exp_to1}</p>
+                    </div>
+                    
+                    <div style="margin-top: 30px; text-align: center; font-size: 0.9em; color: #777;">
+                        <p>Generated by Sarathy Group Admin Dashboard</p>
+                        <p>${new Date().toLocaleDateString()}</p>
+                    </div>
+                </div>
+            `;
+            
+            const opt = {
+                margin: 10,
+                filename: `Sarathy_Candidate_${app.id}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            // Create a temporary element for PDF generation
+            const element = document.createElement('div');
+            element.innerHTML = content;
+            document.body.appendChild(element);
+            
+            // Generate PDF
+            html2pdf().set(opt).from(element).save().then(() => {
+                document.body.removeChild(element);
+            });
         }
         
         // Print form function
@@ -980,60 +1253,11 @@
         
         // Reset form function
         function resetForm() {
-            if (confirm('Are you sure you want to reset the entire form?')) {
+            if(confirm('Are you sure you want to reset the entire form?')) {
                 document.getElementById('employmentForm').reset();
                 document.getElementById('bottomPrintBtn').style.display = 'none';
                 showToast('Form has been reset');
             }
-        }
-        
-        // Download all as PDF (placeholder)
-        function downloadAllAsPDF() {
-            showToast('Downloading all applications as PDF...');
-            // In a real scenario, this would involve server-side logic to compile all applications
-        }
-        
-        // View applications
-        function viewApplications() {
-            showToast('Viewing applications...');
-            // This is just a placeholder; actual data would come from a backend
-        }
-        
-        // Add candidate to table (simulation)
-        function addCandidateToTable() {
-            const form = document.getElementById('employmentForm');
-            const name = form.querySelector('input[name="full_name"]').value;
-            const position = form.querySelector('input[name="post_applied"]').value;
-            const date = new Date().toISOString().split('T')[0];
-            const tbody = document.getElementById('candidatesTableBody');
-            
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>SG-${Math.floor(Math.random() * 10000)}</td>
-                <td>${name}</td>
-                <td>${position}</td>
-                <td>${date}</td>
-                <td><span style="color: #f39c12;">Pending</span></td>
-                <td><button class="view-btn" onclick="viewApplication('${name}')"><i class="fas fa-eye"></i> View</button></td>
-            `;
-            tbody.appendChild(row);
-        }
-        
-        // View application (placeholder)
-        function viewApplication(name) {
-            showToast(`Viewing application for ${name}`);
-            // In a real scenario, this would display the full application details
-        }
-        
-        // Validate form
-        function validateForm() {
-            const requiredFields = document.querySelectorAll('[required]');
-            for (let field of requiredFields) {
-                if (!field.value) {
-                    return false;
-                }
-            }
-            return true;
         }
         
         // Show toast notification
