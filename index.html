@@ -169,15 +169,15 @@
         }
         
         .print-btn {
-            background: linear-gradient(to right, #28a745, #2ecc71);
+            background: linear-gradient(to right, #0b87b1, #0e89d1);
         }
         
         .print-btn:hover {
-            background: linear-gradient(to right, #218838, #27ae60);
+            background: linear-gradient(to right, #139cae, #16abb5);
         }
         
         .download-btn {
-            background: linear-gradient(to right, #e74c3c, #c0392b);
+            background: linear-gradient(to right, #14d1c7, #1aa2cf);
         }
         
         .download-btn:hover {
@@ -185,11 +185,11 @@
         }
         
         .reset-btn {
-            background: linear-gradient(to right, #f39c12, #e67e22);
+            background: linear-gradient(to right, #119ec1, #1195ba);
         }
         
         .reset-btn:hover {
-            background: linear-gradient(to right, #d35400, #ba4a00);
+            background: linear-gradient(to right, #0f92bd, #179ca1);
         }
         
         .bottom-print-btn {
@@ -220,8 +220,8 @@
         }
         
         .company-logo {
-            width: 180px;
-            height: 180px;
+            width: 201px;
+            height: 201px;
             margin: 0 auto 20px;
             background: linear-gradient(135deg, #d6dadf, #c4cbd1);
             border-radius: 50%;
@@ -408,6 +408,12 @@
             gap: 20px;
         }
         
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        
         .section-number {
             display: inline-block;
             width: 30px;
@@ -432,7 +438,7 @@
         }
         
         @media (max-width: 768px) {
-            .grid-2 {
+            .grid-2, .grid-3 {
                 grid-template-columns: 1fr;
                 gap: 0;
             }
@@ -682,7 +688,7 @@
             
             <!-- Sarathy Group Header -->
             <div class="company-header">
-                <div class="company-logo"><img width="200px" src="https://via.placeholder.com/200x200/1e5799/ffffff?text=Sarathy+Group" alt="Sarathy Group Logo"></div>
+                <div class="company-logo"><img width="200px" src="sarathy.png" alt="Sarathy Group Logo"></div>
                 <h1 class="company-name">Sarathy Group</h1>
                 <div class="company-details">
                     <p><strong>HR Department</strong></p>
@@ -933,9 +939,44 @@
                     </table>
                 </div>
 
+                <!-- Bank Details Section -->
+                <div class="form-section">
+                    <h3><span class="section-number">5</span> <i class="fas fa-university"></i> Bank Account Details</h3>
+                    <div class="input-box">
+                        <label class="required">Account Holder Name</label>
+                        <input type="text" name="account_holder" required>
+                    </div>
+                    
+                    <div class="input-box">
+                        <label class="required">Account Number</label>
+                        <input type="text" name="account_number" required>
+                    </div>
+                    
+                    <div class="grid-3">
+                        <div class="input-box">
+                            <label class="required">Bank Name</label>
+                            <input type="text" name="bank_name" required>
+                        </div>
+                        
+                        <div class="input-box">
+                            <label class="required">Branch</label>
+                            <input type="text" name="bank_branch" required>
+                        </div>
+                        
+                        <div class="input-box">
+                            <label class="required">IFSC Code</label>
+                            <input type="text" name="ifsc_code" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-note">
+                        <p><strong>Note:</strong> Please provide accurate bank details for salary processing.</p>
+                    </div>
+                </div>
+
                 <!-- For Office Use Only -->
                 <div class="form-section">
-                    <h3><span class="section-number">5</span> <i class="fas fa-building"></i> For Office Use Only</h3>
+                    <h3><span class="section-number">6</span> <i class="fas fa-building"></i> For Office Use Only</h3>
                     <table>
                         <tr>
                             <th>Reference</th>
@@ -1068,6 +1109,17 @@
             const tableBody = document.getElementById('candidatesTableBody');
             tableBody.innerHTML = '';
             
+            if (applications.length === 0) {
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="6" style="text-align: center; padding: 20px;">
+                            No applications found
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+            
             applications.forEach((app, index) => {
                 const row = document.createElement('tr');
                 
@@ -1131,27 +1183,29 @@
                     <div class="detail-value">${app.email}</div>
                 </div>
                 
-                <h3>Education</h3>
+                <h3>Bank Details</h3>
                 <div class="detail-row">
-                    <div class="detail-label">Highest Qualification:</div>
-                    <div class="detail-value">${app.course1} - ${app.inst1} (${app.year1})</div>
+                    <div class="detail-label">Account Holder:</div>
+                    <div class="detail-value">${app.account_holder}</div>
                 </div>
                 <div class="detail-row">
-                    <div class="detail-label">Previous Qualification:</div>
-                    <div class="detail-value">${app.course2} - ${app.inst2} (${app.year2})</div>
+                    <div class="detail-label">Account Number:</div>
+                    <div class="detail-value">${app.account_number}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Bank Name:</div>
+                    <div class="detail-value">${app.bank_name}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Branch:</div>
+                    <div class="detail-value">${app.bank_branch}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">IFSC Code:</div>
+                    <div class="detail-value">${app.ifsc_code}</div>
                 </div>
                 
-                <h3>Experience</h3>
-                <div class="detail-row">
-                    <div class="detail-label">Recent Company:</div>
-                    <div class="detail-value">${app.exp_company1} - ${app.exp_designation1}</div>
-                </div>
-                <div class="detail-row">
-                    <div class="detail-label">Duration:</div>
-                    <div class="detail-value">${app.exp_from1} to ${app.exp_to1}</div>
-                </div>
-                
-                <div style="margin-top: 20px; text-align: center;">
+                <div style="margin-top: 30px; text-align: center;">
                     <button class="action-btn print-btn" onclick="printForm()" style="margin-right: 10px;">
                         <i class="fas fa-print"></i> Print Application
                     </button>
@@ -1194,15 +1248,12 @@
                     </div>
                     
                     <div style="margin-top: 20px;">
-                        <h3 style="color: #1e5799; border-bottom: 1px solid #eee; padding-bottom: 5px;">Education</h3>
-                        <p><strong>Highest Qualification:</strong> ${app.course1} - ${app.inst1} (${app.year1})</p>
-                        <p><strong>Previous Qualification:</strong> ${app.course2} - ${app.inst2} (${app.year2})</p>
-                    </div>
-                    
-                    <div style="margin-top: 20px;">
-                        <h3 style="color: #1e5799; border-bottom: 1px solid #eee; padding-bottom: 5px;">Experience</h3>
-                        <p><strong>Recent Company:</strong> ${app.exp_company1} - ${app.exp_designation1}</p>
-                        <p><strong>Duration:</strong> ${app.exp_from1} to ${app.exp_to1}</p>
+                        <h3 style="color: #1e5799; border-bottom: 1px solid #eee; padding-bottom: 5px;">Bank Details</h3>
+                        <p><strong>Account Holder:</strong> ${app.account_holder}</p>
+                        <p><strong>Account Number:</strong> ${app.account_number}</p>
+                        <p><strong>Bank Name:</strong> ${app.bank_name}</p>
+                        <p><strong>Branch:</strong> ${app.bank_branch}</p>
+                        <p><strong>IFSC Code:</strong> ${app.ifsc_code}</p>
                     </div>
                     
                     <div style="margin-top: 30px; text-align: center; font-size: 0.9em; color: #777;">
