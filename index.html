@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
+        :root {
+            --primary: #1e5799;
+            --primary-dark: #16467e;
+            --secondary: #2989d8;
+            --accent: #2ecc71;
+            --danger: #e74c3c;
+            --warning: #f39c12;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -17,9 +29,12 @@
         body {
             min-height: 100vh;
             padding: 20px;
-            background: linear-gradient(135deg, #1e5799, #207cca, #2989d8, #1e5799);
+            background: linear-gradient(135deg, var(--primary), var(--secondary), #2989d8, var(--primary));
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
         @keyframes gradientBG {
@@ -39,208 +54,53 @@
             margin: 20px auto;
         }
         
-        /* Admin Panel */
-        .admin-panel {
-            display: none;
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 30px;
-            border: 1px solid #e0e0e0;
-        }
-        
-        .admin-header {
+        /* Login Page */
+        .login-container {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #ddd;
+            padding: 30px;
         }
         
-        .admin-header h2 {
-            color: #1e5799;
-            font-size: 1.8rem;
-        }
-        
-        .admin-login {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid #e0e0e0;
-        }
-        
-        .admin-controls {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 15px;
-        }
-        
-        .admin-btn {
-            padding: 8px 15px;
-            background: #1e5799;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: all 0.3s;
-        }
-        
-        .admin-btn:hover {
-            background: #16467e;
-            transform: translateY(-2px);
-        }
-        
-        .candidates-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-            background: white;
-        }
-        
-        .candidates-table th {
-            background-color: #1e5799;
-            color: white;
-            padding: 12px;
-            text-align: left;
-        }
-        
-        .candidates-table td {
-            border: 1px solid #ddd;
-            padding: 10px;
-        }
-        
-        .candidates-table tr:nth-child(even) {
-            background-color: #f9fbfd;
-        }
-        
-        .view-btn {
-            background: #2989d8;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .view-btn:hover {
-            background: #2071b8;
-        }
-        
-        /* Action buttons */
-        .action-buttons {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-            z-index: 10;
-        }
-        
-        .action-btn {
-            padding: 10px 15px;
-            background: linear-gradient(to right, #1e5799, #2989d8);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: all 0.3s;
-        }
-        
-        .action-btn:hover {
-            background: linear-gradient(to right, #16467e, #2071b8);
-            transform: translateY(-2px);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-        }
-        
-        .action-btn:active {
-            transform: translateY(0);
-        }
-        
-        .print-btn {
-            background: linear-gradient(to right, #0b87b1, #0e89d1);
-        }
-        
-        .print-btn:hover {
-            background: linear-gradient(to right, #139cae, #16abb5);
-        }
-        
-        .download-btn {
-            background: linear-gradient(to right, #14d1c7, #1aa2cf);
-        }
-        
-        .download-btn:hover {
-            background: linear-gradient(to right, #c0392b, #a5281c);
-        }
-        
-        .reset-btn {
-            background: linear-gradient(to right, #119ec1, #1195ba);
-        }
-        
-        .reset-btn:hover {
-            background: linear-gradient(to right, #0f92bd, #179ca1);
-        }
-        
-        .bottom-print-btn {
-            display: none;
-            margin-top: 20px;
-            width: 100%;
-            padding: 12px;
-            background: #28a745;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .bottom-print-btn:hover {
-            background: #218838;
-        }
-        
-        /* Company Header Styles */
-        .company-header {
+        .login-header {
             text-align: center;
             margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #f0f4f8;
+        }
+        
+        .company-logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
         }
         
         .company-logo {
-            width: 201px;
-            height: 201px;
-            margin: 0 auto 20px;
-            background: linear-gradient(135deg, #d6dadf00, #c4cbd100);
-            border-radius: 50%;
+            width: 180px;
+            height: 180px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
+            background: white;
+            border-radius: 50%;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 3px solid var(--primary);
+            overflow: hidden;
+            padding: 15px;
+        }
+        
+        .company-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
         
         .company-name {
-            font-size: 2.5rem;
-            color: #184271;
+            font-size: 2.3rem;
+            color: var(--primary);
             font-weight: 700;
             margin-bottom: 10px;
             position: relative;
             display: inline-block;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
         
         .company-name:after {
@@ -249,40 +109,68 @@
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
+            width: 80px;
             height: 4px;
-            background: #2989d8;
+            background: var(--secondary);
             border-radius: 2px;
         }
         
         .company-details {
             margin-top: 25px;
-            color: #555;
-            font-size: 1.1rem;
+            color: var(--dark);
+            font-size: 1rem;
             line-height: 1.8;
         }
         
         .company-details strong {
-            color: #1e5799;
+            color: var(--primary);
         }
         
-        /* Form Styles */
-        .form-header {
-            text-align: center;
-            margin-bottom: 30px;
+        .login-form {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 500px;
         }
         
-        .form-header h2 {
-            font-size: 2rem;
-            color: #1e5799;
-            font-weight: 700;
-            margin-bottom: 10px;
+        .form-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
         }
         
-        .form-header p {
-            color: #555;
+        .tab-btn {
+            flex: 1;
+            padding: 12px;
+            background: #f0f4f8;
+            border: none;
             font-size: 1.1rem;
-            margin-top: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .tab-btn:first-child {
+            border-radius: 6px 0 0 0;
+        }
+        
+        .tab-btn:last-child {
+            border-radius: 0 6px 0 0;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
         }
         
         .input-box {
@@ -292,9 +180,9 @@
         .input-box label {
             display: block;
             margin-bottom: 8px;
-            color: #333;
+            color: var(--dark);
             font-weight: 500;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
         
         .input-box input, 
@@ -304,28 +192,89 @@
             padding: 12px 15px;
             border: 1px solid #ddd;
             border-radius: 8px;
-            font-size: 16px;
+            font-size: 15px;
             transition: all 0.3s;
-            background: #f9fbfd;
+            background: #fff;
         }
         
         .input-box input:focus, 
         .input-box textarea:focus, 
         .input-box select:focus {
-            border-color: #2989d8;
+            border-color: var(--secondary);
             box-shadow: 0 0 0 3px rgba(41, 137, 216, 0.2);
             outline: none;
-            background: #fff;
+        }
+        
+        .login-btn {
+            height: 55px;
+            width: 100%;
+            margin-top: 15px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(30, 87, 153, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .login-btn:hover {
+            background: linear-gradient(to right, var(--primary-dark), #2071b8);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30, 87, 153, 0.4);
+        }
+        
+        .login-btn:active {
+            transform: translateY(0);
+        }
+        
+        .required::after {
+            content: " *";
+            color: var(--danger);
+        }
+        
+        /* Application Form */
+        #formContainer {
+            display: none;
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: linear-gradient(to right, #f8fbff, #e8f4ff);
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+        }
+        
+        .form-header h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .form-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-top: 10px;
         }
         
         table {
             width: 100%;
             border-collapse: collapse;
             margin: 15px 0 25px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
         
         th {
-            background-color: #1e5799;
+            background-color: var(--primary);
             color: white;
             font-weight: 600;
             padding: 12px;
@@ -333,24 +282,27 @@
         }
         
         td {
-            border: 1px solid #ddd;
+            border: 1px solid #e0e0e0;
             padding: 10px;
             background: #f9fbfd;
         }
         
         td input {
             width: 100%;
-            padding: 10px;
+            padding: 9px;
             border: 1px solid #eee;
             border-radius: 6px;
             background: #fff;
+            font-size: 14px;
         }
         
         .form-section {
             margin-top: 35px;
-            padding-bottom: 25px;
+            padding: 20px;
             border-bottom: 1px solid #eee;
-            page-break-inside: avoid;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
         }
         
         .form-section:last-child {
@@ -358,25 +310,34 @@
         }
         
         h3 {
-            color: #1e5799;
+            color: var(--primary);
             margin-bottom: 20px;
             font-weight: 700;
-            text-decoration: underline;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             display: flex;
             align-items: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f4f8;
         }
         
         h3 i {
             margin-right: 10px;
-            color: #2989d8;
+            color: var(--secondary);
+            background: #e8f4ff;
+            padding: 8px;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .form button {
             height: 55px;
             width: 100%;
             margin-top: 30px;
-            background: linear-gradient(to right, #1e5799, #2989d8);
+            background: linear-gradient(to right, var(--primary), var(--secondary));
             color: #fff;
             font-size: 1.1rem;
             font-weight: 600;
@@ -388,18 +349,13 @@
         }
         
         .form button:hover {
-            background: linear-gradient(to right, #16467e, #2071b8);
+            background: linear-gradient(to right, var(--primary-dark), #2071b8);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(30, 87, 153, 0.4);
         }
         
         .form button:active {
             transform: translateY(0);
-        }
-        
-        .required::after {
-            content: " *";
-            color: #e74c3c;
         }
         
         .grid-2 {
@@ -416,99 +372,124 @@
         
         .section-number {
             display: inline-block;
-            width: 30px;
-            height: 30px;
-            background: #1e5799;
+            width: 28px;
+            height: 28px;
+            background: var(--primary);
             color: white;
             border-radius: 50%;
             text-align: center;
-            line-height: 30px;
+            line-height: 28px;
             margin-right: 10px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         
         .form-note {
-            background-color: #f8f9fa;
+            background-color: var(--light);
             padding: 15px;
             border-radius: 8px;
-            border-left: 4px solid #2989d8;
+            border-left: 4px solid var(--secondary);
             margin-top: 20px;
             font-size: 0.9rem;
-            color: #555;
+            color: var(--dark);
         }
         
-        @media (max-width: 768px) {
-            .grid-2, .grid-3 {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
-            
-            .container {
-                padding: 20px;
-            }
-            
-            table {
-                display: block;
-                overflow-x: auto;
-            }
-            
-            .company-name {
-                font-size: 2rem;
-            }
-            
-            .action-buttons {
-                position: static;
-                justify-content: center;
-                margin-bottom: 20px;
-            }
+        /* Action buttons */
+        .action-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 10;
         }
         
-        /* Print styles */
-        @media print {
-            body {
-                background: white !important;
-                padding: 0;
-                margin: 0;
-            }
-            
-            .container {
-                box-shadow: none;
-                border-radius: 0;
-                padding: 10px;
-                width: 100%;
-                max-width: 100%;
-                margin: 0;
-            }
-            
-            .action-buttons, 
-            .form button[type="submit"],
-            .admin-login,
-            .admin-panel,
-            .bottom-print-btn {
-                display: none !important;
-            }
-            
-            .company-logo {
-                width: 120px;
-                height: 120px;
-                margin-bottom: 10px;
-            }
-            
-            .company-name {
-                font-size: 2rem;
-            }
-            
-            .form-section {
-                page-break-inside: avoid;
-            }
-            
-            h3 {
-                font-size: 1.2rem;
-            }
-            
-            table {
-                font-size: 0.9rem;
-            }
+        .action-btn {
+            padding: 10px 15px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+        
+        .action-btn:hover {
+            background: linear-gradient(to right, var(--primary-dark), #2071b8);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.25);
+        }
+        
+        .action-btn:active {
+            transform: translateY(0);
+        }
+        
+        .print-btn {
+            background: linear-gradient(to right, #28a745, var(--accent));
+        }
+        
+        .print-btn:hover {
+            background: linear-gradient(to right, #218838, #27ae60);
+        }
+        
+        .download-btn {
+            background: linear-gradient(to right, var(--danger), #c0392b);
+        }
+        
+        .download-btn:hover {
+            background: linear-gradient(to right, #c0392b, #a5281c);
+        }
+        
+        .reset-btn {
+            background: linear-gradient(to right, var(--warning), #e67e22);
+        }
+        
+        .reset-btn:hover {
+            background: linear-gradient(to right, #d35400, #ba4a00);
+        }
+        
+        .bottom-print-btn {
+            display: none;
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        
+        .bottom-print-btn:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+        
+        /* Office Use Only Section */
+        .office-use-section {
+            background: #f8f9fa;
+            border-left: 4px solid var(--warning);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .office-use-section h3 {
+            color: var(--warning);
+            border-bottom: 2px solid #ffecd9;
+        }
+        
+        .office-use-section h3 i {
+            background: #ffecd9;
+            color: var(--warning);
         }
         
         /* Toast notification */
@@ -533,145 +514,149 @@
             100% { opacity: 0; transform: translateY(20px); }
         }
         
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.7);
-            z-index: 2000;
-            overflow: auto;
-            justify-content: center;
-            align-items: center;
+        @media (max-width: 768px) {
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .action-buttons {
+                position: static;
+                justify-content: center;
+                margin-bottom: 20px;
+                flex-wrap: wrap;
+            }
+            
+            .action-btn {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+            
+            .company-logo {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .company-name {
+                font-size: 1.8rem;
+            }
         }
         
-        .modal-content {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            max-width: 700px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-        }
-        
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 24px;
-            cursor: pointer;
-            color: #777;
-        }
-        
-        .close-btn:hover {
-            color: #333;
-        }
-        
-        .candidate-details {
-            margin-top: 20px;
-        }
-        
-        .candidate-details h3 {
-            margin-top: 20px;
-            color: #1e5799;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-        
-        .detail-row {
-            display: flex;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        
-        .detail-label {
-            font-weight: 600;
-            width: 40%;
-            color: #555;
-        }
-        
-        .detail-value {
-            width: 60%;
-            color: #333;
+        /* Print styles */
+        @media print {
+            body {
+                background: white !important;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+                padding: 10px;
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+            }
+            
+            .action-buttons, 
+            .form button[type="submit"],
+            .bottom-print-btn {
+                display: none !important;
+            }
+            
+            .form-section {
+                box-shadow: none;
+                padding: 10px 0;
+            }
+            
+            h3 {
+                font-size: 1.1rem;
+            }
+            
+            table {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="toast" id="toast">Application submitted successfully!</div>
     
-    <div class="modal" id="candidateModal">
-        <div class="modal-content">
-            <span class="close-btn" id="closeModal">&times;</span>
-            <h2><i class="fas fa-user"></i> Candidate Details</h2>
-            <div class="candidate-details" id="candidateDetails">
-                <!-- Details will be populated here -->
-            </div>
-        </div>
-    </div>
-    
     <div class="container">
-        <!-- Admin Login -->
-        <div class="admin-login" id="adminLogin">
-            <h3><i class="fas fa-lock"></i> Admin Access</h3>
-            <div class="grid-2">
-                <div class="input-box">
-                    <label>Admin Username</label>
-                    <input type="text" id="adminUsername" placeholder="Enter admin username">
+        <!-- Login Page -->
+        <div class="login-container" id="loginPage">
+            <div class="login-header">
+                <div class="company-logo-container">
+                    <div class="company-logo">
+                        <img src="sarathy.png" alt="Sarathy Group Logo">
+                    </div>
                 </div>
-                <div class="input-box">
-                    <label>Password</label>
-                    <input type="password" id="adminPassword" placeholder="Enter password">
+                <h1 class="company-name">Sarathy Group</h1>
+                <div class="company-details">
+                    <p><strong>Employment Application Portal</strong></p>
+                    <p>Head Office: Sarathy HR Department, Kollam, Kerala</p>
+                    <p>Phone: +91 9037223665 | Email: hr@sarathygroup.com</p>
                 </div>
-            </div>
-            <button class="action-btn" id="adminLoginBtn" style="margin-top: 10px;">
-                <i class="fas fa-sign-in-alt"></i> Login as Admin
-            </button>
-        </div>
-        
-        <!-- Admin Panel (Initially Hidden) -->
-        <div class="admin-panel" id="adminPanel">
-            <div class="admin-header">
-                <h2><i class="fas fa-user-shield"></i> Admin Dashboard</h2>
-                <button class="admin-btn" id="logoutBtn">
-                    <i class="fas fa-sign-out-alt"></i> Logout
-                </button>
             </div>
             
-            <div class="admin-controls">
-                <button class="admin-btn" id="viewApplicationsBtn">
-                    <i class="fas fa-list"></i> View Applications
-                </button>
-                <button class="admin-btn" id="newApplicationBtn">
-                    <i class="fas fa-plus"></i> New Application
-                </button>
-            </div>
-            
-            <div id="candidatesList">
-                <table class="candidates-table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Date</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="candidatesTableBody">
-                        <!-- Candidate data will be loaded here -->
-                    </tbody>
-                </table>
+            <div class="login-form">
+                <div class="form-tabs">
+                    <button class="tab-btn active" id="candidateTab">Candidate Login</button>
+                    <button class="tab-btn" id="adminTab">Admin Login</button>
+                </div>
+                
+                <!-- Candidate Login -->
+                <div class="tab-content active" id="candidateLogin">
+                    <div class="input-box">
+                        <label class="required">Full Name</label>
+                        <input type="text" id="loginName" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="input-box">
+                        <label class="required">Email Address</label>
+                        <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                    </div>
+                    
+                    <div class="input-box">
+                        <label class="required">Position Applying For</label>
+                        <input type="text" id="loginPosition" placeholder="Enter position" required>
+                    </div>
+                    
+                    <button class="login-btn" id="loginBtn">
+                        <i class="fas fa-sign-in-alt"></i> Continue to Application
+                    </button>
+                </div>
+                
+                <!-- Admin Login -->
+                <div class="tab-content" id="adminLogin">
+                    <div class="input-box">
+                        <label class="required">Admin Username</label>
+                        <input type="text" id="adminUsername" placeholder="Enter admin username" required>
+                    </div>
+                    
+                    <div class="input-box">
+                        <label class="required">Password</label>
+                        <input type="password" id="adminPassword" placeholder="Enter password" required>
+                    </div>
+                    
+                    <button class="login-btn" id="adminLoginBtn">
+                        <i class="fas fa-lock"></i> Login as Admin
+                    </button>
+                </div>
             </div>
         </div>
         
-        <!-- Application Form Container -->
+        <!-- Application Form -->
         <div id="formContainer">
             <!-- Action buttons -->
             <div class="action-buttons">
@@ -682,29 +667,25 @@
                     <i class="fas fa-file-pdf"></i> Save as PDF
                 </button>
                 <button class="action-btn reset-btn" id="resetBtn">
-                    <i class="fas fa-redo"></i> Reset Form
+                    <i class="fas fa-redo"></i> Reset
                 </button>
             </div>
             
             <!-- Sarathy Group Header -->
-            <div class="company-header">
-                <div class="company-logo"><img width="200px" src="sarathy.png" alt="Sarathy Group Logo"></div>
+            <div class="login-header">
+                <div class="company-logo-container">
+                    <div class="company-logo">
+                        <img src="https://www.sarathygroup.com/wp-content/uploads/2023/11/cropped-sarathy-group-logo.png" alt="Sarathy Group Logo">
+                    </div>
+                </div>
                 <h1 class="company-name">Sarathy Group</h1>
                 <div class="company-details">
-                    <p><strong>HR Department</strong></p>
+                    <p><strong>Employment Application</strong></p>
                     <p>Head Office: Sarathy HR Department, Kollam, Kerala</p>
-                    <p>Phone: +91 9037223665</p>
-                    <p>Email: hr@sarathygroup.com</p>
-                    <p>Website: www.sarathygroup.com</p>
                 </div>
             </div>
             
             <!-- Application Form -->
-            <div class="form-header">
-                <h2>Employment Application</h2>
-                <p>Complete all sections to apply for the position</p>
-            </div>
-            
             <form class="form" id="employmentForm">
                 <!-- Basic Information -->
                 <div class="form-section">
@@ -712,18 +693,13 @@
                     
                     <div class="input-box">
                         <label class="required">Post Applied For</label>
-                        <input type="text" name="post_applied" required>
-                    </div>
-                    
-                    <div class="input-box">
-                        <label class="required">Full Name</label>
-                        <input type="text" name="full_name" required>
+                        <input type="text" name="post_applied" id="postApplied" required>
                     </div>
                     
                     <div class="grid-2">
                         <div class="input-box">
-                            <label class="required">Age</label>
-                            <input type="number" name="age" required min="18">
+                            <label class="required">Full Name</label>
+                            <input type="text" name="full_name" id="fullName" required>
                         </div>
                         
                         <div class="input-box">
@@ -731,6 +707,47 @@
                             <input type="date" name="dob" required>
                         </div>
                     </div>
+                    
+                    <div class="grid-2">
+                        <div class="input-box">
+                            <label class="required">Mobile No</label>
+                            <input type="tel" name="mobile" placeholder="e.g. 9876543210" required>
+                        </div>
+                        
+                        <div class="input-box">
+                            <label class="required">Email Address</label>
+                            <input type="email" name="email" id="appEmail" placeholder="e.g. yourname@example.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="grid-2">
+                        <div class="input-box">
+                            <label class="required">Father’s / Husband’s Name</label>
+                            <input type="text" name="guardian_name" required>
+                        </div>
+                        
+                        <div class="input-box">
+                            <label class="required">Occupation</label>
+                            <input type="text" name="guardian_occupation" required>
+                        </div>
+                    </div>
+                    
+                    <div class="grid-2">
+                        <div class="input-box">
+                            <label class="required">Emergency Contact Name</label>
+                            <input type="text" name="emergency_name" required>
+                        </div>
+                        
+                        <div class="input-box">
+                            <label class="required">Emergency Contact No</label>
+                            <input type="tel" name="emergency_contact" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Details -->
+                <div class="form-section">
+                    <h3><span class="section-number">2</span> <i class="fas fa-info-circle"></i> Personal Details</h3>
                     
                     <div class="grid-2">
                         <div class="input-box">
@@ -751,48 +768,17 @@
                         </div>
                         
                         <div class="input-box">
-                            <label class="required">Nationality</label>
-                            <input type="text" name="nationality" value="Indian" required>
+                            <label class="required">Religion</label>
+                            <input type="text" name="religion" required>
                         </div>
                     </div>
                     
                     <div class="grid-2">
-                        <div class="input-box">
-                            <label class="required">Religion</label>
-                            <input type="text" name="religion" required>
-                        </div>
-                        
                         <div class="input-box">
                             <label class="required">Place of Birth</label>
                             <input type="text" name="place_of_birth" required>
                         </div>
-                    </div>
-                    
-                    <div class="grid-2">
-                        <div class="input-box">
-                            <label class="required">Mobile No</label>
-                            <input type="tel" name="mobile" placeholder="e.g. 9876543210" required>
-                        </div>
                         
-                        <div class="input-box">
-                            <label class="required">Email Address</label>
-                            <input type="email" name="email" placeholder="e.g. yourname@example.com" required>
-                        </div>
-                    </div>
-                    
-                    <div class="grid-2">
-                        <div class="input-box">
-                            <label class="required">Father’s / Husband’s Name</label>
-                            <input type="text" name="guardian_name" required>
-                        </div>
-                        
-                        <div class="input-box">
-                            <label class="required">Occupation</label>
-                            <input type="text" name="guardian_occupation" required>
-                        </div>
-                    </div>
-                    
-                    <div class="grid-2">
                         <div class="input-box">
                             <label class="required">Marital Status</label>
                             <select name="marital_status" required>
@@ -803,66 +789,17 @@
                                 <option value="Widowed">Widowed</option>
                             </select>
                         </div>
-                        
-                        <div class="input-box">
-                            <label class="required">Languages Known</label>
-                            <input type="text" name="languages_known" placeholder="e.g. English, Malayalam, Hindi" required>
-                        </div>
-                    </div>
-                    
-                    <div class="grid-2">
-                        <div class="input-box">
-                            <label class="required">Emergency Contact Name</label>
-                            <input type="text" name="emergency_name" required>
-                        </div>
-                        
-                        <div class="input-box">
-                            <label class="required">Emergency Contact No</label>
-                            <input type="tel" name="emergency_contact" required>
-                        </div>
                     </div>
                     
                     <div class="input-box">
-                        <label class="required">Relation</label>
+                        <label class="required">Languages Known</label>
+                        <input type="text" name="languages_known" placeholder="e.g. English, Malayalam, Hindi" required>
+                    </div>
+                    
+                    <div class="input-box">
+                        <label class="required">Relation with Emergency Contact</label>
                         <input type="text" name="relation" required>
                     </div>
-                </div>
-
-                <!-- Family Details -->
-                <div class="form-section">
-                    <h3><span class="section-number">2</span> <i class="fas fa-users"></i> Family Details</h3>
-                    <table>
-                        <tr>
-                            <th>Name</th>
-                            <th>Relation</th>
-                            <th>Age</th>
-                            <th>Occupation</th>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="fam_name1" placeholder="Full name" required></td>
-                            <td><input type="text" name="fam_relation1" placeholder="e.g. Father" required></td>
-                            <td><input type="number" name="fam_age1" required min="1"></td>
-                            <td><input type="text" name="fam_job1" placeholder="Occupation" required></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="fam_name2" placeholder="Full name" required></td>
-                            <td><input type="text" name="fam_relation2" placeholder="e.g. Mother" required></td>
-                            <td><input type="number" name="fam_age2" required min="1"></td>
-                            <td><input type="text" name="fam_job2" placeholder="Occupation" required></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="fam_name3" placeholder="Full name"></td>
-                            <td><input type="text" name="fam_relation3" placeholder="e.g. Spouse"></td>
-                            <td><input type="number" name="fam_age3" min="1"></td>
-                            <td><input type="text" name="fam_job3" placeholder="Occupation"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="fam_name4" placeholder="Full name"></td>
-                            <td><input type="text" name="fam_relation4" placeholder="e.g. Child"></td>
-                            <td><input type="number" name="fam_age4" min="1"></td>
-                            <td><input type="text" name="fam_job4" placeholder="Occupation"></td>
-                        </tr>
-                    </table>
                 </div>
 
                 <!-- Educational Qualification -->
@@ -930,71 +867,75 @@
                             <td><input type="date" name="exp_from3"></td>
                             <td><input type="date" name="exp_to3"></td>
                         </tr>
-                        <tr>
-                            <td><input type="text" name="exp_company4" placeholder="Company name"></td>
-                            <td><input type="text" name="exp_designation4" placeholder="Designation"></td>
-                            <td><input type="date" name="exp_from4"></td>
-                            <td><input type="date" name="exp_to4"></td>
-                        </tr>
                     </table>
                 </div>
 
-                <!-- Bank Details Section -->
-                <div class="form-section">
-                    <h3><span class="section-number">5</span> <i class="fas fa-university"></i> Bank Account Details</h3>
-                    <div class="input-box">
-                        <label class="required">Account Holder Name</label>
-                        <input type="text" name="account_holder" required>
-                    </div>
-                    
-                    <div class="input-box">
-                        <label class="required">Account Number</label>
-                        <input type="text" name="account_number" required>
-                    </div>
-                    
+                <!-- ID Card Details Section -->
+<div class="form-section">
+  <h3><span class="section-number">5</span> <i class="fas fa-id-card"></i> ID Card Details</h3>
+
+  <div class="grid-2">
+    <div class="input-box">
+      <label class="required">Aadhaar Card Name</label>
+      <input type="text" name="aadhaar_name" placeholder="Enter name as per Aadhaar" required>
+    </div>
+    <div class="input-box">
+      <label class="required">Aadhaar Number</label>
+      <input type="text" name="aadhaar_number" placeholder="XXXX-XXXX-XXXX" required>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="input-box">
+      <label class="required">PAN Card Name</label>
+      <input type="text" name="pan_name" placeholder="Enter name as per PAN" required>
+    </div>
+    <div class="input-box">
+      <label class="required">PAN Number</label>
+      <input type="text" name="pan_number" placeholder="ABCDE1234F" required>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="input-box">
+      <label class="required">Driving License Name</label>
+      <input type="text" name="dl_name" placeholder="Enter name as per License" required>
+    </div>
+    <div class="input-box">
+      <label class="required">License Number</label>
+      <input type="text" name="dl_number" placeholder="KL01 20240000000" required>
+    </div>
+  </div>
+</div>
+
+                <!-- Office Use Only Section (Visible only to admin) -->
+                <div class="office-use-section" id="officeUseSection" style="display: none;">
+                    <h3><span class="section-number">5</span> <i class="fas fa-building"></i> For Office Use Only</h3>
                     <div class="grid-3">
                         <div class="input-box">
-                            <label class="required">Bank Name</label>
-                            <input type="text" name="bank_name" required>
+                            <label class="required">Date of Joining</label>
+                            <input type="date" name="doj" required>
                         </div>
-                        
                         <div class="input-box">
-                            <label class="required">Branch</label>
-                            <input type="text" name="bank_branch" required>
+                            <label class="required">Company Name</label>
+                            <select name="company_name" required>
+                                <option value="">Select Company</option>
+                                <option value="Sarathy Motors">Sarathy Motors</option>
+                                <option value="Sarathy Hyundai">Sarathy Bikes Pvt Ltd</option>
+                                <option value="Sarathy Nissan">Sarathy Electric Bikes Pvt Ltd</option>
+                                <option value="Sarathy Honda">Sarathy Autocars</option>
+                                <option value="Sarathy Toyota">Sarathy Cars Pvt Ltd</option>
+                            </select>
                         </div>
-                        
                         <div class="input-box">
-                            <label class="required">IFSC Code</label>
-                            <input type="text" name="ifsc_code" required>
+                            <label class="required">Salary (₹)</label>
+                            <input type="number" name="salary" placeholder="Enter salary" required>
                         </div>
                     </div>
-                    
-                    <div class="form-note">
-                        <p><strong>Note:</strong> Please provide accurate bank details for salary processing.</p>
-                    </div>
-                </div>
-
-                <!-- For Office Use Only -->
-                <div class="form-section">
-                    <h3><span class="section-number">6</span> <i class="fas fa-building"></i> For Office Use Only</h3>
-                    <table>
-                        <tr>
-                            <th>Reference</th>
-                            <th>Remarks</th>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="ref1"></td>
-                            <td><input type="text" name="remark1"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="ref2"></td>
-                            <td><input type="text" name="remark2"></td>
-                        </tr>
-                    </table>
                 </div>
 
                 <div class="form-note">
-                    <p><strong>Note:</strong> Fields marked with an asterisk (<span style="color: #e74c3c;">*</span>) are required.</p>
+                    <p><strong>Note:</strong> Fields marked with an asterisk (<span style="color: var(--danger);">*</span>) are required.</p>
                     <p style="margin-top: 8px;">By submitting this form, I certify that the information provided is true and complete to the best of my knowledge.</p>
                 </div>
 
@@ -1011,11 +952,8 @@
     </div>
 
     <script>
-        // Application data storage
-        let applications = JSON.parse(localStorage.getItem('applications')) || [];
-        
-        // Set max date for date of birth to today
         document.addEventListener('DOMContentLoaded', function() {
+            // Set max date for date of birth to today
             const today = new Date().toISOString().split('T')[0];
             document.querySelector('input[name="dob"]').setAttribute('max', today);
             
@@ -1025,60 +963,87 @@
             document.getElementById('resetBtn').addEventListener('click', resetForm);
             document.getElementById('bottomPrintBtn').addEventListener('click', printForm);
             
-            // Admin functionality
-            document.getElementById('adminLoginBtn').addEventListener('click', adminLogin);
-            document.getElementById('logoutBtn').addEventListener('click', logoutAdmin);
-            document.getElementById('newApplicationBtn').addEventListener('click', showApplicationForm);
-            document.getElementById('viewApplicationsBtn').addEventListener('click', loadApplications);
-            document.getElementById('closeModal').addEventListener('click', closeModal);
+            // Tab switching
+            document.getElementById('candidateTab').addEventListener('click', function() {
+                switchTab('candidateTab');
+            });
+            
+            document.getElementById('adminTab').addEventListener('click', function() {
+                switchTab('adminTab');
+            });
+            
+            // Login functionality
+            document.getElementById('loginBtn').addEventListener('click', function() {
+                const name = document.getElementById('loginName').value;
+                const email = document.getElementById('loginEmail').value;
+                const position = document.getElementById('loginPosition').value;
+                
+                if (name && email && position) {
+                    // Transfer login data to form
+                    document.getElementById('fullName').value = name;
+                    document.getElementById('appEmail').value = email;
+                    document.getElementById('postApplied').value = position;
+                    
+                    // Show form and hide login
+                    document.getElementById('loginPage').style.display = 'none';
+                    document.getElementById('formContainer').style.display = 'block';
+                } else {
+                    showToast('Please fill all required fields!');
+                }
+            });
+            
+            // Admin login functionality
+            document.getElementById('adminLoginBtn').addEventListener('click', function() {
+                const username = document.getElementById('adminUsername').value;
+                const password = document.getElementById('adminPassword').value;
+                
+                if (username === 'Admin' && password === 'Sarathy@1987') {
+                    // Transfer admin credentials to form
+                    document.getElementById('fullName').value = "Admin User";
+                    document.getElementById('appEmail').value = "admin@sarathygroup.com";
+                    document.getElementById('postApplied').value = "HR Department";
+                    
+                    // Show form and hide login
+                    document.getElementById('loginPage').style.display = 'none';
+                    document.getElementById('formContainer').style.display = 'block';
+                    
+                    // Show Office Use Only section for admin
+                    document.getElementById('officeUseSection').style.display = 'block';
+                    
+                    showToast('Admin login successful!');
+                } else {
+                    showToast('Invalid admin credentials!');
+                }
+            });
             
             // Form submission handler
             document.getElementById('employmentForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 saveApplication();
             });
-            
-            // Close modal when clicking outside
-            window.addEventListener('click', function(event) {
-                const modal = document.getElementById('candidateModal');
-                if (event.target === modal) {
-                    closeModal();
-                }
-            });
         });
         
-        // Admin login function
-        function adminLogin() {
-            const username = document.getElementById('adminUsername').value;
-            const password = document.getElementById('adminPassword').value;
+        // Switch tabs function
+        function switchTab(tabId) {
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab-btn').forEach(tab => {
+                tab.classList.remove('active');
+            });
             
-            if (username === 'Sarathy' && password === 'Sarathy@1987') {
-                document.getElementById('adminPanel').style.display = 'block';
-                document.getElementById('formContainer').style.display = 'none';
-                document.getElementById('adminLogin').style.display = 'none';
-                showToast('Admin login successful!');
-                loadApplications();
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Add active class to selected tab
+            document.getElementById(tabId).classList.add('active');
+            
+            // Show corresponding content
+            if (tabId === 'candidateTab') {
+                document.getElementById('candidateLogin').classList.add('active');
             } else {
-                showToast('Invalid admin credentials!');
+                document.getElementById('adminLogin').classList.add('active');
             }
-        }
-        
-        // Logout admin function
-        function logoutAdmin() {
-            document.getElementById('adminPanel').style.display = 'none';
-            document.getElementById('formContainer').style.display = 'block';
-            document.getElementById('adminLogin').style.display = 'block';
-            document.getElementById('adminUsername').value = '';
-            document.getElementById('adminPassword').value = '';
-            showToast('Admin logged out successfully');
-        }
-        
-        // Show application form
-        function showApplicationForm() {
-            document.getElementById('adminPanel').style.display = 'none';
-            document.getElementById('formContainer').style.display = 'block';
-            document.getElementById('adminLogin').style.display = 'block';
-            resetForm();
         }
         
         // Save application to localStorage
@@ -1092,194 +1057,15 @@
             
             // Add application date and ID
             application.id = 'SG-' + Date.now().toString().slice(-6);
-            application.date = new Date().toISOString().split('T')[0];
-            application.status = 'Pending';
+            application.date = new Date().toLocaleDateString();
             
             // Save to localStorage
+            let applications = JSON.parse(localStorage.getItem('applications')) || [];
             applications.push(application);
             localStorage.setItem('applications', JSON.stringify(applications));
             
             showToast('Application submitted successfully!');
             document.getElementById('bottomPrintBtn').style.display = 'block';
-            resetForm();
-        }
-        
-        // Load applications for admin view
-        function loadApplications() {
-            const tableBody = document.getElementById('candidatesTableBody');
-            tableBody.innerHTML = '';
-            
-            if (applications.length === 0) {
-                tableBody.innerHTML = `
-                    <tr>
-                        <td colspan="6" style="text-align: center; padding: 20px;">
-                            No applications found
-                        </td>
-                    </tr>
-                `;
-                return;
-            }
-            
-            applications.forEach((app, index) => {
-                const row = document.createElement('tr');
-                
-                row.innerHTML = `
-                    <td>${app.id}</td>
-                    <td>${app.full_name}</td>
-                    <td>${app.post_applied}</td>
-                    <td>${app.date}</td>
-                    <td><span style="color: ${getStatusColor(app.status)};">${app.status}</span></td>
-                    <td><button class="view-btn" onclick="viewApplication(${index})"><i class="fas fa-eye"></i> View</button></td>
-                `;
-                
-                tableBody.appendChild(row);
-            });
-        }
-        
-        // Get status color
-        function getStatusColor(status) {
-            switch(status) {
-                case 'Approved': return '#2ecc71';
-                case 'Rejected': return '#e74c3c';
-                case 'Under Review': return '#3498db';
-                default: return '#f39c12';
-            }
-        }
-        
-        // View application details
-        function viewApplication(index) {
-            const app = applications[index];
-            const details = document.getElementById('candidateDetails');
-            
-            details.innerHTML = `
-                <div class="detail-row">
-                    <div class="detail-label">Application ID:</div>
-                    <div class="detail-value">${app.id}</div>
-                </div>
-                <div class="detail-row">
-                    <div class="detail-label">Status:</div>
-                    <div class="detail-value"><strong style="color:${getStatusColor(app.status)}">${app.status}</strong></div>
-                </div>
-                
-                <h3>Basic Information</h3>
-                <div class="detail-row">
-                    <div class="detail-label">Full Name:</div>
-                    <div class="detail-value">${app.full_name}</div>
-                </div>
-                <div class="detail-row">
-                    <div class="detail-label">Position Applied:</div>
-                    <div class="detail-value">${app.post_applied}</div>
-                </div>
-                <div class="detail-row">
-                    <div class="detail-label">Date of Birth:</div>
-                    <div class="detail-value">${app.dob}</div>
-                </div>
-                <div class="detail-row">
-                    <div class="detail-label">Mobile:</div>
-                    <div class="detail-value">${app.mobile}</div>
-                </div>
-                <div class="detail-row">
-                    <div class="detail-label">Email:</div>
-                    <div class="detail-value">${app.email}</div>
-                </div>
-                
-                <h3>Bank Details</h3>
-                <div class="detail-row">
-                    <div class="detail-label">Account Holder:</div>
-                    <div class="detail-value">${app.account_holder}</div>
-                </div>
-                <div class="detail-row">
-                    <div class="detail-label">Account Number:</div>
-                    <div class="detail-value">${app.account_number}</div>
-                </div>
-                <div class="detail-row">
-                    <div class="detail-label">Bank Name:</div>
-                    <div class="detail-value">${app.bank_name}</div>
-                </div>
-                <div class="detail-row">
-                    <div class="detail-label">Branch:</div>
-                    <div class="detail-value">${app.bank_branch}</div>
-                </div>
-                <div class="detail-row">
-                    <div class="detail-label">IFSC Code:</div>
-                    <div class="detail-value">${app.ifsc_code}</div>
-                </div>
-                
-                <div style="margin-top: 30px; text-align: center;">
-                    <button class="action-btn print-btn" onclick="printForm()" style="margin-right: 10px;">
-                        <i class="fas fa-print"></i> Print Application
-                    </button>
-                    <button class="action-btn download-btn" onclick="downloadCandidatePDF(${index})">
-                        <i class="fas fa-file-pdf"></i> Download as PDF
-                    </button>
-                </div>
-            `;
-            
-            document.getElementById('candidateModal').style.display = 'flex';
-        }
-        
-        // Close modal
-        function closeModal() {
-            document.getElementById('candidateModal').style.display = 'none';
-        }
-        
-        // Download candidate PDF
-        function downloadCandidatePDF(index) {
-            const app = applications[index];
-            const content = `
-                <div style="padding: 20px; font-family: Arial, sans-serif;">
-                    <h1 style="text-align: center; color: #1e5799;">Sarathy Group</h1>
-                    <h2 style="text-align: center; color: #333;">Candidate Application</h2>
-                    
-                    <div style="margin-top: 30px;">
-                        <h3 style="color: #1e5799; border-bottom: 1px solid #eee; padding-bottom: 5px;">Application Details</h3>
-                        <p><strong>ID:</strong> ${app.id}</p>
-                        <p><strong>Date:</strong> ${app.date}</p>
-                        <p><strong>Status:</strong> ${app.status}</p>
-                    </div>
-                    
-                    <div style="margin-top: 20px;">
-                        <h3 style="color: #1e5799; border-bottom: 1px solid #eee; padding-bottom: 5px;">Basic Information</h3>
-                        <p><strong>Full Name:</strong> ${app.full_name}</p>
-                        <p><strong>Position Applied:</strong> ${app.post_applied}</p>
-                        <p><strong>Date of Birth:</strong> ${app.dob}</p>
-                        <p><strong>Mobile:</strong> ${app.mobile}</p>
-                        <p><strong>Email:</strong> ${app.email}</p>
-                    </div>
-                    
-                    <div style="margin-top: 20px;">
-                        <h3 style="color: #1e5799; border-bottom: 1px solid #eee; padding-bottom: 5px;">Bank Details</h3>
-                        <p><strong>Account Holder:</strong> ${app.account_holder}</p>
-                        <p><strong>Account Number:</strong> ${app.account_number}</p>
-                        <p><strong>Bank Name:</strong> ${app.bank_name}</p>
-                        <p><strong>Branch:</strong> ${app.bank_branch}</p>
-                        <p><strong>IFSC Code:</strong> ${app.ifsc_code}</p>
-                    </div>
-                    
-                    <div style="margin-top: 30px; text-align: center; font-size: 0.9em; color: #777;">
-                        <p>Generated by Sarathy Group Admin Dashboard</p>
-                        <p>${new Date().toLocaleDateString()}</p>
-                    </div>
-                </div>
-            `;
-            
-            const opt = {
-                margin: 10,
-                filename: `Sarathy_Candidate_${app.id}.pdf`,
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
-            
-            // Create a temporary element for PDF generation
-            const element = document.createElement('div');
-            element.innerHTML = content;
-            document.body.appendChild(element);
-            
-            // Generate PDF
-            html2pdf().set(opt).from(element).save().then(() => {
-                document.body.removeChild(element);
-            });
         }
         
         // Print form function
