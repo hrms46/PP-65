@@ -3,2024 +3,966 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sarathy HR Department - Employment Application</title>
+    <title>Sarathy Group - Career Opportunities</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Updated Root Variables for a Vibrant Professional Look */
         :root {
-            --primary: #3498db; /* Brighter Blue */
-            --primary-dark: #2980b9;
-            --secondary: #1f3a93; /* Replaced green with Dark Blue */
-            --accent: #121212; /* Warm Yellow */
-            --danger: #e32222;
-            --warning: #f39c12; /* Reusing accent for warning */
-            --light: #ecf0f1; /* Lighter background for sections */
-            --dark: #2c3e50; /* Darker text/sidebar */
-            --gray: #7f8c8d;
-            --purple: #9b59b6;
-            --teal: #1abc9c; /* Kept teal for specific elements like job openings, as it contrasts well */
-            --white: #ffffff;
-            --light-blue-gradient: linear-gradient(135deg, #1185d2, #227dba);
-            --dark-blue-gradient: linear-gradient(135deg, #1c76b3, #1d7bb9);
+            --primary: #1c4361;
+            --secondary: orange;
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --gray: #64748b;
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
-            min-height: 100vh;
-            padding: 0;
-            background: linear-gradient(135deg, var(--primary), var(--secondary), #2989d8, var(--primary));
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            font-family: 'Verdana', Verdana, Geneva, Tahoma, sans-serif;
+            background-color: lightskyblue;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, var(--primary), #000102);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            overflow-x: hidden;
         }
-
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .wrapper {
+        
+        .logo {
             display: flex;
-            width: 100%;
-            min-height: 100vh;
-            position: relative;
+            align-items: center;
+            gap: 15px;
         }
-
-        .sidebar {
-            width: 250px;
-            background: var(--dark);
-            color: white;
-            padding-top: 20px;
-            position: fixed;
-            height: 100%;
-            left: -250px;
-            transition: left 0.3s ease;
-            z-index: 200;
-            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+        
+        .logo-img {
+            height: 60px;
+            width: auto;
+        }
+        
+        .logo-text-container {
             display: flex;
             flex-direction: column;
         }
-
-        .sidebar.active {
-            left: 0;
+        
+        .logo-text {
+            color: rgb(255, 255, 255);
+            font-size: 1.5rem;
+            font-weight: 550;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
         }
-
-        .sidebar-header {
-            text-align: center;
-            padding: 20px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.005);
-            margin-bottom: 20px;
+        
+        .logo-tagline {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
-
-        .sidebar-header h2 {
-            color: white;
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-
-        .sidebar-header p {
-            font-size: 0.85rem;
-            color: var(--gray);
-        }
-
-        .sidebar-menu {
-            list-style: none;
-            padding: 0 15px;
-            flex-grow: 1;
-        }
-
-        .sidebar-menu li {
-            margin-bottom: 8px;
-        }
-
-        .sidebar-menu a, .sidebar-menu button {
+        
+        nav ul {
             display: flex;
-            align-items: center;
-            padding: 12px 15px;
-            color: white;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 1.5rem;
+        }
+        
+        nav a {
+            color: rgb(255, 255, 255);
             text-decoration: none;
-            border-radius: 8px;
-            transition: background 0.2s, transform 0.2s;
-            font-size: 1rem;
-            width: 100%;
-            border: none;
-            background: none;
-            cursor: pointer;
-            text-align: left;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 8px 12px;
+            border-radius: 4px;
         }
-
-        .sidebar-menu a:hover, .sidebar-menu button:hover {
+        
+        nav a:hover, nav a.active {
             background: rgba(255,255,255,0.1);
-            transform: translateX(5px);
+            color: var(--secondary);
         }
-
-        .sidebar-menu a i, .sidebar-menu button i {
-            margin-right: 12px;
-            font-size: 1.2rem;
-            width: 25px;
-            text-align: center;
-        }
-
-        .sidebar-footer {
-            padding: 15px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--gray);
-        }
-
-        .sidebar-toggle {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: var(--primary);
-            color: white;
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
             border: none;
-            border-radius: 8px;
-            width: 50px;
-            height: 50px;
+            color: white;
             font-size: 1.5rem;
             cursor: pointer;
-            z-index: 201;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('sarathy2.png.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 65vh;
             display: flex;
+            align-items: center;
             justify-content: center;
-            align-items: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: left 0.3s ease;
-        }
-
-        .sidebar.active ~ .sidebar-toggle {
-            left: 270px;
-        }
-
-        .main-content {
-            flex-grow: 1;
-            padding: 20px;
-            padding-left: 70px;
-            margin-left: 0;
-            transition: margin-left 0.3s ease;
-            position: relative;
-            z-index: 100;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            padding-top: 90px;
-        }
-
-        .sidebar.active + .main-content {
-            margin-left: 250px;
-        }
-
-        .container {
-            max-width: 1200px;
-            width: 100%;
-            background: #fff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-            margin: 0;
-            position: relative; /* Ensure this is relative for absolute positioning of back-button */
-        }
-
-        /* MODIFIED: Back Button Position */
-        .back-button {
-            position: absolute;
-            bottom: 30px; /* Distance from the bottom of the container */
-            right: 30px; /* Distance from the right of the container */
-            left: auto;   /* Remove previous left positioning */
-            top: auto;    /* Remove previous top positioning */
-            background: var(--gray);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 8px 15px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: all 0.3s;
-            z-index: 10;
-        }
-
-        .back-button:hover {
-            background: #5a6268;
-            transform: translateY(-2px);
-        }
-
-        .action-buttons {
-            display: none !important;
-        }
-
-        /* Login Page */
-        .login-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 30px;
-        }
-
-        .login-header {
             text-align: center;
-            margin-bottom: 30px;
+            color: white;
+            position: relative;
         }
-
-        .company-logo-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
         }
-
-        .company-logo {
-            width: 180px;
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            border-radius: 50%;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border: 3px solid var(--primary);
-            overflow: hidden;
-            padding: 15px;
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
-
-        .company-logo img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+        
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
-
-        .company-name {
-            font-size: 2.3rem;
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            background: #036d21;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 5rem 0;
+            background: rgb(252, 252, 252);
+        }
+        
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
             color: var(--primary);
-            font-weight: 700;
-            margin-bottom: 10px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             position: relative;
             display: inline-block;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            padding-bottom: 10px;
         }
-
-        .company-name:after {
-            content: "";
+        
+        .section-title h2::after {
+            content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: 0;
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
-            height: 4px;
-            background: var(--accent); /* Changed to accent for vibrancy */
-            border-radius: 2px;
+            height: 3px;
+            background: var(--secondary);
         }
-
-        .company-details {
-            margin-top: 25px;
-            color: var(--dark);
-            font-size: 1rem;
-            line-height: 1.8;
-        }
-
-        .company-details strong {
-            color: var(--primary);
-        }
-
-        .login-form {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            width: 100%;
-            max-width: 500px;
-            position: relative;
-        }
-
-        .form-tabs {
-            display: flex;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .tab-btn {
-            flex: 1;
-            padding: 12px;
-            background: #f0f4f8;
-            border: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .tab-btn.active {
-            background: var(--primary);
-            color: white;
-        }
-
-        .tab-btn:first-child {
-            border-radius: 6px 0 0 0;
-        }
-
-        .tab-btn:last-child {
-            border-radius: 0 6px 0 0;
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .input-box {
-            margin-bottom: 18px;
-        }
-
-        .input-box label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--dark);
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        .input-box input,
-        .input-box textarea,
-        .input-box select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 15px;
-            transition: all 0.3s;
-            background: #fff;
-        }
-
-        .input-box input:focus,
-        .input-box textarea:focus,
-        .input-box select:focus {
-            border-color: var(--primary); /* Changed to primary for consistency */
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
-            outline: none;
-        }
-
-        .login-btn {
-            height: 55px;
-            width: 100%;
-            margin-top: 15px;
-            background: linear-gradient(to right, var(--primary), var(--secondary)); /* Vibrant gradient primary to dark blue */
-            color: #fff;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(30, 87, 153, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .login-btn:hover {
-            background: linear-gradient(to right, var(--primary-dark), #152d79); /* Darker gradient on hover */
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(30, 87, 153, 0.4);
-        }
-
-        .login-btn:active {
-            transform: translateY(0);
-        }
-
-        .required::after {
-            content: " *";
-            color: var(--danger);
-        }
-
-        /* Application Form */
-        #formContainer {
-            display: none;
-        }
-
-        .form-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 15px;
-            background: linear-gradient(to right, #f8fbff, #e8f4ff);
-            border-radius: 8px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
-        }
-
-        .form-header h2 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .form-header p {
-            color: var(--gray);
-            font-size: 1.1rem;
-            margin-top: 10px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0 25px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-        }
-
-        th {
-            background-color: var(--primary);
-            color: white;
-            font-weight: 600;
-            padding: 12px;
-            text-align: left;
-        }
-
-        td {
-            border: 1px solid #e0e0e0;
-            padding: 10px;
-            background: #f9fbfd;
-        }
-
-        td input {
-            width: 100%;
-            padding: 9px;
-            border: 1px solid #eee;
-            border-radius: 6px;
-            background: #fff;
-            font-size: 14px;
-        }
-
-        .form-section {
-            margin-top: 35px;
-            padding: 20px;
-            border-bottom: 1px solid #eee;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
-        }
-
-        .form-section:last-child {
-            border-bottom: none;
-        }
-
-        h3 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-weight: 700;
-            font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #f0f4f8;
-        }
-
-        h3 i {
-            margin-right: 10px;
-            color: var(--secondary); /* Icon color matches new secondary (dark blue) */
-            background: #e8f4ff; /* Still a light background for the icon circle */
-            padding: 8px;
-            border-radius: 50%;
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .form button[type="submit"] {
-            height: 55px;
-            width: 100%;
-            margin-top: 30px;
-            background: linear-gradient(to right, var(--primary), var(--secondary)); /* Primary to dark blue */
-            color: #fff;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(30, 87, 153, 0.3);
-        }
-
-        .form button[type="submit"]:hover {
-            background: linear-gradient(to right, var(--primary-dark), #152d79);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(30, 87, 153, 0.4);
-        }
-
-        .form button[type="submit"]:active {
-            transform: translateY(0);
-        }
-
-        .grid-2 {
+        
+        .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 40px;
+            align-items: center;
         }
-
-        .grid-3 {
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+        
+        .companies-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
         }
-
-        .section-number {
-            display: inline-block;
-            width: 28px;
-            height: 28px;
+        
+        .company-card {
+            background: var(--light);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .company-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .company-card h4 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .company-card p {
+            color: var(--white);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Job Openings Section */
+        .jobs-section {
+            padding: 5rem 0;
+            background: var(--light);
+        }
+        
+        .location-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
             background: var(--primary);
             color: white;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 28px;
-            margin-right: 10px;
-            font-size: 0.85rem;
-        }
-
-        .form-note {
-            background-color: var(--light);
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent); /* Changed to accent for vibrancy */
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: var(--dark);
-        }
-
-        .bottom-print-btn {
-            display: none;
-            margin-top: 20px;
-            width: 100%;
-            padding: 12px;
-            background: #28a745;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
-
-        .bottom-print-btn:hover {
-            background: #218838;
+            border-color: var(--primary);
             transform: translateY(-2px);
         }
-
-        /* Office Use Only Section */
-        .office-use-section {
-            background: #f8f9fa;
-            border-left: 4px solid var(--warning);
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 30px;
-        }
-
-        .office-use-section h3 {
-            color: var(--warning);
-            border-bottom: 2px solid #ffecd9;
-        }
-
-        .office-use-section h3 i {
-            background: #ffecd9;
-            color: var(--warning);
-        }
-
-        /* Candidate list styles */
-        .candidate-list-container {
-            display: none;
-            margin-top: 30px;
-            background: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
-        }
-
-        .candidate-list-container h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .candidate-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-        .candidate-table th {
-            background-color: var(--primary);
-            color: white;
-            padding: 12px;
-            text-align: left;
-        }
-
-        .candidate-table td {
-            padding: 10px;
-            border: 1px solid #e0e0e0;
-        }
-
-        .candidate-table tr:nth-child(even) {
-            background-color: #f9fbfd;
-        }
-
-        .action-cell {
-            display: flex;
-            gap: 8px;
-        }
-
-        .edit-btn, .delete-btn {
-            padding: 6px 12px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            transition: all 0.2s;
-        }
-
-        .edit-btn {
-            background: #3498db;
-            color: white;
-        }
-
-        .edit-btn:hover {
-            background: #2980b9;
-        }
-
-        .delete-btn {
-            background: #0962aa;
-            color: white;
-        }
-
-        .delete-btn:hover {
-            background: #c0392b;
-        }
-
-        /* Toast notification */
-        .toast {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--primary); /* Toast background matches primary */
-            color: white;
-            padding: 15px 25px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            display: none;
-            z-index: 1000;
-            animation: fadeInOut 3s ease-in-out;
-        }
-
-        @keyframes fadeInOut {
-            0% { opacity: 0; transform: translateY(20px); }
-            10% { opacity: 1; transform: translateY(0); }
-            90% { opacity: 1; transform: translateY(0); }
-            100% { opacity: 0; transform: translateY(20px); }
-        }
-
-        /* Dashboard Styles - Enhanced for Vibrancy and Professionalism */
-        .dashboard-container {
-            display: none;
-            margin-top: 0px;
-            background: var(--light); /* Lighter background for the dashboard area */
-            border-radius: 12px; /* Increased border-radius for softer look */
-            padding: 30px; /* Increased padding */
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* More pronounced shadow */
-        }
-
-        .dashboard-container h3 {
-            color: var(--dark); /* Use darker text for headings */
-            margin-bottom: 25px; /* More space */
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-        .dashboard-container h3 i {
-            color: var(--primary); /* Icon color matching primary */
-            margin-right: 15px;
-        }
-
-
-        .dashboard-grid {
+        
+        .jobs-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Slightly wider cards */
-            gap: 25px; /* Increased gap */
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-
-        .dashboard-card {
-            background: var(--white);
-            border-radius: 12px; /* Rounded corners */
-            padding: 30px; /* More padding */
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* Subtle shadow */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            border-left: 6px solid; /* Solid left border for accent */
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start; /* Align content to left */
-            justify-content: space-between;
+        
+        .job-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-
-        .dashboard-card:hover {
-            transform: translateY(-7px); /* More pronounced lift */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* More intense shadow on hover */
+        
+        .job-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
-
-        .dashboard-card i {
-            font-size: 3rem; /* Larger icons */
-            margin-bottom: 20px;
-            opacity: 0.8; /* Slight transparency for icons */
-        }
-
-        .dashboard-card h4 {
-            font-size: 1.5rem; /* Larger headings */
-            margin-bottom: 12px;
-            color: var(--dark); /* Consistent heading color */
-            font-weight: 600;
-        }
-
-        .dashboard-card p {
-            color: var(--gray);
-            line-height: 1.6;
-            margin-bottom: 20px; /* Space before button */
-            flex-grow: 1; /* Allow paragraph to take space */
-        }
-
-        /* Specific card colors for vibrancy */
-        .card-applications {
-            border-left-color: var(--primary);
-        }
-
-        .card-applications i {
-            color: var(--primary);
-        }
-
-        .card-jobs {
-            border-left-color: var(--secondary); /* Now dark blue */
-        }
-
-        .card-jobs i {
-            color: var(--secondary); /* Now dark blue */
-        }
-
-        .card-post {
-            border-left-color: var(--accent);
-        }
-
-        .card-post i {
-            color: var(--accent);
-        }
-
-        /* Adjusting button styling within cards */
-        .dashboard-card .login-btn {
-            width: auto; /* Allow button to size to content */
-            padding: 10px 20px;
-            margin-top: 0; /* Remove default margin */
-            font-size: 1rem;
-            align-self: flex-end; /* Align button to the right */
-        }
-        .dashboard-card .login-btn i {
-             font-size: 1rem; /* Smaller icon within button */
-             margin-bottom: 0;
-             opacity: 1;
-        }
-
-        /* Specific button colors for cards */
-        .card-applications .login-btn {
+        
+        .job-header {
             background: var(--primary);
-        }
-        .card-applications .login-btn:hover {
-            background: var(--primary-dark);
-        }
-
-        .card-jobs .login-btn {
-            background: var(--secondary); /* Dark blue for jobs button */
-        }
-        .card-jobs .login-btn:hover {
-            background: #0b87b5;
-        }
-
-        .card-post .login-btn {
-            background: var(--accent); /* Yellow for post job button */
-        }
-        .card-post .login-btn:hover {
-            background: #e68a00;
-        }
-
-
-        /* Job Posting Styles */
-        .job-posting-container {
-            display: none;
-            margin-top: 0px;
-            background: #fff;
-            border-radius: 8px;
+            color: white;
             padding: 20px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+            text-align: center;
         }
-
-        .job-posting-container h3 {
-            color: var(--secondary); /* Changed to dark blue for job headings */
-            margin-bottom: 20px;
+        
+        .job-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
         }
-
-        .job-list {
-            margin-top: 20px;
-        }
-
-        .job-item {
-            background: #f9fbfd;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-left: 4px solid var(--secondary); /* Now dark blue */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .job-item h4 {
-            font-size: 1.2rem;
-            color: var(--secondary); /* Now dark blue */
-            margin-bottom: 8px;
-        }
-
-        .job-meta {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 10px;
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-        .job-meta span {
+        
+        .job-location {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 5px;
+            font-size: 0.9rem;
+            opacity: 0.9;
         }
-
-        .job-description {
-            margin-top: 10px;
-            color: var(--dark);
-            line-height: 1.6;
-        }
-
-        .job-actions {
-            margin-top: 15px;
-            display: flex;
-            gap: 10px;
-        }
-
-        .job-actions button {
-            padding: 8px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.85rem;
-        }
-
-        .job-actions .edit-btn {
-            background: #3498db;
-            color: white;
-        }
-
-        .job-actions .delete-btn {
-            background: #e74c3c;
-            color: white;
-        }
-
-        .post-job-form {
-            margin-top: 30px;
-            background: #f8f9fa;
+        
+        .job-body {
             padding: 25px;
-            border-radius: 10px;
         }
-
-        .post-job-form h4 {
-            color: var(--secondary); /* Now dark blue */
+        
+        .job-position {
             margin-bottom: 20px;
-            font-size: 1.2rem;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
         }
-
-        @media (max-width: 768px) {
-            .grid-2, .grid-3 {
+        
+        .job-position h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .job-positions-list {
+            list-style: none;
+        }
+        
+        .job-positions-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .job-positions-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .job-positions-list li i {
+            color: var(--secondary);
+            margin-right: 10px;
+        }
+        
+        .job-footer {
+            padding: 20px;
+            background: #f8fafc;
+            text-align: center;
+        }
+        
+        /* Google Form Section */
+        .form-section {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .form-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        .form-wrapper {
+            background: var(--light);
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .form-preview {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .form-icon {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        /* Apply Section */
+        .apply-section {
+            background: var(--primary);
+            padding: 5rem 0;
+            color: white;
+            text-align: center;
+        }
+        
+        .apply-content {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .apply-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .apply-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            background: rgba(255,255,255,0.1);
+            padding: 12px 20px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .contact-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+        
+        .contact-item i {
+            color: var(--secondary);
+            font-size: 1.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content {
                 grid-template-columns: 1fr;
-                gap: 0;
             }
-
-            .container {
-                padding: 15px;
+            
+            .companies-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
-
-            table {
-                display: block;
-                overflow-x: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
             }
-
-            .action-buttons {
+            
+            nav {
+                width: 100%;
+                margin-top: 15px;
                 display: none;
             }
-
-            .company-logo {
-                width: 120px;
-                height: 120px;
+            
+            nav.show {
+                display: block;
             }
-
-            .company-name {
-                font-size: 1.8rem;
-            }
-
-            .action-cell {
+            
+            nav ul {
                 flex-direction: column;
-                gap: 5px;
             }
-
-            .dashboard-grid {
-                grid-template-columns: 1fr;
+            
+            nav li {
+                margin: 5px 0;
             }
-
-            .sidebar {
-                width: 200px;
-                left: -200px;
+            
+            .mobile-menu-btn {
+                display: block;
             }
-            .sidebar.active ~ .sidebar-toggle {
-                left: 220px;
-            }
-            .sidebar-toggle {
-                left: 15px;
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-            .main-content {
-                padding-left: 60px;
-                padding-top: 70px;
-            }
-            .sidebar.active + .main-content {
-                margin-left: 200px;
-            }
-
-            .dashboard-card {
-                padding: 20px;
-            }
-            .dashboard-card i {
+            
+            .hero h1 {
                 font-size: 2.5rem;
             }
-            .dashboard-card h4 {
-                font-size: 1.3rem;
+            
+            .hero h2 {
+                font-size: 1.8rem;
             }
-            /* MODIFIED: Back Button Position on Mobile */
-            .back-button {
-                bottom: 20px; /* Slightly less margin for smaller screens */
-                right: 20px;
+            
+            .jobs-container {
+                grid-template-columns: 1fr;
             }
-        }
-
-        /* Print styles */
-        @media print {
-            body {
-                background: white !important;
-                padding: 0;
-                margin: 0;
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 20px;
             }
-
-            .container {
-                box-shadow: none;
-                border-radius: 0;
-                padding: 10px;
-                width: 100%;
-                max-width: 100%;
-                margin: 0;
+            
+            .logo {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
             }
-
-            .sidebar, .sidebar-toggle,
-            .action-buttons,
-            .form button[type="submit"],
-            .bottom-print-btn,
-            .candidate-list-container,
-            .dashboard-container,
-            .job-posting-container,
-            .back-button, /* Ensure back button is hidden when printing */
-            .toast {
-                display: none !important;
-            }
-            .login-header { /* Ensure login header is visible for print */
-                display: block !important;
-            }
-            #formContainer {
-                display: block !important;
-                box-shadow: none !important;
-                padding: 0 !important;
-            }
-            .form-section {
-                box-shadow: none;
-                padding: 10px 0;
-            }
-
-            h3 {
-                font-size: 1.1rem;
-            }
-
-            table {
-                font-size: 0.9rem;
+            
+            .logo-img {
+                height: 50px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="toast" id="toast">Application submitted successfully!</div>
-
-    <div class="wrapper">
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <h2>Sarathy Admin</h2>
-                <p>Navigation Panel</p>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <!-- Logo image - make sure the file is in the same directory -->
+                <img src="sarathy-group-logo.png" alt="SARATHY Group Logo" class="logo-img">
+                <div class="logo-text-container">
+                    <div class="logo-text">SARATHY Group</div>
+                    <div class="logo-tagline">Experience the new drive</div>
+                </div>
             </div>
-            <ul class="sidebar-menu">
-                <li><button onclick="showScreen('dashboardContainer', true, true);" class="dashboard-btn"><i class="fas fa-tachometer-alt"></i> Dashboard</button></li>
-                <li><button onclick="showScreen('candidateListContainer', true, true); displayCandidates();" class="action-btn"><i class="fas fa-users"></i> Applications</button></li>
-                <li><button onclick="showScreen('jobPostingContainer', true, true); displayJobList();" class="action-btn"><i class="fas fa-briefcase"></i> Job Openings</button></li>
-                <li><button onclick="showScreen('postJobForm', true, true);" class="action-btn"><i class="fas fa-plus-circle"></i> Post New Job</button></li>
-                <li class="separator" style="border-top: 1px solid rgba(255,255,255,0.1); margin: 15px 0;"></li>
-                <li><button id="sidebarPrintBtn" class="action-btn"><i class="fas fa-print"></i> Print Application</button></li>
-                <li><button id="sidebarPdfBtn" class="action-btn"><i class="fas fa-file-pdf"></i> Save as PDF</button></li>
-                <li><button id="sidebarResetBtn" class="action-btn"><i class="fas fa-redo"></i> Reset Form</button></li>
-                <li><button id="sidebarLogoutBtn" class="action-btn"><i class="fas fa-sign-out-alt"></i> Logout</button></li>
-            </ul>
-            <div class="sidebar-footer">
-                &copy; 2025 Sarathy Group
+            <button class="mobile-menu-btn" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#jobs">Job Openings</a></li>
+                    <li><a href="#form">Apply Now</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>WE ARE HIRING!</h1>
+            <h2>Join Our Growing Team</h2>
+            <p>Sarathy Group is expanding and looking for talented individuals to join our team. We offer exciting career opportunities in the automotive industry with competitive benefits and a supportive work environment.</p>
+            <a href="#jobs" class="cta-button">View Open Positions</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <div class="section-title">
+                <h2>About Sarathy Group</h2>
+                <p>Leading the automotive industry with innovation and excellence</p>
             </div>
-        </aside>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Journey in the Automotive Industry</h3>
+                    <p>Sarathy Group is a progressive automotive company with a strong presence across South India and expanding global aspirations. Since our establishment, we have remained committed to delivering exceptional customer service and innovative mobility solutions across a wide range of automotive segments."With a growing footprint across domestic and international markets, Sarathy Group is steadily strengthening its reputation as a trusted and forward-thinking leader in the automotive industry.", Sarathy Group continues to build its reputation as a trusted and forward-thinking industry leader.<p>Our unwavering dedication to excellence, customer satisfaction, and operational efficiency has positioned us among the most respected and competitive automotive enterprises in the region. We are focused on delivering exceptional value to our customers, partners, and employees through ethical practices, advanced technology, and service excellence.<p>Furthermore, since 2012 Sarathy Automotive has been the exclusive distributor of Bajaj commercial spare parts in North Kerala, leveraging efficient logistics for 24-hour delivery.</p></p></p></div>
+                    
+                    
 
-        <button class="sidebar-toggle" id="sidebarToggle">
-            <i class="fas fa-bars"></i>
-        </button>
-
-        <div class="main-content">
-            <div class="container">
-                <div class="login-container" id="loginPage">
-                    <div class="login-header">
-                        <div class="company-logo-container">
-                            <div class="company-logo">
-                                <img src="sarathy.png" alt="Sarathy Group Logo">
-                            </div>
-                        </div>
-                        <h1 class="company-name">Sarathy HR Department</h1>
-                        <div class="company-details">
-                            <p><strong>Employment Application Portal</strong></p>
-                            <p>Head Office: Sarathy HR Department, Kollam, Kerala</p>
-                            <p>Phone: +91 9037223665 | Email: hr@sarathygroup.com</p>
-                        </div>
-                    </div>
-
-                    <div class="login-form">
-                        <div class="form-tabs">
-                            <button class="tab-btn active" id="candidateTab">Candidate Login</button>
-                            <button class="tab-btn" id="adminTab">Admin Login</button>
-                        </div>
-
-                        <div class="tab-content active" id="candidateLogin">
-                            <div class="input-box">
-                                <label class="required">Full Name</label>
-                                <input type="text" id="loginName" placeholder="Enter your full name" required>
-                            </div>
-
-                            <div class="input-box">
-                                <label class="required">Email Address</label>
-                                <input type="email" id="loginEmail" placeholder="Enter your email" required>
-                            </div>
-
-                            <div class="input-box">
-                                <label class="required">Position Applying For</label>
-                                <select id="loginPosition" required>
-                                    <option value="">Select a position</option>
-                                    <option value="Sales Executive">Sales Executive</option>
-                                    <option value="Service Technician">Service Technician</option>
-                                    <option value="Accounts Manager">Accounts Manager</option>
-                                    <option value="Relationship Manager">Relationship Manager</option>
-                                    <option value="HR Executive">HR Executive</option>
-                                </select>
-                            </div>
-
-                            <button class="login-btn" id="loginBtn">
-                                <i class="fas fa-sign-in-alt"></i> Continue to Application
-                            </button>
-                        </div>
-
-                        <div class="tab-content" id="adminLogin">
-                            <div class="input-box">
-                                <label class="required">Admin Username</label>
-                                <input type="text" id="adminUsername" placeholder="Enter admin username" required>
-                            </div>
-
-                            <div class="input-box">
-                                <label class="required">Password</label>
-                                <input type="password" id="adminPassword" placeholder="Enter password" required>
-                            </div>
-
-                            <button class="login-btn" id="adminLoginBtn">
-                                <i class="fas fa-lock"></i> Login as Admin
-                            </button>
+                    <div class="about-image">
+                    <div style="background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('sarathy-group-logo.png'); 
+                                background-size: cover; 
+                                background-position: right; 
+                                height: 100%; 
+                                border-radius: 100px; 
+                                display: flex; 
+                                align-items: center; 
+                                justify-content: center; 
+                                padding: 120px;">
+                        <div style="color: var(--primary); text-align: center;">
+                            <h3 style="font-size: 1.9rem; margin-bottom: 15px;"></h3>
+                            <p style="font-size: 1.1rem;"></p>
                         </div>
                     </div>
                 </div>
-
-                <div id="formContainer">
-                    <button class="back-button" id="backFromApplication" style="display: none;"><i class="fas fa-arrow-left"></i> Back</button>
-
-                    <div class="login-header">
-                        <div class="company-logo-container">
-                            <div class="company-logo">
-                                <img src="sarathy.png" alt="Sarathy Group Logo">
-                            </div>
-                        </div>
-                        <h1 class="company-name">Sarathy HR Department</h1>
-                        <div class="company-details">
-                            <p><strong>Employment Application</strong></p>
-                            <p>Head Office: Sarathy HR Department, Kollam, Kerala</p>
-                        </div>
-                    </div>
-
-                    <form class="form" id="employmentForm" style="display: none;">
-                        <input type="hidden" id="applicationId" name="applicationId">
-
-                        <div class="form-section">
-                            <h3><span class="section-number">1</span> <i class="fas fa-user"></i> Basic Information</h3>
-
-                            <div class="input-box">
-                                <label class="required">Post Applied For</label>
-                                <input type="text" name="post_applied" id="postApplied" required>
-                            </div>
-
-                            <div class="grid-2">
-                                <div class="input-box">
-                                    <label class="required">Full Name</label>
-                                    <input type="text" name="full_name" id="fullName" required>
-                                </div>
-                                <div class="input-box">
-                                    <label class="required">Date of Birth</label>
-                                    <input type="date" name="dob" id="dob" required>
-                                </div>
-                            </div>
-                            <div class="grid-2">
-                                <div class="input-box">
-                                    <label class="required">Gender</label>
-                                    <select name="gender" id="gender" required>
-                                        <option value="">Select Gender</option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                        <option value="Other">Other</option>
-                                    </select>
-                                </div>
-                                <div class="input-box">
-                                    <label class="required">Marital Status</label>
-                                    <select name="marital_status" id="maritalStatus" required>
-                                        <option value="">Select Status</option>
-                                        <option value="Single">Single</option>
-                                        <option value="Married">Married</option>
-                                        <option value="Divorced">Divorced</option>
-                                        <option value="Widowed">Widowed</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="input-box">
-                                <label class="required">Nationality</label>
-                                <input type="text" name="nationality" id="nationality" required>
-                            </div>
-                        </div>
-
-                        <div class="form-section">
-                            <h3><span class="section-number">2</span> <i class="fas fa-address-book"></i> Contact Information</h3>
-                            <div class="input-box">
-                                <label class="required">Address</label>
-                                <textarea name="address" id="address" rows="3" placeholder="Street, City, State, ZIP" required></textarea>
-                            </div>
-                            <div class="grid-2">
-                                <div class="input-box">
-                                    <label class="required">Phone Number</label>
-                                    <input type="tel" name="phone" id="phone" placeholder="+91 9876543210" required>
-                                </div>
-                                <div class="input-box">
-                                    <label class="required">Email Address</label>
-                                    <input type="email" name="email" id="email" placeholder="example@domain.com" required>
-                                </div>
-                            </div>
-                        </div>
-
-<div class="form-section">
-    <h3><span class="section-number">3</span> <i class="fas fa-graduation-cap"></i> Educational Background</h3>
-    <div id="educationSections">
-        <h4>Highest Qualification</h4>
-        <div class="education-block">
-            <div class="grid-2">
-                <div class="input-box">
-                    <label class="required">Degree/Diploma</label>
-                    <input type="text" name="degree_1" id="degree_1" required>
-                </div>
-                <div class="input-box">
-                    <label class="required">University/Institution</label>
-                    <input type="text" name="university_1" id="university_1" required>
-                </div>
             </div>
-            <div class="grid-2">
-                <div class="input-box">
-                    <label class="required">Year of Graduation</label>
-                    <input type="date" name="graduation_year_1" id="graduationYear_1" placeholder="dd/mm/yyyy" required>
+            
+            <div class="section-title" style="margin-top: 4rem;">
+                <h2>Our Companies</h2>
+                <p>Diverse portfolio of automotive businesses</p>
+            </div>
+            
+            <div class="companies-grid">
+                <div class="company-card">
+                    <h4>SARATHY MOTORS</h4>
+                    <p>SARATHY MOTORS
+Established in 1987 with extensive operations across South Kerala, India. Specializes in providing comprehensive automotive solutions with a strong focus on Maruti Suzuki vehicles and multi-brand two-wheelers including KTM, Bajaj, Triumph, and Ather..</p>
                 </div>
-                <div class="input-box">
-                    <label class="required">Major/Specialization</label>
-                    <input type="text" name="major_1" id="major_1" required>
+                
+                <div class="company-card">
+                    <h4>SARATHY BIKES</h4>
+                    <p>SARATHY BIKES
+Specializing in two‑wheeler sales and services under the Sarathy brand, with a focus on Bajaj, KTM, Triumph, Husqvarna, and Chetak, operating across multiple locations in Kollam and surrounding areas..</p>
+                </div>
+                
+                <div class="company-card">
+                    <h4>SARATHY ELECTRIC BIKES</h4>
+                    <p>Established to meet the growing demand for sustainable mobility, Sarathy Electric Bikes offers premium electric two-wheelers under the Bajaj Chetak and Ather brands. Operating across key locations in South Kerala, they provide end-to-end EV solutions including sales, service, charging support, and financing.</p>
+                </div>
+                
+                <div class="company-card">
+                    <h4>SARATHY AUTO CARS</h4>
+                    <p>Part of the Sarathy Group network, established in 1999, Sarathy Autocars is a trusted Maruti Suzuki dealership in Kollam and Thiruvananthapuram, offering a full range of sales, service, and certified pre-owned vehicles </p>
+                </div>
+                
+                <div class="company-card">
+                    <h4>SARATHY CARS</h4>
+                    <p>Incorporated in August 2016, Sarathy Cars Pvt Ltd serves as the company behind Sarathy NEXA and Arena dealerships, operating under the Sarathy Group in Kollam and Thiruvananthapuram</p>
+                </div>
+                
+                <div class="company-card">
+                    <h4>SARATHY AUTODRIVES</h4>
+                    <p>Founded in 1999, Sarathy Autodrives is the dedicated Maruti Suzuki ARENA (and True Value pre‑owned) dealership under the Sarathy Group, offering a full spectrum of sales, service, and certified used car solutions across Kollam and Thiruvananthapuram</p>
                 </div>
             </div>
         </div>
-    </div>
-    <button type="button" class="login-btn" style="background: var(--secondary);" onclick="addEducationSection()"><i class="fas fa-plus"></i> Add Another Qualification</button>
-</div>
+    </section>
 
-<script>
-    let educationCount = 1;
-
-    function addEducationSection() {
-        educationCount++;
-        const educationSections = document.getElementById('educationSections');
-        const newEducationBlock = document.createElement('div');
-        newEducationBlock.classList.add('education-block');
-        newEducationBlock.innerHTML = `
-            <h4>Additional Qualification</h4>
-            <div class="grid-2">
-                <div class="input-box">
-                    <label class="required">Degree/Diploma</label>
-                    <input type="text" name="degree_${educationCount}" id="degree_${educationCount}" required>
-                </div>
-                <div class="input-box">
-                    <label class="required">University/Institution</label>
-                    <input type="text" name="university_${educationCount}" id="university_${educationCount}" required>
-                </div>
-            </div>
-            <div class="grid-2">
-                <div class="input-box">
-                    <label class="required">Year of Graduation</label>
-                    <input type="date" name="graduation_year_${educationCount}" id="graduationYear_${educationCount}" placeholder="dd/mm/yyyy" required>
-                </div>
-                <div class="input-box">
-                    <label class="required">Major/Specialization</label>
-                    <input type="text" name="major_${educationCount}" id="major_${educationCount}" required>
-                </div>
-            </div>
-        `;
-        educationSections.appendChild(newEducationBlock);
-    }
-</script>
-                        <div class="form-section">
-                            <h3><span class="section-number">4</span> <i class="fas fa-briefcase"></i> Work Experience (Starting with current/most recent)</h3>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Company Name</th>
-                                        <th>Position</th>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
-                                        <th>Responsibilities</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="experienceTableBody">
-                                    <tr>
-                                        <td><input type="text" name="exp_company_1"></td>
-                                        <td><input type="text" name="exp_position_1"></td>
-                                        <td><input type="date" name="exp_start_1"></td>
-                                        <td><input type="date" name="exp_end_1"></td>
-                                        <td><input type="text" name="exp_responsibilities_1"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <button type="button" class="login-btn" style="background: var(--secondary);" onclick="addExperienceRow()"><i class="fas fa-plus"></i> Add Another Experience</button>
-                        </div>
-
-                        <div class="form-section">
-                            <h3><span class="section-number">5</span> <i class="fas fa-user-friends"></i> References (Optional)</h3>
-                            <p class="form-note">Please provide two professional references. Notify them that we may be contacting them.</p>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Relationship</th>
-                                        <th>Phone</th>
-                                        <th>Email</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="referencesTableBody">
-                                    <tr>
-                                        <td><input type="text" name="ref_name_1"></td>
-                                        <td><input type="text" name="ref_relationship_1"></td>
-                                        <td><input type="tel" name="ref_phone_1"></td>
-                                        <td><input type="email" name="ref_email_1"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <button type="button" class="login-btn" style="background: var(--secondary);" onclick="addReferenceRow()"><i class="fas fa-plus"></i> Add Another Reference</button>
-                        </div>
-
-                        <div class="form-section">
-                            </div>
-                            <div class="input-box">
-                                <label class="required">Upload Resume (PDF or DOCX)</label>
-                                <input type="file" name="resume" id="resume" accept=".pdf,.docx" required>
-                            <div class="input-box">
-                                <label>Why are you interested in working for Sarathy Group?</label>
-                                <textarea name="interest_reason" id="interestReason" rows="4"></textarea>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Submit Application</button>
-                    </form>
-                </div>
-
-                <div class="dashboard-container" id="dashboardContainer">
-                    <button class="back-button" id="backFromDashboard" style="display: none;"><i class="fas fa-arrow-left"></i> Back</button>
-
-                    <h3><i class="fas fa-tachometer-alt"></i> Admin Dashboard</h3>
-
-                    <div class="dashboard-grid">
-                        <div class="dashboard-card card-applications" onclick="showScreen('candidateListContainer', true, true); displayCandidates();">
-                            <i class="fas fa-users"></i>
-                            <h4>Applications</h4>
-                            <p>View and manage all candidate applications. Track status, edit details, or delete entries.</p>
-                            <button class="login-btn" id="viewApplicationsBtn">
-                                View Applications
-                            </button>
-                        </div>
-
-                        <div class="dashboard-card card-jobs" onclick="showScreen('jobPostingContainer', true, true); displayJobList();">
-                            <i class="fas fa-briefcase"></i>
-                            <h4>Job Openings</h4>
-                            <p>View and manage current job openings. Add new positions or update existing ones.</p>
-                            <button class="login-btn" id="viewJobsBtn">
-                                View Job Openings
-                            </button>
-                        </div>
-
-                        <div class="dashboard-card card-post" onclick="showScreen('postJobForm', true, true);">
-                            <i class="fas fa-plus-circle"></i>
-                            <h4>Post New Job</h4>
-                            <p>Create and publish new job openings. Fill in position details and requirements.</p>
-                            <button class="login-btn" id="postJobBtn">
-                                Post New Job
-                            </button>
-                        </div>
+    <!-- Job Openings Section -->
+    <section class="jobs-section" id="jobs">
+        <div class="section-title">
+            <h2>Current Job Openings</h2>
+            <p>Explore opportunities at our different locations</p>
+        </div>
+        
+        <div class="location-filter">
+            <button class="filter-btn active" data-location="all">All Locations</button>
+            <button class="filter-btn" data-location="neyyattinkara">Neyyattinkara</button>
+            <button class="filter-btn" data-location="kottayam">Kottayam & Chengannur</button>
+            <button class="filter-btn" data-location="varkala">Varkala</button>
+            <button class="filter-btn" data-location="kollam">Kollam</button>
+        </div>
+        
+        <div class="jobs-container">
+            <!-- Neyyattinkara Jobs -->
+            <div class="job-card" data-location="neyyattinkara">
+                <div class="job-header">
+                    <h3>Neyyattinkara</h3>
+                    <div class="job-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kerala, India</span>
                     </div>
                 </div>
-
-                <div class="candidate-list-container" id="candidateListContainer">
-                    <button class="back-button" id="backFromCandidateList"><i class="fas fa-arrow-left"></i> Back</button>
-
-                    <h3><i class="fas fa-users"></i> Candidate Applications</h3>
-                    <table class="candidate-table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Email</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="candidateTableBody">
-                            </tbody>
-                    </table>
-                </div>
-
-                <div class="job-posting-container" id="jobPostingContainer">
-                    <button class="back-button" id="backFromJobPostingList"><i class="fas fa-arrow-left"></i> Back</button>
-
-                    <h3><i class="fas fa-briefcase"></i> Job Openings</h3>
-                    <div class="job-list" id="jobList">
-                        </div>
-
-                    <div class="post-job-form" id="postJobForm" style="display: none;">
-                        <h4><i class="fas fa-plus-circle"></i> Post New Job</h4>
-                        <div class="input-box">
-                            <label class="required">Job Title</label>
-                            <input type="text" id="jobTitle" required>
-                        </div>
-                        <div class="input-box">
-                            <label class="required">Department</label>
-                            <input type="text" id="jobDepartment" required>
-                        </div>
-                        <div class="input-box">
-                            <label class="required">Location</label>
-                            <input type="text" id="jobLocation" required>
-                        </div>
-                        <div class="input-box">
-                            <label class="required">Description</label>
-                            <textarea id="jobDescription" rows="5" required></textarea>
-                        </div>
-                        <div class="input-box">
-                            <label class="required">Requirements</label>
-                            <textarea id="jobRequirements" rows="5" required></textarea>
-                        </div>
-                        <button type="button" class="login-btn" style="background: var(--secondary);" id="saveJobBtn">
-                            <i class="fas fa-save"></i> Save Job
-                        </button>
-                        <button type="button" class="login-btn" style="background: var(--gray); margin-top: 10px;" id="cancelJobPostBtn">
-                            <i class="fas fa-times"></i> Cancel
-                        </button>
+                <div class="job-body">
+                    <div class="job-position">
+                        <h4>Available Positions</h4>
+                        <ul class="job-positions-list">
+                            <li><i class="fas fa-briefcase"></i> Sales - Female</li>
+                            <li><i class="fas fa-briefcase"></i> Advisor - Trainee</li>
+                            <li><i class="fas fa-briefcase"></i> Spare In-Charge - Experienced</li>
+                        </ul>
                     </div>
+                </div>
+                <div class="job-footer">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank">Apply Now</a>
+                </div>
+            </div>
+            
+            <!-- Kottayam & Chengannur Jobs -->
+            <div class="job-card" data-location="kottayam">
+                <div class="job-header">
+                    <h3>Kottayam & Chengannur</h3>
+                    <div class="job-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kerala, India</span>
+                    </div>
+                </div>
+                <div class="job-body">
+                    <div class="job-position">
+                        <h4>Available Positions</h4>
+                        <ul class="job-positions-list">
+                            <li><i class="fas fa-briefcase"></i> Spare In-Charge</li>
+                            <li><i class="fas fa-briefcase"></i> Accounts - Experienced</li>
+                            <li><i class="fas fa-briefcase"></i> EV Technician - Experienced</li>
+                            <li><i class="fas fa-briefcase"></i> Service Advisor - Experienced</li>
+                            <li><i class="fas fa-briefcase"></i> CRE</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="job-footer">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank">Apply Now</a>
+                </div>
+            </div>
+            
+            <!-- Kollam Jobs -->
+            <div class="job-card" data-location="kollam">
+                <div class="job-header">
+                    <h3>Kollam</h3>
+                    <div class="job-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kerala, India</span>
+                    </div>
+                </div>
+                <div class="job-body">
+                    <div class="job-position">
+                        <h4>Available Positions</h4>
+                        <ul class="job-positions-list">
+                            <li><i class="fas fa-briefcase"></i> EV Technician - Experienced</li>
+                            <li><i class="fas fa-briefcase"></i> Service Advisor - Trainee</li>
+                            <li><i class="fas fa-briefcase"></i> Sales Executive </li>
+                            <li><i class="fas fa-briefcase"></i> Tele Caller</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="job-footer">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank">Apply Now</a>
+                </div>
+            </div>
+
+    </section>
+
+    <!-- Google Form Section -->
+    <section class="form-section" id="form">
+        <div class="form-container">
+            <div class="section-title">
+                <h2>Online Application Form</h2>
+                <p>Apply for your desired position using our secure Google Form</p>
+            </div>
+            
+            <div class="form-wrapper">
+                <div class="form-preview">
+                    <div class="form-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <h3>Sarathy Group Application Form</h3>
+                    <p>Complete our online form to apply for any position</p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank" style="margin-top: 30px;">
+                        Open Application Form
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Apply Section -->
+    <section class="apply-section" id="apply">
+        <div class="apply-content">
+            <h2>How To Apply</h2>
+            <p>Interested candidates are requested to apply using our online form or email their resume to the following address. Please mention the position and location you are applying for.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>careers@sarathygroup.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+91 9037 2236 65</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-google"></i>
+                    <span>Online Application Form</span>
+                </div>
+            </div>
+            
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank" style="margin-top: 30px;">
+                Apply via Google Form
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About Sarathy Group</h3>
+                <p>Sarathy Group is a leading automotive company with a strong presence in Kerala. We are committed to excellence in customer service and innovation in the automotive industry.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="#jobs"><i class="fas fa-chevron-right"></i> Job Openings</a></li>
+                    <li><a href="#form"><i class="fas fa-chevron-right"></i> Apply Now</a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Multiple Locations in Kerala</a></li>
+                    <li><a href="mailto:careers@sarathygroup.com"><i class="fas fa-envelope"></i> careers@sarathygroup.com</a></li>
+                    <li><a href="tel:+919037223665"><i class="fas fa-phone"></i> +91 9037 2236 65</a></li>
+                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" target="_blank"><i class="fab fa-google"></i> Online Application</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Sarathy Group. All Rights Reserved. | Designed with <i class="" style="color: #f59e0b;"></i> for Automotive Excellence</p>
+        </div>
+    </footer>
 
     <script>
-        const loginPage = document.getElementById('loginPage');
-        const formContainer = document.getElementById('formContainer');
-        const dashboardContainer = document.getElementById('dashboardContainer');
-        const candidateListContainer = document.getElementById('candidateListContainer');
-        const jobPostingContainer = document.getElementById('jobPostingContainer');
-        const employmentForm = document.getElementById('employmentForm');
-        const postJobForm = document.getElementById('postJobForm');
-
-        const candidateTab = document.getElementById('candidateTab');
-        const adminTab = document.getElementById('adminTab');
-        const candidateLogin = document.getElementById('candidateLogin');
-        const adminLogin = document.getElementById('adminLogin');
-
-        const loginBtn = document.getElementById('loginBtn');
-        const adminLoginBtn = document.getElementById('adminLoginBtn');
-        const viewApplicationsBtn = document.getElementById('viewApplicationsBtn');
-        const viewJobsBtn = document.getElementById('viewJobsBtn');
-        const postJobBtn = document.getElementById('postJobBtn');
-        const saveJobBtn = document.getElementById('saveJobBtn');
-        const cancelJobPostBtn = document.getElementById('cancelJobPostBtn');
-
-        const sidebar = document.getElementById('sidebar');
-        const sidebarToggle = document.getElementById('sidebarToggle');
-        const sidebarPrintBtn = document.getElementById('sidebarPrintBtn');
-        const sidebarPdfBtn = document.getElementById('sidebarPdfBtn');
-        const sidebarResetBtn = document.getElementById('sidebarResetBtn');
-        const sidebarLogoutBtn = document.getElementById('sidebarLogoutBtn');
-        const sidebarDashboardBtn = document.querySelector('#sidebar .dashboard-btn');
-
-
-        const backFromApplication = document.getElementById('backFromApplication');
-        const backFromDashboard = document.getElementById('backFromDashboard');
-        const backFromCandidateList = document.getElementById('backFromCandidateList');
-        const backFromJobPostingList = document.getElementById('backFromJobPostingList');
-
-        let historyStack = []; // To manage navigation history
-
-        // --- Core Screen Management Functions ---
-        function showScreen(screenId, pushToHistory = true, isAdmin = false) { // Added isAdmin parameter
-            const screens = [loginPage, formContainer, dashboardContainer, candidateListContainer, jobPostingContainer, postJobForm];
-            screens.forEach(screen => {
-                if (screen) {
-                    screen.style.display = 'none';
-                    // Also hide specific forms/lists if showing main container
-                    if (screenId !== 'employmentForm' && screen.id === 'formContainer') employmentForm.style.display = 'none';
-                    if (screenId !== 'postJobForm' && screen.id === 'jobPostingContainer') postJobForm.style.display = 'none';
-                }
-            });
-
-            if (screenId === 'postJobForm' && jobPostingContainer) {
-                jobPostingContainer.style.display = 'block'; // Show parent container
-            }
-
-            const targetScreen = document.getElementById(screenId);
-            if (targetScreen) {
-                targetScreen.style.display = 'block';
-
-                // --- Manage visibility of back buttons ---
-                // Hide all back buttons by default at the start of every screen change
-                document.querySelectorAll('.back-button').forEach(btn => btn.style.display = 'none');
-                // Only show specific back buttons if on a sub-screen
-                if (screenId === 'formContainer') backFromApplication.style.display = 'flex';
-                if (screenId === 'candidateListContainer') backFromCandidateList.style.display = 'flex';
-                // Show back button for job list, but not when the post job form is explicitly shown within it
-                if (screenId === 'jobPostingContainer' && postJobForm.style.display === 'none') backFromJobPostingList.style.display = 'flex';
-                if (screenId === 'postJobForm') { // When editing/creating a job, still show back to job list
-                     backFromJobPostingList.style.display = 'flex';
-                }
-                // Note: backFromDashboard is handled by the backToPreviousScreen logic when returning to dashboard
-
-                // --- Manage visibility of the Sidebar Toggle (Your "Top Menu" Button) ---
-                if (screenId !== 'loginPage' && isAdmin) { // Only show sidebar and its toggle if not login page AND isAdmin is true
-                    document.querySelector('.login-header').style.display = 'none'; // Hide company header when admin logged in
-                    sidebar.classList.add('active'); // Open sidebar
-                    sidebarToggle.style.display = 'flex'; // Show sidebar toggle
-                } else if (screenId === 'formContainer' && !isAdmin) { // For candidate application form
-                    document.querySelector('.login-header').style.display = 'block'; // Keep header for candidate form
-                    sidebar.classList.remove('active'); // Ensure sidebar is closed
-                    sidebarToggle.style.display = 'none'; // Hide sidebar toggle
-                } else { // For login page or other states where sidebar shouldn't be active
-                    document.querySelector('.login-header').style.display = 'block'; // Show company header for login
-                    sidebar.classList.remove('active'); // Ensure sidebar is closed
-                    sidebarToggle.style.display = 'none'; // Hide sidebar toggle
-                }
-
-                if (pushToHistory) {
-                    // Prevent pushing duplicate screens or going back to login from candidate flow
-                    const lastScreen = historyStack[historyStack.length - 1];
-                    if (screenId !== lastScreen) {
-                        historyStack.push(screenId);
+        // Mobile menu toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('show');
+        });
+        
+        // Location filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const jobCards = document.querySelectorAll('.job-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const location = btn.getAttribute('data-location');
+                
+                jobCards.forEach(card => {
+                    if (location === 'all' || card.getAttribute('data-location') === location) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
                     }
-                }
-            }
-        }
-
-        function backToPreviousScreen() {
-            if (historyStack.length > 1) {
-                historyStack.pop(); // Remove current screen from history
-                const previousScreenId = historyStack[historyStack.length - 1];
-                // Determine isAdmin status based on the previous screen for correct sidebar visibility
-                const wasAdminScreen = ['dashboardContainer', 'candidateListContainer', 'jobPostingContainer', 'postJobForm'].includes(previousScreenId);
-                showScreen(previousScreenId, false, wasAdminScreen); // Show previous screen, but don't push to history again
-            } else {
-                // If no more history, go back to login page
-                showScreen('loginPage', false, false);
-            }
-        }
-
-        // --- Initial Load ---
-        document.addEventListener('DOMContentLoaded', () => {
-            showScreen('loginPage', false, false); // Start at login page, don't add to history initially, not admin
-            sidebarToggle.style.display = 'none'; // Hide sidebar toggle initially (redundant but safe)
-        });
-
-        // --- Login Page Functionality ---
-        candidateTab.addEventListener('click', () => {
-            candidateTab.classList.add('active');
-            adminTab.classList.remove('active');
-            candidateLogin.classList.add('active');
-            adminLogin.classList.remove('active');
-        });
-
-        adminTab.addEventListener('click', () => {
-            adminTab.classList.add('active');
-            candidateTab.classList.remove('active');
-            adminLogin.classList.add('active');
-            candidateLogin.classList.remove('active');
-        });
-
-        loginBtn.addEventListener('click', () => {
-            // In a real app, validate candidate credentials/info
-            const name = document.getElementById('loginName').value;
-            const email = document.getElementById('loginEmail').value;
-            const position = document.getElementById('loginPosition').value;
-
-            if (name && email && position) {
-                document.getElementById('fullName').value = name;
-                document.getElementById('email').value = email;
-                document.getElementById('postApplied').value = position;
-                showScreen('formContainer', true, false); // Pass false for isAdmin (candidate)
-                employmentForm.style.display = 'block';
-                showToast('Welcome, ' + name.split(' ')[0] + '!', getComputedStyle(document.documentElement).getPropertyValue('--primary')); // Use primary for toast
-            } else {
-                alert('Please fill in all required candidate login fields.');
-            }
-        });
-
-        adminLoginBtn.addEventListener('click', () => {
-            const username = document.getElementById('adminUsername').value;
-            const password = document.getElementById('adminPassword').value;
-
-            // Simple admin login for demonstration
-            if (username === 'admin' && password === 'admin123') {
-                showScreen('dashboardContainer', true, true); // Pass true for isAdmin
-                showToast('Admin Login Successful!', getComputedStyle(document.documentElement).getPropertyValue('--primary')); // Use primary for toast
-            } else {
-                alert('Invalid Admin Credentials!');
-            }
-        });
-
-        // --- Sidebar Toggle ---
-        sidebarToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
-        });
-
-        // --- Sidebar Menu Actions ---
-        sidebarDashboardBtn.addEventListener('click', () => {
-            showScreen('dashboardContainer', true, true); // Admin action
-            sidebar.classList.remove('active'); // Close sidebar after selection
-        });
-
-        document.querySelector('.sidebar-menu button[onclick*="candidateListContainer"]').addEventListener('click', () => {
-            showScreen('candidateListContainer', true, true); // Admin action
-            displayCandidates(); // Ensure candidate list is loaded
-            sidebar.classList.remove('active');
-        });
-
-        document.querySelector('.sidebar-menu button[onclick*="jobPostingContainer"]').addEventListener('click', () => {
-            showScreen('jobPostingContainer', true, true); // Admin action
-            displayJobList(); // Ensure job list is loaded
-            postJobForm.style.display = 'none'; // Ensure post job form is hidden initially
-            sidebar.classList.remove('active');
-        });
-
-        document.querySelector('.sidebar-menu button[onclick*="postJobForm"]').addEventListener('click', () => {
-            showScreen('postJobForm', true, true); // Admin action
-            postJobForm.style.display = 'block'; // Ensure post job form is visible
-            jobPostingContainer.style.display = 'block'; // Make sure parent is visible
-            sidebar.classList.remove('active');
-            document.getElementById('jobTitle').value = '';
-            document.getElementById('jobDepartment').value = '';
-            document.getElementById('jobLocation').value = '';
-            document.getElementById('jobDescription').value = '';
-            document.getElementById('jobRequirements').value = '';
-        });
-
-        sidebarPrintBtn.addEventListener('click', () => {
-            // Only allow printing of the application form if it's the current screen
-            if (formContainer.style.display === 'block' && employmentForm.style.display === 'block') {
-                window.print();
-            } else {
-                showToast('Please open an application form to print.', getComputedStyle(document.documentElement).getPropertyValue('--accent')); // Use accent for warning
-            }
-            sidebar.classList.remove('active'); // Close sidebar after action
-        });
-
-        sidebarPdfBtn.addEventListener('click', () => {
-             // Only allow saving PDF of the application form if it's the current screen
-            if (formContainer.style.display === 'block' && employmentForm.style.display === 'block') {
-                const element = document.getElementById('formContainer'); // Target the application form content
-                html2pdf().from(element).save('Sarathy_Application_Form.pdf');
-            } else {
-                showToast('Please open an application form to save as PDF.', getComputedStyle(document.documentElement).getPropertyValue('--accent')); // Use accent for warning
-            }
-            sidebar.classList.remove('active'); // Close sidebar after action
-        });
-
-        sidebarResetBtn.addEventListener('click', () => {
-            // Only reset if the application form is active
-            if (formContainer.style.display === 'block' && employmentForm.style.display === 'block') {
-                employmentForm.reset();
-                // Clear dynamically added rows
-                document.getElementById('experienceTableBody').innerHTML = `<tr>
-                    <td><input type="text" name="exp_company_1"></td>
-                    <td><input type="text" name="exp_position_1"></td>
-                    <td><input type="date" name="exp_start_1"></td>
-                    <td><input type="date" name="exp_end_1"></td>
-                    <td><input type="text" name="exp_responsibilities_1"></td>
-                </tr>`;
-                document.getElementById('referencesTableBody').innerHTML = `<tr>
-                    <td><input type="text" name="ref_name_1"></td>
-                    <td><input type="text" name="ref_relationship_1"></td>
-                    <td><input type="tel" name="ref_phone_1"></td>
-                    <td><input type="email" name="ref_email_1"></td>
-                </tr>`;
-                showToast('Form reset successfully!', getComputedStyle(document.documentElement).getPropertyValue('--accent')); // Use accent for reset
-            } else {
-                 showToast('Cannot reset form: no application form open.', getComputedStyle(document.documentElement).getPropertyValue('--accent')); // Use accent for warning
-            }
-            sidebar.classList.remove('active'); // Close sidebar after action
-        });
-
-        sidebarLogoutBtn.addEventListener('click', () => {
-            // Clear history and return to login
-            historyStack = [];
-            showScreen('loginPage', false, false); // Not an admin screen, no admin features
-            employmentForm.style.display = 'none'; // Ensure application form is hidden on logout
-            document.getElementById('adminUsername').value = '';
-            document.getElementById('adminPassword').value = '';
-            showToast('Logged out successfully!', getComputedStyle(document.documentElement).getPropertyValue('--danger')); // Use danger for logout
-            sidebar.classList.remove('active'); // Close sidebar
-        });
-
-        // --- Back Button Event Listeners ---
-        backFromApplication.addEventListener('click', backToPreviousScreen);
-        backFromDashboard.addEventListener('click', backToPreviousScreen);
-        backFromCandidateList.addEventListener('click', backToPreviousScreen);
-        backFromJobPostingList.addEventListener('click', backToPreviousScreen); // Back from Job List/Post Job
-
-        // --- Application Form Functions ---
-        function addExperienceRow() {
-            const tableBody = document.getElementById('experienceTableBody');
-            const newRow = tableBody.insertRow();
-            const rowCount = tableBody.rows.length;
-            newRow.innerHTML = `
-                <td><input type="text" name="exp_company_${rowCount}"></td>
-                <td><input type="text" name="exp_position_${rowCount}"></td>
-                <td><input type="date" name="exp_start_${rowCount}"></td>
-                <td><input type="date" name="exp_end_${rowCount}"></td>
-                <td><input type="text" name="exp_responsibilities_${rowCount}"></td>
-            `;
-        }
-
-        function addReferenceRow() {
-            const tableBody = document.getElementById('referencesTableBody');
-            const newRow = tableBody.insertRow();
-            const rowCount = tableBody.rows.length;
-            newRow.innerHTML = `
-                <td><input type="text" name="ref_name_${rowCount}"></td>
-                <td><input type="text" name="ref_relationship_${rowCount}"></td>
-                <td><input type="tel" name="ref_phone_${rowCount}"></td>
-                <td><input type="email" name="ref_email_${rowCount}"></td>
-            `;
-        }
-
-        // Store applications in local storage for demonstration
-        let applications = JSON.parse(localStorage.getItem('applications')) || [];
-        let nextApplicationId = applications.length > 0 ? Math.max(...applications.map(app => app.id)) + 1 : 1;
-
-        employmentForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const formData = new FormData(employmentForm);
-            const data = {};
-            for (let [key, value] of formData.entries()) {
-                data[key] = value;
-            }
-
-            // Extract experience data
-            data.experience = [];
-            document.querySelectorAll('#experienceTableBody tr').forEach((row, index) => {
-                const exp = {};
-                exp.company = row.querySelector(`[name="exp_company_${index + 1}"]`).value;
-                exp.position = row.querySelector(`[name="exp_position_${index + 1}"]`).value;
-                exp.startDate = row.querySelector(`[name="exp_start_${index + 1}"]`).value;
-                exp.endDate = row.querySelector(`[name="exp_end_${index + 1}"]`).value;
-                exp.responsibilities = row.querySelector(`[name="exp_responsibilities_${index + 1}"]`).value;
-                if (exp.company || exp.position) { // Only add if not empty row
-                    data.experience.push(exp);
-                }
+                });
             });
-
-            // Extract references data
-            data.references = [];
-            document.querySelectorAll('#referencesTableBody tr').forEach((row, index) => {
-                const ref = {};
-                ref.name = row.querySelector(`[name="ref_name_${index + 1}"]`).value;
-                ref.relationship = row.querySelector(`[name="ref_relationship_${index + 1}"]`).value;
-                ref.phone = row.querySelector(`[name="ref_phone_${index + 1}"]`).value;
-                ref.email = row.querySelector(`[name="ref_email_${index + 1}"]`).value;
-                if (ref.name || ref.phone) { // Only add if not empty row
-                    data.references.push(ref);
-                }
-            });
-
-            if (data.applicationId) {
-                // Update existing application
-                const index = applications.findIndex(app => app.id == data.applicationId);
-                if (index !== -1) {
-                    applications[index] = { ...applications[index], ...data };
-                    showToast('Application updated successfully!', getComputedStyle(document.documentElement).getPropertyValue('--primary')); // Use primary for toast
-                }
-            } else {
-                // New application
-                data.id = nextApplicationId++;
-                applications.push(data);
-                showToast('Application submitted successfully!', getComputedStyle(document.documentElement).getPropertyValue('--primary')); // Use primary for toast
-            }
-
-            localStorage.setItem('applications', JSON.stringify(applications));
-            employmentForm.reset();
-            document.getElementById('experienceTableBody').innerHTML = `<tr>
-                <td><input type="text" name="exp_company_1"></td>
-                <td><input type="text" name="exp_position_1"></td>
-                <td><input type="date" name="exp_start_1"></td>
-                <td><input type="date" name="exp_end_1"></td>
-                <td><input type="text" name="exp_responsibilities_1"></td>
-            </tr>`;
-            document.getElementById('referencesTableBody').innerHTML = `<tr>
-                <td><input type="text" name="ref_name_1"></td>
-                <td><input type="text" name="ref_relationship_1"></td>
-                <td><input type="tel" name="ref_phone_1"></td>
-                <td><input type="email" name="ref_email_1"></td>
-            </tr>`;
-            document.getElementById('applicationId').value = ''; // Clear application ID after submit
-
-            // After submission, redirect to dashboard if admin, or login if candidate
-            // Check if historyStack contains an admin screen, or if the last logged in was admin
-            // A more robust solution would be a session variable
-            const isAdminLoggedIn = historyStack.some(screen => ['dashboardContainer', 'candidateListContainer', 'jobPostingContainer', 'postJobForm'].includes(screen));
-            if (isAdminLoggedIn) {
-                showScreen('dashboardContainer', true, true); // Go back to dashboard as admin
-            } else {
-                showScreen('loginPage', false, false); // Go back to login page for next candidate
-            }
         });
-
-        // --- Candidate List Management ---
-        function displayCandidates() {
-            const tableBody = document.getElementById('candidateTableBody');
-            tableBody.innerHTML = ''; // Clear existing rows
-
-            applications.forEach(app => {
-                const row = tableBody.insertRow();
-                row.innerHTML = `
-                    <td>${app.id}</td>
-                    <td>${app.full_name}</td>
-                    <td>${app.post_applied}</td>
-                    <td>${app.email}</td>
-                    <td class="action-cell">
-                        <button class="edit-btn" onclick="editCandidate(${app.id})"><i class="fas fa-edit"></i> Edit</button>
-                        <button class="delete-btn" onclick="deleteCandidate(${app.id})"><i class="fas fa-trash-alt"></i> Delete</button>
-                    </td>
-                `;
-            });
-        }
-
-        function editCandidate(id) {
-            const app = applications.find(a => a.id === id);
-            if (app) {
-                showScreen('formContainer', true, true); // Editing an application through admin flow, so isAdmin is true
-                employmentForm.style.display = 'block';
-                document.getElementById('applicationId').value = app.id;
-                document.getElementById('postApplied').value = app.post_applied;
-                document.getElementById('fullName').value = app.full_name;
-                document.getElementById('dob').value = app.dob;
-                document.getElementById('gender').value = app.gender;
-                document.getElementById('maritalStatus').value = app.marital_status;
-                document.getElementById('nationality').value = app.nationality;
-                document.getElementById('address').value = app.address;
-                document.getElementById('phone').value = app.phone;
-                document.getElementById('email').value = app.email;
-                document.getElementById('degree').value = app.degree;
-                document.getElementById('university').value = app.university;
-                document.getElementById('graduationYear').value = app.graduation_year;
-                document.getElementById('major').value = app.major;
-                document.getElementById('desiredSalary').value = app.desired_salary;
-                document.getElementById('availability').value = app.availability;
-                document.getElementById('interestReason').value = app.interest_reason;
-
-                // Populate experience
-                const expTableBody = document.getElementById('experienceTableBody');
-                expTableBody.innerHTML = '';
-                if (app.experience && app.experience.length > 0) {
-                    app.experience.forEach((exp, index) => {
-                        const newRow = expTableBody.insertRow();
-                        newRow.innerHTML = `
-                            <td><input type="text" name="exp_company_${index + 1}" value="${exp.company || ''}"></td>
-                            <td><input type="text" name="exp_position_${index + 1}" value="${exp.position || ''}"></td>
-                            <td><input type="date" name="exp_start_${index + 1}" value="${exp.startDate || ''}"></td>
-                            <td><input type="date" name="exp_end_${index + 1}" value="${exp.endDate || ''}"></td>
-                            <td><input type="text" name="exp_responsibilities_${index + 1}" value="${exp.responsibilities || ''}"></td>
-                        `;
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
                     });
-                } else {
-                    addExperienceRow(); // Add a blank row if no experience
+                    
+                    // Close mobile menu if open
+                    document.getElementById('mainNav').classList.remove('show');
                 }
-
-                // Populate references
-                const refTableBody = document.getElementById('referencesTableBody');
-                refTableBody.innerHTML = '';
-                if (app.references && app.references.length > 0) {
-                    app.references.forEach((ref, index) => {
-                        const newRow = refTableBody.insertRow();
-                        newRow.innerHTML = `
-                            <td><input type="text" name="ref_name_${index + 1}" value="${ref.name || ''}"></td>
-                            <td><input type="text" name="ref_relationship_${index + 1}" value="${ref.relationship || ''}"></td>
-                            <td><input type="tel" name="ref_phone_${index + 1}" value="${ref.phone || ''}"></td>
-                            <td><input type="email" name="ref_email_${index + 1}" value="${ref.email || ''}"></td>
-                        `;
-                    });
-                } else {
-                    addReferenceRow(); // Add a blank row if no references
-                }
-                showToast('Editing application ID: ' + id, getComputedStyle(document.documentElement).getPropertyValue('--primary')); // Use primary for toast
-            }
-        }
-
-        function deleteCandidate(id) {
-            if (confirm('Are you sure you want to delete this application?')) {
-                applications = applications.filter(app => app.id !== id);
-                localStorage.setItem('applications', JSON.stringify(applications));
-                displayCandidates();
-                showToast('Application deleted successfully!', getComputedStyle(document.documentElement).getPropertyValue('--danger')); // Use danger for toast
-            }
-        }
-
-        // --- Job Posting Management ---
-        let jobs = JSON.parse(localStorage.getItem('jobs')) || [];
-        let nextJobId = jobs.length > 0 ? Math.max(...jobs.map(job => job.id)) + 1 : 1;
-
-        function displayJobList() {
-            const jobListDiv = document.getElementById('jobList');
-            jobListDiv.innerHTML = ''; // Clear existing list
-
-            if (jobs.length === 0) {
-                jobListDiv.innerHTML = '<p style="text-align: center; color: var(--gray);">No job openings posted yet.</p>';
-                return;
-            }
-
-            jobs.forEach(job => {
-                const jobItem = document.createElement('div');
-                jobItem.classList.add('job-item');
-                jobItem.innerHTML = `
-                    <h4>${job.title}</h4>
-                    <div class="job-meta">
-                        <span><i class="fas fa-building"></i> ${job.department}</span>
-                        <span><i class="fas fa-map-marker-alt"></i> ${job.location}</span>
-                        <span><i class="fas fa-calendar-alt"></i> Posted: ${new Date(job.postedDate).toLocaleDateString()}</span>
-                    </div>
-                    <p class="job-description"><strong>Description:</strong> ${job.description}</p>
-                    <p class="job-description"><strong>Requirements:</strong> ${job.requirements}</p>
-                    <div class="job-actions">
-                        <button class="edit-btn" onclick="editJob(${job.id})"><i class="fas fa-edit"></i> Edit</button>
-                        <button class="delete-btn" onclick="deleteJob(${job.id})"><i class="fas fa-trash-alt"></i> Delete</button>
-                    </div>
-                `;
-                jobListDiv.appendChild(jobItem);
             });
-        }
-
-        saveJobBtn.addEventListener('click', () => {
-            const title = document.getElementById('jobTitle').value;
-            const department = document.getElementById('jobDepartment').value;
-            const location = document.getElementById('jobLocation').value;
-            const description = document.getElementById('jobDescription').value;
-            const requirements = document.getElementById('jobRequirements').value;
-            const jobId = document.getElementById('applicationId').value; // Reusing applicationId for job ID
-
-            if (title && department && location && description && requirements) {
-                const newJob = { title, department, location, description, requirements, postedDate: new Date().toISOString() };
-
-                if (jobId) { // Editing existing job
-                    const index = jobs.findIndex(j => j.id == jobId);
-                    if (index !== -1) {
-                        jobs[index] = { ...jobs[index], ...newJob };
-                        showToast('Job updated successfully!', getComputedStyle(document.documentElement).getPropertyValue('--primary')); // Use primary for toast
-                    }
-                } else { // New job
-                    newJob.id = nextJobId++;
-                    jobs.push(newJob);
-                    showToast('New job posted successfully!', getComputedStyle(document.documentElement).getPropertyValue('--primary')); // Use primary for toast
-                }
-                localStorage.setItem('jobs', JSON.stringify(jobs));
-                postJobForm.style.display = 'none'; // Hide the form
-                document.getElementById('jobTitle').value = '';
-                document.getElementById('jobDepartment').value = '';
-                document.getElementById('jobLocation').value = '';
-                document.getElementById('jobDescription').value = '';
-                document.getElementById('jobRequirements').value = '';
-                document.getElementById('applicationId').value = ''; // Clear job ID
-                displayJobList(); // Refresh list
-                showScreen('jobPostingContainer', true, true); // Stay on job posting screen (admin action)
-            } else {
-                alert('Please fill in all required job details.');
-            }
         });
-
-        cancelJobPostBtn.addEventListener('click', () => {
-            postJobForm.style.display = 'none';
-            document.getElementById('jobTitle').value = '';
-            document.getElementById('jobDepartment').value = '';
-            document.getElementById('jobLocation').value = '';
-            document.getElementById('jobDescription').value = '';
-            document.getElementById('jobRequirements').value = '';
-            document.getElementById('applicationId').value = ''; // Clear job ID
-            displayJobList(); // Refresh list
-            showScreen('jobPostingContainer', true, true); // Return to job list view (admin action)
-        });
-
-        function editJob(id) {
-            const job = jobs.find(j => j.id === id);
-            if (job) {
-                showScreen('postJobForm', true, true); // Show the job posting form (admin action)
-                postJobForm.style.display = 'block'; // Make sure the form is visible
-                jobPostingContainer.style.display = 'block'; // Ensure parent is visible
-                document.getElementById('applicationId').value = job.id; // Reuse for job ID
-                document.getElementById('jobTitle').value = job.title;
-                document.getElementById('jobDepartment').value = job.department;
-                document.getElementById('jobLocation').value = job.location;
-                document.getElementById('jobDescription').value = job.description;
-                document.getElementById('jobRequirements').value = job.requirements;
-                showToast('Editing job: ' + job.title, getComputedStyle(document.documentElement).getPropertyValue('--primary')); // Use primary for toast
-            }
-        }
-
-        function deleteJob(id) {
-            if (confirm('Are you sure you want to delete this job opening?')) {
-                jobs = jobs.filter(job => job.id !== id);
-                localStorage.setItem('jobs', JSON.stringify(jobs));
-                displayJobList();
-                showToast('Job opening deleted successfully!', getComputedStyle(document.documentElement).getPropertyValue('--danger')); // Use danger for toast
-            }
-        }
-
-        // --- Toast Notification ---
-        function showToast(message, color = getComputedStyle(document.documentElement).getPropertyValue('--primary')) { // Default toast color is primary
-            const toast = document.getElementById('toast');
-            toast.textContent = message;
-            toast.style.backgroundColor = color;
-            toast.style.display = 'block';
-            setTimeout(() => {
-                toast.style.display = 'none';
-            }, 3000);
-        }
-
     </script>
 </body>
 </html>
