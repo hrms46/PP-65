@@ -22,26 +22,27 @@
         }
         
         body {
-            font-family: 'Verdana', Verdana, Geneva, Tahoma, sans-serif;
+            font-family: 'Poppins', Verdana, Geneva, Tahoma, sans-serif;
             background-color: rgb(9, 57, 86);
             color: var(--dark);
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
         /* Header Styles */
         header {
             background: linear-gradient(to right, var(--primary), #000102);
-            padding: 1rem 0;
+            padding: 0.8rem 0;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
         .header-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -50,11 +51,11 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
         }
         
         .logo-img {
-            height: 60px;
+            height: 50px;
             width: auto;
         }
         
@@ -65,18 +66,18 @@
         
         .logo-text {
             color: rgb(255, 255, 255);
-            font-size: 1.5rem;
-            font-weight: 550;
+            font-size: 1.3rem;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             line-height: 1.2;
         }
         
         .logo-tagline {
             color: var(--secondary);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 300;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
         
         nav ul {
@@ -85,7 +86,7 @@
         }
         
         nav li {
-            margin-left: 1.5rem;
+            margin-left: 1.2rem;
         }
         
         nav a {
@@ -95,6 +96,7 @@
             transition: color 0.3s;
             padding: 8px 12px;
             border-radius: 4px;
+            font-size: 0.95rem;
         }
         
         nav a:hover, nav a.active {
@@ -109,74 +111,91 @@
             color: white;
             font-size: 1.5rem;
             cursor: pointer;
+            padding: 5px;
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('sarathy2.png.jpg');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1683&q=80');
             background-size: cover;
             background-position: center;
             height: 65vh;
+            min-height: 450px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
             position: relative;
+            padding: 0 15px;
         }
         
         .hero-content {
             max-width: 800px;
-            padding: 0 20px;
+            padding: 0 15px;
         }
         
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         
         .hero h2 {
-            font-size: 2rem;
+            font-size: 1.6rem;
             margin-bottom: 1.5rem;
             color: var(--secondary);
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .cta-button {
             display: inline-block;
             background: var(--secondary);
             color: var(--dark);
-            padding: 12px 30px;
+            padding: 12px 28px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s;
-            margin-top: 20px;
+            margin-top: 15px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border: none;
+            cursor: pointer;
         }
         
         .cta-button:hover {
-            background: #036d21;
+            background: #e69500;
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
         
+        .cta-button:active {
+            transform: translateY(-1px);
+        }
+        
         /* About Section */
         .about-section {
-            padding: 5rem 0;
+            padding: 4rem 0;
             background: rgb(252, 252, 252);
         }
         
         .about-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
         
         .section-title {
@@ -186,12 +205,12 @@
         }
         
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             position: relative;
             display: inline-block;
-            padding-bottom: 50px;
+            padding-bottom: 20px;
         }
         
         .section-title h2::after {
@@ -200,66 +219,99 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: px;
+            width: 80px;
             height: 3px;
             background: var(--secondary);
         }
         
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-top: 10px;
+        }
+        
         .about-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            grid-template-columns: 1fr;
+            gap: 30px;
             align-items: center;
         }
         
         .about-text h3 {
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             color: var(--primary);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
         .about-text p {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: var(--gray);
-            line-height: 1.8;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        
+        .about-image {
+            background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.8)), url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'); 
+            background-size: cover; 
+            background-position: center; 
+            height: 300px;
+            border-radius: 10px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 20px;
+        }
+        
+        .about-image-content {
+            color: white; 
+            text-align: center;
+        }
+        
+        .about-image-content h3 {
+            font-size: 1.6rem; 
+            margin-bottom: 15px;
+        }
+        
+        .about-image-content p {
+            font-size: 1.05rem;
         }
         
         .companies-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
         }
         
         .company-card {
             background: var(--light);
             border-radius: 10px;
-            padding: 25px;
+            padding: 20px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s;
             border-left: 4px solid var(--secondary);
         }
         
         .company-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
         
         .company-card h4 {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             color: var(--primary);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
         
         .company-card p {
-            color: var(--white);
+            color: var(--gray);
             font-size: 0.95rem;
             line-height: 1.6;
         }
         
         /* Job Openings Section */
         .jobs-section {
-            padding: 5rem 0;
+            padding: 4rem 0;
             background: var(--light);
         }
         
@@ -267,18 +319,22 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 30px;
+            gap: 8px;
+            margin-bottom: 25px;
+            padding: 0 10px;
         }
         
         .filter-btn {
-            padding: 8px 20px;
+            padding: 10px 18px;
             background: white;
             border: 1px solid #ddd;
             border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s;
             font-weight: 500;
+            font-size: 0.95rem;
+            min-width: 120px;
+            text-align: center;
         }
         
         .filter-btn:hover, .filter-btn.active {
@@ -290,11 +346,11 @@
         
         .jobs-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
         
         .job-card {
@@ -306,19 +362,19 @@
         }
         
         .job-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
         .job-header {
             background: var(--primary);
             color: white;
-            padding: 20px;
+            padding: 18px;
             text-align: center;
         }
         
         .job-header h3 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 5px;
         }
         
@@ -332,17 +388,17 @@
         }
         
         .job-body {
-            padding: 25px;
+            padding: 20px;
         }
         
         .job-position {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
             border-bottom: 1px solid #eee;
         }
         
         .job-position h4 {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             margin-bottom: 10px;
             color: var(--primary);
         }
@@ -356,6 +412,7 @@
             border-bottom: 1px dashed #eee;
             display: flex;
             align-items: center;
+            font-size: 0.95rem;
         }
         
         .job-positions-list li:last-child {
@@ -364,33 +421,34 @@
         
         .job-positions-list li i {
             color: var(--secondary);
-            margin-right: 10px;
+            margin-right: 8px;
+            min-width: 20px;
         }
         
         .job-footer {
-            padding: 20px;
+            padding: 18px;
             background: #f8fafc;
             text-align: center;
         }
         
         /* Google Form Section */
         .form-section {
-            padding: 5rem 0;
+            padding: 4rem 0;
             background: white;
         }
         
         .form-container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
             text-align: center;
         }
         
         .form-wrapper {
             background: var(--light);
             border-radius: 10px;
-            padding: 30px;
-            margin-top: 30px;
+            padding: 25px;
+            margin-top: 25px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
@@ -398,8 +456,8 @@
             background: white;
             border: 1px solid #ddd;
             border-radius: 8px;
-            padding: 40px 20px;
-            min-height: 400px;
+            padding: 30px 15px;
+            min-height: 300px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -407,15 +465,26 @@
         }
         
         .form-icon {
-            font-size: 4rem;
+            font-size: 3.5rem;
             color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .form-preview h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .form-preview p {
+            font-size: 1.05rem;
             margin-bottom: 20px;
+            max-width: 500px;
         }
         
         /* Apply Section */
         .apply-section {
             background: var(--primary);
-            padding: 5rem 0;
+            padding: 4rem 0;
             color: white;
             text-align: center;
         }
@@ -423,17 +492,17 @@
         .apply-content {
             max-width: 700px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
         
         .apply-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
         }
         
         .apply-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            margin-bottom: 1.8rem;
             opacity: 0.9;
             max-width: 600px;
             margin-left: auto;
@@ -442,21 +511,27 @@
         
         .contact-info {
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            gap: 40px;
-            margin-top: 30px;
+            gap: 15px;
+            margin-top: 25px;
             flex-wrap: wrap;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .contact-item {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             background: rgba(255,255,255,0.1);
             padding: 12px 20px;
             border-radius: 8px;
             transition: all 0.3s;
+            text-align: left;
         }
         
         .contact-item:hover {
@@ -466,31 +541,32 @@
         
         .contact-item i {
             color: var(--secondary);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
+            min-width: 30px;
         }
         
         /* Footer */
         footer {
             background: var(--dark);
             color: white;
-            padding: 3rem 0 1.5rem;
+            padding: 2.5rem 0 1.2rem;
         }
         
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 2rem;
+            gap: 25px;
+            margin-bottom: 1.8rem;
         }
         
         .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+            margin-bottom: 1.2rem;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 8px;
         }
         
         .footer-column h3::after {
@@ -498,7 +574,7 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 50px;
+            width: 40px;
             height: 2px;
             background: var(--secondary);
         }
@@ -508,7 +584,7 @@
         }
         
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         
         .footer-links a {
@@ -518,28 +594,36 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            font-size: 0.95rem;
         }
         
         .footer-links a:hover {
             color: var(--secondary);
         }
         
+        .footer-column p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
         .social-links {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 12px;
+            margin-top: 15px;
         }
         
         .social-links a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 38px;
+            height: 38px;
             background: rgba(255,255,255,0.1);
             border-radius: 50%;
             color: white;
             transition: all 0.3s;
+            font-size: 1.1rem;
         }
         
         .social-links a:hover {
@@ -549,32 +633,59 @@
         
         .copyright {
             text-align: center;
-            padding-top: 1.5rem;
+            padding-top: 1.2rem;
             border-top: 1px solid rgba(255,255,255,0.1);
             font-size: 0.9rem;
             color: #94a3b8;
         }
         
-        /* Responsive Styles */
+        /* Floating Apply Button */
+        .floating-apply-btn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--secondary);
+            color: var(--dark);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.4rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .floating-apply-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            background: #e69500;
+        }
+        
+        /* Mobile-Specific Styles */
         @media (max-width: 992px) {
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .companies-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            .jobs-container {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             }
         }
         
         @media (max-width: 768px) {
             .header-container {
-                flex-wrap: wrap;
+                padding: 0 10px;
             }
             
             nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--primary);
                 width: 100%;
-                margin-top: 15px;
+                margin-top: 0;
                 display: none;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
             }
             
             nav.show {
@@ -583,41 +694,145 @@
             
             nav ul {
                 flex-direction: column;
+                padding: 15px 0;
             }
             
             nav li {
-                margin: 5px 0;
+                margin: 0;
+            }
+            
+            nav a {
+                display: block;
+                padding: 12px 20px;
+                border-radius: 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
             }
             
             .mobile-menu-btn {
                 display: block;
             }
             
+            .hero {
+                height: 60vh;
+                min-height: 400px;
+            }
+            
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
             
             .hero h2 {
+                font-size: 1.4rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
                 font-size: 1.8rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                height: 250px;
+            }
+            
+            .companies-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .location-filter {
+                gap: 6px;
+            }
+            
+            .filter-btn {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+                min-width: 100px;
             }
             
             .jobs-container {
                 grid-template-columns: 1fr;
             }
             
-            .contact-info {
-                flex-direction: column;
-                gap: 20px;
+            .floating-apply-btn {
+                display: flex;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 1.1rem;
             }
             
-            .logo {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 5px;
+            .logo-tagline {
+                font-size: 0.7rem;
             }
             
-            .logo-img {
-                height: 50px;
+            .hero {
+                min-height: 350px;
+            }
+            
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+            
+            .cta-button {
+                padding: 10px 25px;
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+            
+            .about-image {
+                height: 220px;
+            }
+            
+            .about-text h3 {
+                font-size: 1.5rem;
+            }
+            
+            .filter-btn {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+                min-width: 90px;
+            }
+            
+            .form-preview {
+                padding: 25px 15px;
+            }
+            
+            .form-preview h3 {
+                font-size: 1.3rem;
+            }
+            
+            .apply-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .apply-content p {
+                font-size: 1rem;
+            }
+            
+            .contact-item {
+                font-size: 0.95rem;
+                padding: 10px 15px;
+            }
+            
+            .floating-apply-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -627,7 +842,6 @@
     <header>
         <div class="header-container">
             <div class="logo">
-                <!-- Logo image - make sure the file is in the same directory -->
                 <img src="sarathy-group-logo.png" alt="SARATHY Group Logo" class="logo-img">
                 <div class="logo-text-container">
                     <div class="logo-text">SARATHY Group</div>
@@ -667,7 +881,7 @@
                 <p>Leading the automotive industry with innovation and excellence</p>
             </div>
             
-                 <div class="about-content">
+            <div class="about-content">
                 <div class="about-text">
                     <h3>Our Journey in the Automotive Industry</h3>
                     <p>Sarathy Group is a progressive automotive company with a strong international presence. Since our establishment, we have been committed to providing exceptional customer service and innovative solutions in the automotive sector. With operations expanding globally, including significant projects in Australia and Europe, Sarathy Group has established itself as a leader in the industry.</p>
@@ -676,25 +890,14 @@
                 </div>
                 
                 <div class="about-image">
-                    <div style="background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.8)), url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'); 
-                                background-size: cover; 
-                                background-position: center; 
-                                height: 100%; 
-                                border-radius: 10px; 
-                                display: flex; 
-                                align-items: center; 
-                                justify-content: center; 
-                                padding: 30px;">
-                        <div style="color: white; text-align: center;">
-                            <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Our Mission</h3>
-                            <p style="font-size: 1.1rem;">To drive the future of mobility by blending cutting-edge technology with unmatched service, inspiring trust, delivering excellence, and setting new benchmarks in the automotive world.</p>
-                        </div>
+                    <div class="about-image-content">
+                        <h3>Our Mission</h3>
+                        <p>To drive the future of mobility by blending cutting-edge technology with unmatched service, inspiring trust, delivering excellence, and setting new benchmarks in the automotive world.</p>
                     </div>
                 </div>
             </div>
             
-            
-            <div class="section-title" style="margin-top: 4rem;">
+            <div class="section-title" style="margin-top: 3.5rem;">
                 <h2>Our Companies</h2>
                 <p>Diverse portfolio of automotive businesses</p>
             </div>
@@ -702,8 +905,7 @@
             <div class="companies-grid">
                 <div class="company-card">
                     <h4>SARATHY MOTORS</h4>
-                    <p>SARATHY MOTORS
-Established in 1987 with extensive operations across South Kerala, India. Specializes in providing comprehensive automotive solutions with a strong focus on Maruti Suzuki vehicles and multi-brand two-wheelers including KTM, Bajaj, Triumph, and Ather..</p>
+                    <p>Established in 1987 with extensive operations across South Kerala, India. Specializes in providing comprehensive automotive solutions with a strong focus on Maruti Suzuki vehicles and multi-brand two-wheelers including KTM, Bajaj, Triumph, and Ather.</p>
                 </div>
                 
                 <div class="company-card">
@@ -713,182 +915,144 @@ Established in 1987 with extensive operations across South Kerala, India. Specia
                 
                 <div class="company-card">
                     <h4>SARATHY ELECTRIC BIKES PRIVATE LIMITED</h4>
-                    <p>Established to meet the growing demand for sustainable mobility, Sarathy Electric Bikes offers premium electric two-wheelers under the Bajaj Chetak and Ather brands. Operating across key locations in South Kerala, they provide end-to-end EV solutions including sales, service, charging support, and financing.</p>
+                    <p>Established to meet the growing demand for sustainable mobility, Sarathy Electric Bikes offers premium electric two-wheelers under the Bajaj Chetak and Ather brands. Operating across key locations in South Kerala, they provide end-to-end EV solutions.</p>
                 </div>
                 
                 <div class="company-card">
                     <h4>SARATHY AUTO CARS</h4>
-                    <p>Part of the Sarathy Group network, established in 1999, Sarathy Autocars is a trusted Maruti Suzuki dealership in Kollam and Thiruvananthapuram, offering a full range of sales, service, and certified pre-owned vehicles </p>
+                    <p>Part of the Sarathy Group network, established in 1999, Sarathy Autocars is a trusted Maruti Suzuki dealership in Kollam and Thiruvananthapuram, offering a full range of sales, service, and certified pre-owned vehicles.</p>
                 </div>
                 
                 <div class="company-card">
                     <h4>SARATHY CARS PRIVATE LIMITED</h4>
-                    <p>Incorporated in August 2016, Sarathy Cars Pvt Ltd serves as the company behind Sarathy NEXA and Arena dealerships, operating under the Sarathy Group in Kollam and Thiruvananthapuram</p>
+                    <p>Incorporated in August 2016, Sarathy Cars Pvt Ltd serves as the company behind Sarathy NEXA and Arena dealerships, operating under the Sarathy Group in Kollam and Thiruvananthapuram.</p>
                 </div>
                 
                 <div class="company-card">
                     <h4>SARATHY AUTODRIVES</h4>
-                    <p>Founded in 1999, Sarathy Autodrives is the dedicated Maruti Suzuki ARENA (and True Value pre‑owned) dealership under the Sarathy Group, offering a full spectrum of sales, service, and certified used car solutions across Kollam and Thiruvananthapuram</p>
+                    <p>Founded in 1999, Sarathy Autodrives is the dedicated Maruti Suzuki ARENA (and True Value pre‑owned) dealership under the Sarathy Group, offering a full spectrum of sales, service, and certified used car solutions.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Job Openings Section -->
-<section class="jobs-section" id="jobs">
-    <div class="section-title">
-        <h2>Current Job Openings</h2>
-        <p>Explore opportunities at our different locations</p>
-    </div>
-
-    <!-- 🔤 Alphabetically Sorted Filter Buttons -->
-    <div class="location-filter">
-        <button class="filter-btn active" data-location="all">All Locations</button>
-        <button class="filter-btn" data-location="kollam">Kollam</button>
-        <button class="filter-btn" data-location="kottayam">Kottayam & Chengannur</button>
-        <button class="filter-btn" data-location="neyyattinkara">Neyyattinkara</button>
-        <button class="filter-btn" data-location="varkala">Varkala</button>
-    </div>
-
-    <div class="jobs-container">
-
-        <!-- ✅ Kollam Jobs -->
-        <div class="job-card" data-location="kollam">
-            <div class="job-header">
-                <h3>Kollam</h3>
-                <div class="job-location">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Kerala, India</span>
-                </div>
-            </div>
-            <div class="job-body">
-                <div class="job-position">
-                    <h4>Available Positions</h4>
-                    <ul class="job-positions-list">
-                        <li><i class="fas fa-briefcase"></i> EV Technician - Experienced</li>
-                        <li><i class="fas fa-briefcase"></i> Service Advisor - Trainee</li>
-                        <li><i class="fas fa-briefcase"></i> Sales Executive </li>
-                        <li><i class="fas fa-briefcase"></i> Tele Caller</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="job-footer">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank">Apply Now</a>
-            </div>
+    <section class="jobs-section" id="jobs">
+        <div class="section-title">
+            <h2>Current Job Openings</h2>
+            <p>Explore opportunities at our different locations</p>
         </div>
 
-        <!-- ✅ Kottayam & Chengannur Jobs -->
-        <div class="job-card" data-location="kottayam">
-            <div class="job-header">
-                <h3>Kottayam & Chengannur</h3>
-                <div class="job-location">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Kerala, India</span>
-                </div>
-            </div>
-            <div class="job-body">
-                <div class="job-position">
-                    <h4>Available Positions</h4>
-                    <ul class="job-positions-list">
-                        <li><i class="fas fa-briefcase"></i> Spare In-Charge</li>
-                        <li><i class="fas fa-briefcase"></i> Accounts - Experienced</li>
-                        <li><i class="fas fa-briefcase"></i> EV Technician - Experienced</li>
-                        <li><i class="fas fa-briefcase"></i> Service Advisor - Experienced</li>
-                        <li><i class="fas fa-briefcase"></i> CRE</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="job-footer">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank">Apply Now</a>
-            </div>
+        <div class="location-filter">
+            <button class="filter-btn active" data-location="all">All Locations</button>
+            <button class="filter-btn" data-location="kollam">Kollam</button>
+            <button class="filter-btn" data-location="kottayam">Kottayam & Chengannur</button>
+            <button class="filter-btn" data-location="neyyattinkara">Neyyattinkara</button>
+            <button class="filter-btn" data-location="varkala">Varkala</button>
         </div>
 
-        <!-- ✅ Neyyattinkara Jobs -->
-        <div class="job-card" data-location="neyyattinkara">
-            <div class="job-header">
-                <h3>Neyyattinkara</h3>
-                <div class="job-location">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Kerala, India</span>
+        <div class="jobs-container">
+            <!-- Kollam Jobs -->
+            <div class="job-card" data-location="kollam">
+                <div class="job-header">
+                    <h3>Kollam</h3>
+                    <div class="job-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kerala, India</span>
+                    </div>
+                </div>
+                <div class="job-body">
+                    <div class="job-position">
+                        <h4>Available Positions</h4>
+                        <ul class="job-positions-list">
+                            <li><i class="fas fa-briefcase"></i> EV Technician - Experienced</li>
+                            <li><i class="fas fa-briefcase"></i> Service Advisor - Trainee</li>
+                            <li><i class="fas fa-briefcase"></i> Sales Executive </li>
+                            <li><i class="fas fa-briefcase"></i> Tele Caller</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="job-footer">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank">Apply Now</a>
                 </div>
             </div>
-            <div class="job-body">
-                <div class="job-position">
-                    <h4>Available Positions</h4>
-                    <ul class="job-positions-list">
-                        <li><i class="fas fa-briefcase"></i> Sales - Female</li>
-                        <li><i class="fas fa-briefcase"></i> Advisor - Trainee</li>
-                        <li><i class="fas fa-briefcase"></i> Spare In-Charge - Experienced</li>
-                    </ul>
+
+            <!-- Kottayam & Chengannur Jobs -->
+            <div class="job-card" data-location="kottayam">
+                <div class="job-header">
+                    <h3>Kottayam & Chengannur</h3>
+                    <div class="job-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kerala, India</span>
+                    </div>
+                </div>
+                <div class="job-body">
+                    <div class="job-position">
+                        <h4>Available Positions</h4>
+                        <ul class="job-positions-list">
+                            <li><i class="fas fa-briefcase"></i> Spare In-Charge</li>
+                            <li><i class="fas fa-briefcase"></i> Accounts - Experienced</li>
+                            <li><i class="fas fa-briefcase"></i> EV Technician - Experienced</li>
+                            <li><i class="fas fa-briefcase"></i> Service Advisor - Experienced</li>
+                            <li><i class="fas fa-briefcase"></i> CRE</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="job-footer">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank">Apply Now</a>
                 </div>
             </div>
-            <div class="job-footer">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank">Apply Now</a>
+
+            <!-- Neyyattinkara Jobs -->
+            <div class="job-card" data-location="neyyattinkara">
+                <div class="job-header">
+                    <h3>Neyyattinkara</h3>
+                    <div class="job-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kerala, India</span>
+                    </div>
+                </div>
+                <div class="job-body">
+                    <div class="job-position">
+                        <h4>Available Positions</h4>
+                        <ul class="job-positions-list">
+                            <li><i class="fas fa-briefcase"></i> Sales - Female</li>
+                            <li><i class="fas fa-briefcase"></i> Advisor - Trainee</li>
+                            <li><i class="fas fa-briefcase"></i> Spare In-Charge - Experienced</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="job-footer">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank">Apply Now</a>
+                </div>
+            </div>
+
+            <!-- Varkala Jobs -->
+            <div class="job-card" data-location="varkala">
+                <div class="job-header">
+                    <h3>Varkala</h3>
+                    <div class="job-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kerala, India</span>
+                    </div>
+                </div>
+                <div class="job-body">
+                    <div class="job-position">
+                        <h4>Available Positions</h4>
+                        <ul class="job-positions-list">
+                            <li><i class="fas fa-briefcase"></i> EV Technician - Experienced</li>
+                            <li><i class="fas fa-briefcase"></i> Service Advisor - Trainee</li>
+                            <li><i class="fas fa-briefcase"></i> Sales Executive</li>
+                            <li><i class="fas fa-briefcase"></i> Tele Caller</li>
+                            <li><i class="fas fa-briefcase"></i> Technician</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="job-footer">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank">Apply Now</a>
+                </div>
             </div>
         </div>
-
-        <!-- ✅ Varkala Jobs -->
-        <div class="job-card" data-location="varkala">
-            <div class="job-header">
-                <h3>Varkala</h3>
-                <div class="job-location">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Kerala, India</span>
-                </div>
-            </div>
-            <div class="job-body">
-                <div class="job-position">
-                    <h4>Available Positions</h4>
-                    <ul class="job-positions-list">
-                        <li><i class="fas fa-briefcase"></i> EV Technician - Experienced</li>
-                        <li><i class="fas fa-briefcase"></i> Service Advisor - Trainee</li>
-                        <li><i class="fas fa-briefcase"></i> Sales Executive</li>
-                        <li><i class="fas fa-briefcase"></i> Tele Caller</li>
-                        <li><i class="fas fa-briefcase"></i> Technician</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="job-footer">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank">Apply Now</a>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- Filtering Script (No Changes Needed) -->
-<script>
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const jobCards = document.querySelectorAll('.job-card');
-
-    function filterJobs(selectedLocation) {
-        jobCards.forEach(card => {
-            const cardLocation = card.getAttribute('data-location').toLowerCase();
-            if (selectedLocation === 'all' || selectedLocation === cardLocation) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    }
-
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-
-            const selectedLocation = button.getAttribute('data-location').toLowerCase();
-            filterJobs(selectedLocation);
-        });
-    });
-
-    // Show all on load
-    filterJobs('all');
-</script>
-
-
-
-
     </section>
 
     <!-- Google Form Section -->
@@ -905,8 +1069,8 @@ Established in 1987 with extensive operations across South Kerala, India. Specia
                         <i class="fab fa-google"></i>
                     </div>
                     <h3>Sarathy Group Application Form</h3>
-                    <p>Complete our online form to apply for any position</p>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank" style="margin-top: 30px;">
+                    <p>Complete our online form to apply for any position. It only takes a few minutes!</p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank">
                         Open Application Form
                     </a>
                 </div>
@@ -935,7 +1099,7 @@ Established in 1987 with extensive operations across South Kerala, India. Specia
                 </div>
             </div>
             
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank" style="margin-top: 30px;">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank" style="margin-top: 25px;">
                 Apply via Google Form
             </a>
         </div>
@@ -978,14 +1142,21 @@ Established in 1987 with extensive operations across South Kerala, India. Specia
         </div>
         
         <div class="copyright">
-            <p>&copy; 2025 Sarathy Group. All Rights Reserved. | Designed with <i class="" style="color: #f59e0b;"></i> for Automotive Excellence</p>
+            <p>&copy; 2025 Sarathy Group. All Rights Reserved. | Designed for Automotive Excellence</p>
         </div>
     </footer>
+
+    <!-- Floating Apply Button for Mobile -->
+    <a href="#form" class="floating-apply-btn">
+        <i class="fas fa-paper-plane"></i>
+    </a>
 
     <script>
         // Mobile menu toggle
         document.getElementById('menuToggle').addEventListener('click', function() {
             document.getElementById('mainNav').classList.toggle('show');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
         });
         
         // Location filtering
@@ -1014,19 +1185,38 @@ Established in 1987 with extensive operations across South Kerala, India. Specia
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                e.preventDefault();
+                // Close mobile menu if open
+                document.getElementById('mainNav').classList.remove('show');
+                document.getElementById('menuToggle').querySelector('i').classList.add('fa-bars');
+                document.getElementById('menuToggle').querySelector('i').classList.remove('fa-times');
                 
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+                // Skip smooth scroll for external links
+                if(this.getAttribute('href').startsWith('#') && !this.getAttribute('target')) {
+                    e.preventDefault();
                     
-                    // Close mobile menu if open
-                    document.getElementById('mainNav').classList.remove('show');
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
                 }
             });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const nav = document.getElementById('mainNav');
+            const menuBtn = document.getElementById('menuToggle');
+            
+            if(nav.classList.contains('show') && 
+               !nav.contains(e.target) && 
+               !menuBtn.contains(e.target)) {
+                nav.classList.remove('show');
+                menuBtn.querySelector('i').classList.add('fa-bars');
+                menuBtn.querySelector('i').classList.remove('fa-times');
+            }
         });
     </script>
 </body>
