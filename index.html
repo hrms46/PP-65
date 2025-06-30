@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1c4361;
+            --primary: #084574;
             --secondary: orange;
             --light: #f8fafc;
             --dark: #0f172a;
@@ -23,7 +23,7 @@
         
         body {
             font-family: 'Verdana', Verdana, Geneva, Tahoma, sans-serif;
-            background-color: lightskyblue;
+            background-color: rgb(9, 57, 86);
             color: var(--dark);
             line-height: 1.6;
         }
@@ -687,7 +687,7 @@
                                 padding: 30px;">
                         <div style="color: white; text-align: center;">
                             <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Our Mission</h3>
-                            <p style="font-size: 1.1rem;">To revolutionize the automotive industry through innovation, quality service, and customer-centric solutions while creating exceptional value for our stakeholders.</p>
+                            <p style="font-size: 1.1rem;">To drive the future of mobility by blending cutting-edge technology with unmatched service, inspiring trust, delivering excellence, and setting new benchmarks in the automotive world.</p>
                         </div>
                     </div>
                 </div>
@@ -707,13 +707,12 @@ Established in 1987 with extensive operations across South Kerala, India. Specia
                 </div>
                 
                 <div class="company-card">
-                    <h4>SARATHY BIKES</h4>
-                    <p>SARATHY BIKES
-Specializing in two‑wheeler sales and services under the Sarathy brand, with a focus on Bajaj, KTM, Triumph, Husqvarna, and Chetak, operating across multiple locations in Kollam and surrounding areas..</p>
+                    <h4>SARATHY BIKES PRIVATE LIMITED</h4>
+                    <p>Specializing in two‑wheeler sales and services under the Sarathy brand, with a focus on Bajaj, KTM, Triumph, Husqvarna, and Chetak, operating across multiple locations in Kollam and surrounding areas.</p>
                 </div>
                 
                 <div class="company-card">
-                    <h4>SARATHY ELECTRIC BIKES</h4>
+                    <h4>SARATHY ELECTRIC BIKES PRIVATE LIMITED</h4>
                     <p>Established to meet the growing demand for sustainable mobility, Sarathy Electric Bikes offers premium electric two-wheelers under the Bajaj Chetak and Ather brands. Operating across key locations in South Kerala, they provide end-to-end EV solutions including sales, service, charging support, and financing.</p>
                 </div>
                 
@@ -723,7 +722,7 @@ Specializing in two‑wheeler sales and services under the Sarathy brand, with a
                 </div>
                 
                 <div class="company-card">
-                    <h4>SARATHY CARS</h4>
+                    <h4>SARATHY CARS PRIVATE LIMITED</h4>
                     <p>Incorporated in August 2016, Sarathy Cars Pvt Ltd serves as the company behind Sarathy NEXA and Arena dealerships, operating under the Sarathy Group in Kollam and Thiruvananthapuram</p>
                 </div>
                 
@@ -736,95 +735,159 @@ Specializing in two‑wheeler sales and services under the Sarathy brand, with a
     </section>
 
     <!-- Job Openings Section -->
-    <section class="jobs-section" id="jobs">
-        <div class="section-title">
-            <h2>Current Job Openings</h2>
-            <p>Explore opportunities at our different locations</p>
+<section class="jobs-section" id="jobs">
+    <div class="section-title">
+        <h2>Current Job Openings</h2>
+        <p>Explore opportunities at our different locations</p>
+    </div>
+
+    <!-- 🔤 Alphabetically Sorted Filter Buttons -->
+    <div class="location-filter">
+        <button class="filter-btn active" data-location="all">All Locations</button>
+        <button class="filter-btn" data-location="kollam">Kollam</button>
+        <button class="filter-btn" data-location="kottayam">Kottayam & Chengannur</button>
+        <button class="filter-btn" data-location="neyyattinkara">Neyyattinkara</button>
+        <button class="filter-btn" data-location="varkala">Varkala</button>
+    </div>
+
+    <div class="jobs-container">
+
+        <!-- ✅ Kollam Jobs -->
+        <div class="job-card" data-location="kollam">
+            <div class="job-header">
+                <h3>Kollam</h3>
+                <div class="job-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Kerala, India</span>
+                </div>
+            </div>
+            <div class="job-body">
+                <div class="job-position">
+                    <h4>Available Positions</h4>
+                    <ul class="job-positions-list">
+                        <li><i class="fas fa-briefcase"></i> EV Technician - Experienced</li>
+                        <li><i class="fas fa-briefcase"></i> Service Advisor - Trainee</li>
+                        <li><i class="fas fa-briefcase"></i> Sales Executive </li>
+                        <li><i class="fas fa-briefcase"></i> Tele Caller</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="job-footer">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank">Apply Now</a>
+            </div>
         </div>
-        
-        <div class="location-filter">
-            <button class="filter-btn active" data-location="all">All Locations</button>
-            <button class="filter-btn" data-location="neyyattinkara">Neyyattinkara</button>
-            <button class="filter-btn" data-location="kottayam">Kottayam & Chengannur</button>
-            <button class="filter-btn" data-location="varkala">Varkala</button>
-            <button class="filter-btn" data-location="kollam">Kollam</button>
+
+        <!-- ✅ Kottayam & Chengannur Jobs -->
+        <div class="job-card" data-location="kottayam">
+            <div class="job-header">
+                <h3>Kottayam & Chengannur</h3>
+                <div class="job-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Kerala, India</span>
+                </div>
+            </div>
+            <div class="job-body">
+                <div class="job-position">
+                    <h4>Available Positions</h4>
+                    <ul class="job-positions-list">
+                        <li><i class="fas fa-briefcase"></i> Spare In-Charge</li>
+                        <li><i class="fas fa-briefcase"></i> Accounts - Experienced</li>
+                        <li><i class="fas fa-briefcase"></i> EV Technician - Experienced</li>
+                        <li><i class="fas fa-briefcase"></i> Service Advisor - Experienced</li>
+                        <li><i class="fas fa-briefcase"></i> CRE</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="job-footer">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank">Apply Now</a>
+            </div>
         </div>
-        
-        <div class="jobs-container">
-            <!-- Neyyattinkara Jobs -->
-            <div class="job-card" data-location="neyyattinkara">
-                <div class="job-header">
-                    <h3>Neyyattinkara</h3>
-                    <div class="job-location">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Kerala, India</span>
-                    </div>
-                </div>
-                <div class="job-body">
-                    <div class="job-position">
-                        <h4>Available Positions</h4>
-                        <ul class="job-positions-list">
-                            <li><i class="fas fa-briefcase"></i> Sales - Female</li>
-                            <li><i class="fas fa-briefcase"></i> Advisor - Trainee</li>
-                            <li><i class="fas fa-briefcase"></i> Spare In-Charge - Experienced</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="job-footer">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank">Apply Now</a>
+
+        <!-- ✅ Neyyattinkara Jobs -->
+        <div class="job-card" data-location="neyyattinkara">
+            <div class="job-header">
+                <h3>Neyyattinkara</h3>
+                <div class="job-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Kerala, India</span>
                 </div>
             </div>
-            
-            <!-- Kottayam & Chengannur Jobs -->
-            <div class="job-card" data-location="kottayam">
-                <div class="job-header">
-                    <h3>Kottayam & Chengannur</h3>
-                    <div class="job-location">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Kerala, India</span>
-                    </div>
-                </div>
-                <div class="job-body">
-                    <div class="job-position">
-                        <h4>Available Positions</h4>
-                        <ul class="job-positions-list">
-                            <li><i class="fas fa-briefcase"></i> Spare In-Charge</li>
-                            <li><i class="fas fa-briefcase"></i> Accounts - Experienced</li>
-                            <li><i class="fas fa-briefcase"></i> EV Technician - Experienced</li>
-                            <li><i class="fas fa-briefcase"></i> Service Advisor - Experienced</li>
-                            <li><i class="fas fa-briefcase"></i> CRE</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="job-footer">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank">Apply Now</a>
+            <div class="job-body">
+                <div class="job-position">
+                    <h4>Available Positions</h4>
+                    <ul class="job-positions-list">
+                        <li><i class="fas fa-briefcase"></i> Sales - Female</li>
+                        <li><i class="fas fa-briefcase"></i> Advisor - Trainee</li>
+                        <li><i class="fas fa-briefcase"></i> Spare In-Charge - Experienced</li>
+                    </ul>
                 </div>
             </div>
-            
-            <!-- Kollam Jobs -->
-            <div class="job-card" data-location="kollam">
-                <div class="job-header">
-                    <h3>Kollam</h3>
-                    <div class="job-location">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Kerala, India</span>
-                    </div>
-                </div>
-                <div class="job-body">
-                    <div class="job-position">
-                        <h4>Available Positions</h4>
-                        <ul class="job-positions-list">
-                            <li><i class="fas fa-briefcase"></i> EV Technician - Experienced</li>
-                            <li><i class="fas fa-briefcase"></i> Service Advisor - Trainee</li>
-                            <li><i class="fas fa-briefcase"></i> Sales Executive </li>
-                            <li><i class="fas fa-briefcase"></i> Tele Caller</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="job-footer">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank">Apply Now</a>
+            <div class="job-footer">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank">Apply Now</a>
+            </div>
+        </div>
+
+        <!-- ✅ Varkala Jobs -->
+        <div class="job-card" data-location="varkala">
+            <div class="job-header">
+                <h3>Varkala</h3>
+                <div class="job-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Kerala, India</span>
                 </div>
             </div>
+            <div class="job-body">
+                <div class="job-position">
+                    <h4>Available Positions</h4>
+                    <ul class="job-positions-list">
+                        <li><i class="fas fa-briefcase"></i> EV Technician - Experienced</li>
+                        <li><i class="fas fa-briefcase"></i> Service Advisor - Trainee</li>
+                        <li><i class="fas fa-briefcase"></i> Sales Executive</li>
+                        <li><i class="fas fa-briefcase"></i> Tele Caller</li>
+                        <li><i class="fas fa-briefcase"></i> Technician</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="job-footer">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank">Apply Now</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Filtering Script (No Changes Needed) -->
+<script>
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const jobCards = document.querySelectorAll('.job-card');
+
+    function filterJobs(selectedLocation) {
+        jobCards.forEach(card => {
+            const cardLocation = card.getAttribute('data-location').toLowerCase();
+            if (selectedLocation === 'all' || selectedLocation === cardLocation) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const selectedLocation = button.getAttribute('data-location').toLowerCase();
+            filterJobs(selectedLocation);
+        });
+    });
+
+    // Show all on load
+    filterJobs('all');
+</script>
+
+
+
 
     </section>
 
@@ -928,7 +991,7 @@ Specializing in two‑wheeler sales and services under the Sarathy brand, with a
         // Location filtering
         const filterBtns = document.querySelectorAll('.filter-btn');
         const jobCards = document.querySelectorAll('.job-card');
-        
+
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 // Remove active class from all buttons
