@@ -22,7 +22,7 @@
         }
         
         body {
-            font-family: 'Poppins', Verdana, Geneva, Tahoma, sans-serif;
+            font-family: 'Verdana', verdana, Verdana, verdana;
             background-color: rgb(9, 57, 86);
             color: var(--dark);
             line-height: 1.6;
@@ -369,12 +369,12 @@
         .job-header {
             background: var(--primary);
             color: white;
-            padding: 18px;
+            padding: 20px;
             text-align: center;
         }
         
         .job-header h3 {
-            font-size: 1.4rem;
+            font-size: 1.rem;
             margin-bottom: 5px;
         }
         
@@ -945,32 +945,35 @@
         
         <div class="location-filter">
             <button class="filter-btn active" data-location="all">All Locations</button>
-            <button class="filter-btn" data-location="kollam">Kollam,Trivandrum</button>
+            <button class="filter-btn" data-location="kollam">Kollam</button>
             <button class="filter-btn" data-location="chengannur">Chengannur</button>
             <button class="filter-btn" data-location="balaramapuram">Balaramapuram, Neyyattinkara</button>
             <button class="filter-btn" data-location="varkala">Varkala</button>
         </div>
         
         <div class="jobs-container">
-            <!-- Kollam,Trivandrum Jobs -->
+            <!-- Kollam Jobs -->
             <div class="job-card" data-location="kollam">
                 <div class="job-header">
-                    <h3>Kollam,Trivandrum</h3>
+                    <div class="company-info">
+                        <div class="company-logo-big">
+                            <i class="fas fa-motorcycle"></i>
+                            <i class="fas fa-car-side"></i>
+                        </div>
+                        <div class="company-name" style="font-weight: bold;">Sarathy Motors, Sarathy Autocars</div>
+                    </div>
+                    <h3>Paravoor-Punalur-Kottarakkara-Bharanikkavu</h3>
                     <div class="job-location">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Kerala, India</span>
+                        <span>Kollam, India</span>
                     </div>
                 </div>
                 <div class="job-body">
                     <div class="job-position">
                         <h4>Available Positions</h4>
                         <ul class="job-positions-list">
-                            <li><i class="fas fa-briefcase"></i> EV Technician - Experienced</li>
-                            <li><i class="fas fa-briefcase"></i> Service Advisor - Trainee</li>
-                            <li><i class="fas fa-briefcase"></i> Content Creator </li>
-                            <li><i class="fas fa-briefcase"></i> Data Analyst </li>
-                            <li><i class="fas fa-briefcase"></i> Sales Executive </li>
-                            <li><i class="fas fa-briefcase"></i> Female Tele Marketing Executive</li>
+                            <li><i class="fas fa-briefcase"></i>Sales Executive</li>
+                            <li><i class="fas fa-briefcase"></i>Data Analyst</li>
                         </ul>
                     </div>
                 </div>
@@ -984,10 +987,16 @@
             <!-- Chengannur Jobs -->
             <div class="job-card" data-location="chengannur">
                 <div class="job-header">
+                    <div class="company-info">
+                        <div class="company-logo-small">
+                            <i class="fas fa-motorcycle"></i>
+                        </div>
+                       <div class="company-name" style="font-weight: bold;">Ather</div>
+                    </div>
                     <h3>Chengannur</h3>
                     <div class="job-location">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Kerala, India</span>
+                        <span>Alappuzha, India</span>
                     </div>
                 </div>
                 <div class="job-body">
@@ -1012,10 +1021,16 @@
             <!-- Balaramapuram, Neyyattinkara Jobs -->
             <div class="job-card" data-location="balaramapuram">
                 <div class="job-header">
+                    <div class="company-info">
+                        <div class="company-logo-small">
+                            <i class="fas fa-motorcycle"></i>
+                        </div>
+                        <div class="company-name" style="font-weight: bold;">Ather</div>
+                    </div>
                     <h3>Balaramapuram, Neyyattinkara</h3>
                     <div class="job-location">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Kerala, India</span>
+                        <span>Thiruvananthapuram, India</span>
                     </div>
                 </div>
                 <div class="job-body">
@@ -1026,6 +1041,7 @@
                             <li><i class="fas fa-briefcase"></i> Trainee</li>
                             <li><i class="fas fa-briefcase"></i> Billing Staff</li>
                             <li><i class="fas fa-briefcase"></i> Service Advisor</li>
+                            <li><i class="fas fa-briefcase"></i> Data Analyst</li>
                         </ul>
                     </div>
                 </div>
@@ -1039,10 +1055,16 @@
             <!-- Varkala Jobs -->
             <div class="job-card" data-location="varkala">
                 <div class="job-header">
+                    <div class="company-info">
+                        <div class="company-logo-small">
+                            <i class="fas fa-motorcycle"></i>
+                        </div>
+                        <div class="company-name" style="font-weight: bold;">Ather</div>
+                    </div>
                     <h3>Varkala</h3>
                     <div class="job-location">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Kerala, India</span>
+                        <span>Thiruvananthapuram, India</span>
                     </div>
                 </div>
                 <div class="job-body">
@@ -1062,6 +1084,8 @@
                 </div>
             </div>
         </div>
+
+       
     </section>
 
     <!-- Google Form Section -->
