@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #113a59;
+            --primary: #00355e;
             --secondary: #FFA41B;
             --accent: #00B4D8;
             --light: #f8fafc;
@@ -62,7 +62,7 @@
         }
         
         .logo-img {
-            height: 60px;
+            height: 48px; /* Reduced from 60px */
             width: auto;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -391,6 +391,43 @@
             color: var(--gray);
             font-size: 1.05rem;
             line-height: 1.8;
+        }
+        
+        /* Logo size adjustments */
+        .company-card .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+            height: 70px; /* Set fixed height for consistency */
+        }
+        
+        .company-card .logo-container img {
+            max-height: 60px; /* Reduced logo size */
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .company-card .established {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin: 15px 0 10px;
+        }
+        
+        .company-card .brands {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .company-card .brand-tag {
+            background: rgba(17, 58, 89, 0.08);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
         }
         
         /* Job Openings Section */
@@ -1538,10 +1575,6 @@
                 padding: 30px 15px;
             }
             
-            .form-preview h3 {
-                font-size: 1.6rem;
-            }
-            
             .contact-item {
                 font-size: 1rem;
                 padding: 14px 20px;
@@ -1555,7 +1588,8 @@
         <div class="header-container">
             <div class="logo">
                 <div class="img-container">
-                    <img src="sarathy-group-logo.png" alt="Sarathy Logo" class="logo-img">
+                    <!-- Added alt attribute for accessibility -->
+                    <img src="sarathy-group-logo.png" alt="Sarathy Group Logo" class="logo-img">
                 </div>
                 <div class="logo-text-container">
                     <div class="logo-text">SARATHY HR DEPARTMENT</div>
@@ -1573,7 +1607,7 @@
                     <li><a href="#sales">Sales</a></li>
                     <li><a href="#service">Service</a></li>
                     <li><a href="#spareparts">Spare Parts</a></li>
-                    <li><a href="#form">Apply Now</a></li>
+                    <li><a href="#google-form">Apply Now</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -1612,10 +1646,11 @@
                 
                 <div class="about-image">
                     <div class="about-image-content">
-        <h3>Our Mission</h3>
-        <p>To drive the future of mobility by blending cutting-edge technology with unmatched service.</p>
-    </div>
-</div>
+                        <h3>Our Mission</h3>
+                        <p>To drive the future of mobility by blending cutting-edge technology with unmatched service.</p>
+                    </div>
+                </div>
+            </div>
             
             <div class="section-title" style="margin-top: 4rem;">
                 <h2>Our Companies</h2>
@@ -1624,36 +1659,106 @@
             
             <div class="companies-grid">
                 <div class="company-card">
-                    <h4><i class="fas fa-motorcycle"></i> SARATHY MOTORS</h4>
-                    <p>Established in 1987 with extensive operations across South Kerala, India. Specializes in providing comprehensive automotive solutions with a strong focus on Maruti Suzuki vehicles and multi-brand two-wheelers including KTM, Bajaj, Triumph, and Ather.</p>
+                    <div class="logo-container">
+                        <img src="bajaj.png" alt="Sarathy Motors Logo">
+                    </div>
+                    <div class="card-content">
+                        <h4><i class="fas fa-car"></i> SARATHY MOTORS</h4>
+                        <p>Established in 1987 with extensive operations across South Kerala, India. Specializes in providing comprehensive automotive solutions with a strong focus on Maruti Suzuki vehicles and multi-brand two-wheelers including KTM, Bajaj, Triumph, and Ather.</p>
+                        <div class="established">Established: 1987</div>
+                        <div class="brands">
+                            <span class="brand-tag">Bajaj</span>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="company-card">
-                    <h4><i class="fas fa-motorcycle"></i> SARATHY BIKES PRIVATE LIMITED</h4>
-                    <p>Specializing in two‑wheeler sales and services under the Sarathy brand, with a focus on Bajaj, KTM, Triumph, Husqvarna, and Chetak, operating across multiple locations in Kollam and surrounding areas.</p>
+                    <div class="logo-container">
+                        <img src="ktm.png" alt="Sarathy Bikes Logo">
+                    </div>
+                    <div class="card-content">
+                        <h4><i class="fas fa-motorcycle"></i> SARATHY BIKES PRIVATE LIMITED</h4>
+                        <p>Specializing in two‑wheeler sales and services under the Sarathy brand, with a focus on Bajaj, KTM, Triumph, Husqvarna, and Chetak, operating across multiple locations in Kollam and surrounding areas.</p>
+                        <div class="established">Private Limited Company</div>
+                        <div class="brands">
+                            <span class="brand-tag">KTM</span>
+                            <span class="brand-tag">Triumph</span>
+                            <span class="brand-tag">Husqvarna</span>
+                            <span class="brand-tag">Chetak</span>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="company-card">
-                    <h4><i class="fas fa-motorcycle"></i> SARATHY ELECTRIC BIKES PRIVATE LIMITED</h4>
-                    <p>Established to meet the growing demand for sustainable mobility, Sarathy Electric Bikes offers premium electric two-wheelers under the Bajaj Chetak and Ather brands. Operating across key locations in South Kerala, they provide end-to-end EV solutions.</p>
+                    <div class="logo-container">
+                        <img src="Chetak-logo-2.png" alt="Sarathy Electric Bikes Logo">
+                    </div>
+                    <div class="card-content">
+                        <h4><i class="fas fa-motorcycle"></i> SARATHY ELECTRIC BIKES PRIVATE LIMITED</h4>
+                        <p>Established to meet the growing demand for sustainable mobility, Sarathy Electric Bikes offers premium electric two-wheelers under the Bajaj Chetak and Ather brands. Operating across key locations in South Kerala, they provide end-to-end EV solutions.</p>
+                        <div class="established">Specialized in EV Solutions</div>
+                        <div class="brands">
+                            <span class="brand-tag">Ather</span>
+                            <span class="brand-tag">chetak</span>
+                            <span class="brand-tag">EV Charging</span>
+                            <span class="brand-tag">Sustainable Mobility</span>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="company-card">
-                    <h4><i class="fas fa-car-side"></i> SARATHY AUTO CARS</h4>
-                    <p>Part of the Sarathy Group network, established in 1999, Sarathy Autocars is a trusted Maruti Suzuki dealership in Kollam and Thiruvananthapuram, offering a full range of sales, service, and certified pre-owned vehicles.</p>
+                    <div class="logo-container">
+                        <img src="arena-logo.webp" alt="Sarathy Auto Cars Logo">
+                    </div>
+                    <div class="card-content">
+                        <h4><i class="fas fa-car-side"></i> SARATHY AUTO CARS</h4>
+                        <p>Part of the Sarathy Group network, established in 1999, Sarathy Autocars is a trusted Maruti Suzuki dealership in Kollam and Thiruvananthapuram, offering a full range of sales, service, and certified pre-owned vehicles.</p>
+                        <div class="established">Established: 1999</div>
+                        <div class="brands">
+                            <span class="brand-tag">Maruti Suzuki</span>
+                            <span class="brand-tag">Sales</span>
+                            <span class="brand-tag">Service</span>
+                            <span class="brand-tag">True Value</span>
+                            <span class="brand-tag">Pre-owned Vehicles</span>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="company-card">
-                    <h4><i class="fas fa-car-side"></i> SARATHY CARS PRIVATE LIMITED</h4>
-                    <p>Incorporated in August 2016, Sarathy Cars Pvt Ltd serves as the company behind Sarathy NEXA and Arena dealerships, operating under the Sarathy Group in Kollam and Thiruvananthapuram.</p>
+                    <div class="logo-container">
+                        <img src="nexa3.png" alt="Sarathy Cars Logo">
+                    </div>
+                    <div class="card-content">
+                        <h4><i class="fas fa-car-side"></i> SARATHY CARS PRIVATE LIMITED</h4>
+                        <p>Incorporated in August 2016, Sarathy Cars Pvt Ltd serves as the company behind Sarathy NEXA and Arena dealerships, operating under the Sarathy Group in Kollam and Thiruvananthapuram.</p>
+                        <div class="established">Incorporated: 2016</div>
+                        <div class="brands">
+                            <span class="brand-tag">NEXA</span>
+                            <span class="brand-tag">Arena</span>
+                            <span class="brand-tag">Premium Dealership</span>
+                            <span class="brand-tag">Kollam</span>
+                            <span class="brand-tag">Thiruvananthapuram</span>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="company-card">
-                    <h4><i class="fas fa-car-side"></i> SARATHY AUTODRIVES</h4>
-                    <p>Founded in 1999, Sarathy Autodrives is the dedicated Maruti Suzuki ARENA (and True Value pre‑owned) dealership under the Sarathy Group, offering a full spectrum of sales, service, and certified used car solutions.</p>
+                    <div class="logo-container">
+                        <img src="arena-logo.webp" alt="Sarathy Autodrives Logo">
+                    </div>
+                    <div class="card-content">
+                        <h4><i class="fas fa-car-side"></i> SARATHY AUTODRIVES</h4>
+                        <p>Founded in 1999, Sarathy Autodrives is the dedicated Maruti Suzuki ARENA (and True Value pre‑owned) dealership under the Sarathy Group, offering a full spectrum of sales, service, and certified used car solutions.</p>
+                        <div class="established">Established: 1999</div>
+                        <div class="brands">
+                            <span class="brand-tag">Maruti Suzuki ARENA</span>
+                            <span class="brand-tag">True Value</span>
+                            <span class="brand-tag">Pre-owned Cars</span>
+                            <span class="brand-tag">Sales & Service</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <!-- Job Openings Section -->
@@ -1993,7 +2098,7 @@
     </section>
 
     <!-- Google Form Section -->
-    <section class="form-section" id="form">
+    <section class="form-section" id="google-form">
         <div class="form-container">
             <div class="section-title">
                 <h2>Online Application Form</h2>
@@ -2070,7 +2175,7 @@
                     <li><a href="#sales"><i class="fas fa-chevron-right"></i> Sales Department</a></li>
                     <li><a href="#service"><i class="fas fa-chevron-right"></i> Service Department</a></li>
                     <li><a href="#spareparts"><i class="fas fa-chevron-right"></i> Spare Parts Department</a></li>
-                    <li><a href="#form"><i class="fas fa-chevron-right"></i> Apply Now</a></li>
+                    <li><a href="#google-form"><i class="fas fa-chevron-right"></i> Apply Now</a></li>
                     <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
                 </ul>
             </div>
