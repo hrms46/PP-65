@@ -28,7 +28,7 @@
         }
         
         body {
-            font-family: 'Verdana', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: #f5f9ff;
             color: var(--dark);
             line-height: 1.7;
@@ -62,7 +62,7 @@
         }
         
         .logo-img {
-            height: 48px; /* Reduced from 60px */
+            height: 48px;
             width: auto;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -398,11 +398,11 @@
             display: flex;
             justify-content: center;
             margin-bottom: 15px;
-            height: 70px; /* Set fixed height for consistency */
+            height: 70px;
         }
         
         .company-card .logo-container img {
-            max-height: 60px; /* Reduced logo size */
+            max-height: 60px;
             width: auto;
             object-fit: contain;
         }
@@ -1588,7 +1588,6 @@
         <div class="header-container">
             <div class="logo">
                 <div class="img-container">
-                    <!-- Added alt attribute for accessibility -->
                     <img src="sarathy-group-logo.png" alt="Sarathy Group Logo" class="logo-img">
                 </div>
                 <div class="logo-text-container">
@@ -1726,7 +1725,7 @@
                 
                 <div class="company-card">
                     <div class="logo-container">
-                        <img src="nexa3.png" alt="Sarathy Cars Logo">
+                        <img src="nexa3.png">
                     </div>
                     <div class="card-content">
                         <h4><i class="fas fa-car-side"></i> SARATHY CARS PRIVATE LIMITED</h4>
@@ -1744,7 +1743,7 @@
                 
                 <div class="company-card">
                     <div class="logo-container">
-                        <img src="arena-logo.webp" alt="Sarathy Autodrives Logo">
+                        <img src="arena-logo.webp">
                     </div>
                     <div class="card-content">
                         <h4><i class="fas fa-car-side"></i> SARATHY AUTODRIVES</h4>
@@ -1943,13 +1942,16 @@
                         <option value="team-leader-sales">Team Leader - Sales</option>
                         <option value="bdm">Business Development Manager</option>
                     </select>
+                    <div class="error-message" style="display:none; color:#e74c3c; margin-top:10px; font-weight:500;">
+                        <i class="fas fa-exclamation-circle"></i> Please select a sales role
+                    </div>
                 </div>
                 
                 <div class="sales-cta">
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" 
                        class="cta-button" 
                        target="_blank"
-                       onclick="return validateSalesRole()">
+                       id="sales-apply-btn">
                         <i class="fas fa-paper-plane"></i> Apply Now
                     </a>
                 </div>
@@ -1992,13 +1994,16 @@
                         <option value="pickup-drop-driver">Pickup & Drop Driver</option>
                         <option value="internship-trainee">Trainee</option>
                     </select>
+                    <div class="error-message" style="display:none; color:#e74c3c; margin-top:10px; font-weight:500;">
+                        <i class="fas fa-exclamation-circle"></i> Please select a service role
+                    </div>
                 </div>
 
                 <div class="service-cta">
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog"
                        class="cta-button"
                        target="_blank"
-                       onclick="return validateServiceRole()">
+                       id="service-apply-btn">
                         <i class="fas fa-paper-plane"></i> Apply Now
                     </a>
                 </div>
@@ -2032,13 +2037,16 @@
                         <option value="junior-spareparts-executive">Junior Spare Parts Executive</option>
                         <option value="spareparts-counter-assistant">Spare Parts Counter Assistant</option>
                     </select>
+                    <div class="error-message" style="display:none; color:#e74c3c; margin-top:10px; font-weight:500;">
+                        <i class="fas fa-exclamation-circle"></i> Please select a spare parts role
+                    </div>
                 </div>
 
                 <div class="spareparts-cta">
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog"
                        class="cta-button"
                        target="_blank"
-                       onclick="return validateSparePartsRole()">
+                       id="spareparts-apply-btn">
                         <i class="fas fa-paper-plane"></i> Apply Now
                     </a>
                 </div>
@@ -2213,16 +2221,16 @@
             // Mobile menu toggle
             const menuToggle = document.getElementById('menuToggle');
             const mainNav = document.getElementById('mainNav');
+            const menuIcon = menuToggle.querySelector('i');
             
             menuToggle.addEventListener('click', function() {
                 mainNav.classList.toggle('show');
-                const icon = this.querySelector('i');
                 if (mainNav.classList.contains('show')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-times');
                 } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
                 }
             });
             
@@ -2261,8 +2269,8 @@
                     // Close mobile menu if open
                     if (mainNav.classList.contains('show')) {
                         mainNav.classList.remove('show');
-                        menuToggle.querySelector('i').classList.add('fa-bars');
-                        menuToggle.querySelector('i').classList.remove('fa-times');
+                        menuIcon.classList.remove('fa-times');
+                        menuIcon.classList.add('fa-bars');
                     }
                     
                     // Skip smooth scroll for external links
@@ -2272,8 +2280,11 @@
                         const target = document.querySelector(this.getAttribute('href'));
                         if (target) {
                             const headerHeight = document.querySelector('header').offsetHeight;
+                            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+                            const offsetPosition = targetPosition - headerHeight;
+                            
                             window.scrollTo({
-                                top: target.offsetTop - headerHeight,
+                                top: offsetPosition,
                                 behavior: 'smooth'
                             });
                         }
@@ -2287,8 +2298,8 @@
                    !mainNav.contains(e.target) && 
                    !menuToggle.contains(e.target)) {
                     mainNav.classList.remove('show');
-                    menuToggle.querySelector('i').classList.add('fa-bars');
-                    menuToggle.querySelector('i').classList.remove('fa-times');
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
                 }
             });
             
@@ -2299,7 +2310,7 @@
                 
                 elements.forEach(element => {
                     const elementPosition = element.getBoundingClientRect().top;
-                    const screenPosition = window.innerHeight / 1.3;
+                    const screenPosition = window.innerHeight * 0.8;
                     
                     if (elementPosition < screenPosition) {
                         element.style.opacity = '1';
@@ -2330,107 +2341,38 @@
                 });
             });
             
-            // Sales Department Application Function
-            function validateSalesRole() {
-                const roleSelect = document.getElementById("sales-roles");
-                const role = roleSelect.value;
+            // Department form validation
+            function setupDepartmentValidation(department, applyBtnId) {
+                const roleSelect = document.getElementById(`${department}-roles`);
+                const errorMessage = roleSelect.nextElementSibling;
+                const applyBtn = document.getElementById(applyBtnId);
                 
-                if (!role) {
-                    // Show error message
-                    const errorMessage = document.createElement('div');
-                    errorMessage.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please select a sales role';
-                    errorMessage.style.color = '#e74c3c';
-                    errorMessage.style.marginTop = '15px';
-                    errorMessage.style.fontWeight = '500';
-                    errorMessage.style.textAlign = 'center';
-                    errorMessage.style.animation = 'fadeInUp 0.5s ease';
-                    
-                    // Remove any existing error message
-                    const existingError = roleSelect.parentElement.querySelector('.error-message');
-                    if (existingError) existingError.remove();
-                    
-                    // Add the new error message
-                    roleSelect.parentElement.appendChild(errorMessage);
-                    errorMessage.classList.add('error-message');
-                    
-                    // Add shake animation to the dropdown
-                    roleSelect.style.animation = 'shake 0.5s';
-                    setTimeout(() => {
-                        roleSelect.style.animation = '';
-                    }, 500);
-                    
-                    return false;
-                }
-                return true;
+                applyBtn.addEventListener('click', function(e) {
+                    if (!roleSelect.value) {
+                        e.preventDefault();
+                        errorMessage.style.display = 'block';
+                        roleSelect.style.animation = 'shake 0.5s';
+                        setTimeout(() => {
+                            roleSelect.style.animation = '';
+                        }, 500);
+                        
+                        // Scroll to the dropdown
+                        roleSelect.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                });
+                
+                // Hide error when selection changes
+                roleSelect.addEventListener('change', function() {
+                    if (roleSelect.value) {
+                        errorMessage.style.display = 'none';
+                    }
+                });
             }
             
-            // Service Department Application Function
-            function validateServiceRole() {
-                const roleSelect = document.getElementById("service-roles");
-                const role = roleSelect.value;
-                
-                if (!role) {
-                    // Show error message
-                    const errorMessage = document.createElement('div');
-                    errorMessage.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please select a service role';
-                    errorMessage.style.color = '#e74c3c';
-                    errorMessage.style.marginTop = '15px';
-                    errorMessage.style.fontWeight = '500';
-                    errorMessage.style.textAlign = 'center';
-                    errorMessage.style.animation = 'fadeInUp 0.5s ease';
-                    
-                    // Remove any existing error message
-                    const existingError = roleSelect.parentElement.querySelector('.error-message');
-                    if (existingError) existingError.remove();
-                    
-                    // Add the new error message
-                    roleSelect.parentElement.appendChild(errorMessage);
-                    errorMessage.classList.add('error-message');
-                    
-                    // Add shake animation to the dropdown
-                    roleSelect.style.animation = 'shake 0.5s';
-                    setTimeout(() => {
-                        roleSelect.style.animation = '';
-                    }, 500);
-                    
-                    return false;
-                }
-                return true;
-            }
-            
-            // Spare Parts Department Application Function
-            function validateSparePartsRole() {
-                const roleSelect = document.getElementById("spareparts-roles");
-                const role = roleSelect.value;
-                
-                if (!role) {
-                    // Show error message
-                    const errorMessage = document.createElement('div');
-                    errorMessage.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please select a spare parts role';
-                    errorMessage.style.color = '#e74c3c';
-                    errorMessage.style.marginTop = '15px';
-                    errorMessage.style.fontWeight = '500';
-                    errorMessage.style.textAlign = 'center';
-                    errorMessage.style.animation = 'fadeInUp 0.5s ease';
-                    
-                    // Remove any existing error message
-                    const existingError = roleSelect.parentElement.querySelector('.error-message');
-                    if (existingError) existingError.remove();
-                    
-                    // Add the new error message
-                    roleSelect.parentElement.appendChild(errorMessage);
-                    errorMessage.classList.add('error-message');
-                    
-                    // Add shake animation to the dropdown
-                    roleSelect.style.animation = 'shake 0.5s';
-                    setTimeout(() => {
-                        roleSelect.style.animation = '';
-                    }, 500);
-                    
-                    return false;
-                }
-                return true;
-            }
+            // Initialize department validations
+            setupDepartmentValidation('sales', 'sales-apply-btn');
+            setupDepartmentValidation('service', 'service-apply-btn');
+            setupDepartmentValidation('spareparts', 'spareparts-apply-btn');
             
             // Initialize
             window.addEventListener('scroll', animateOnScroll);
