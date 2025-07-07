@@ -1,2304 +1,4714 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Sarathy Group - Career Opportunities</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
+
         :root {
-            --primary: #00355e;       /* Deep professional blue */
+
+            --primary: #074e6e;       /* Deep professional blue */
+
             --secondary: #FFA41B;     /* Vibrant orange accent */
+
             --accent: #00B4D8;        /* Fresh cyan accent */
+
             --light: #f8fafc;         /* Light background */
-            --dark: #0f172a;          /* Dark text color */
-            --gray: #1e529a;          /* Secondary text */
+
+            --dark: #0b3958;          /* Dark text color */
+
+            --gray: #0e3e65;          /* Secondary text */
+
             --success: #28a745;
+
             --warning: #ffc107;
+
             --info: #17a2b8;
+
             --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.075);
-            --gradient-primary: linear-gradient(135deg, #004b85, #00578f);
+
+            --gradient-primary: linear-gradient(135deg, #000101, #000000);
+
             --gradient-accent: linear-gradient(135deg, #FFA41B, #FF8C00);
+
             --gradient-cyan: linear-gradient(135deg, #00B4D8, #0093b7);
+
             --section-spacing: 6rem 0;
+
+            --whatsapp: #25D366;
+
         }
-        
+
+       
+
         * {
+
             margin: 0;
+
             padding: 0;
+
             box-sizing: border-box;
+
         }
-        
+
+       
+
         body {
+
             font-family: 'Poppins', sans-serif;
+
             background-color: #f5f9ff;
+
             color: var(--dark);
+
             line-height: 1.7;
+
             overflow-x: hidden;
+
             scroll-behavior: smooth;
+
         }
-        
+
+       
+
         /* Header Styles */
+
         header {
+
             background: var(--gradient-primary);
+
             padding: 0.8rem 0;
+
             position: sticky;
+
             top: 0;
+
             z-index: 1000;
+
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
         }
-        
+
+       
+
         .header-container {
+
             max-width: 1280px;
+
             margin: 0 auto;
+
             padding: 0 20px;
+
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
+
         }
-        
+
+       
+
         .logo {
+
             display: flex;
+
             align-items: center;
+
             gap: 15px;
+
         }
-        
+
+       
+
         .logo-img {
+
             height: 48px;
+
             width: auto;
+
             border-radius: 8px;
+
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
         }
-        
+
+       
+
         .logo-text-container {
+
             display: flex;
+
             flex-direction: column;
+
         }
-        
+
+       
+
         .logo-text {
+
             color: white;
+
             font-size: 1.5rem;
+
             font-weight: 700;
+
             text-transform: uppercase;
+
             letter-spacing: 0.8px;
+
             line-height: 1.2;
+
         }
-        
+
+       
+
         .logo-tagline {
+
             color: var(--secondary);
+
             font-size: 0.9rem;
+
             font-weight: 400;
+
             letter-spacing: 0.5px;
+
         }
-        
+
+       
+
         nav ul {
+
             display: flex;
+
             list-style: none;
+
             gap: 5px;
+
         }
-        
+
+       
+
         nav li {
+
             margin-left: 0.8rem;
+
         }
-        
+
+       
+
         nav a {
+
             color: rgba(255, 255, 255, 0.9);
+
             text-decoration: none;
+
             font-weight: 500;
+
             transition: var(--transition);
+
             padding: 8px 16px;
+
             border-radius: 30px;
+
             font-size: 0.95rem;
+
             position: relative;
+
         }
-        
+
+       
+
         nav a:hover, nav a.active {
+
             color: white;
+
             background: rgba(255, 255, 255, 0.15);
+
         }
-        
+
+       
+
         nav a::after {
+
             content: '';
+
             position: absolute;
+
             bottom: 0;
+
             left: 50%;
+
             transform: translateX(-50%);
+
             width: 0;
+
             height: 3px;
+
             background: var(--secondary);
+
             transition: width 0.3s;
+
         }
-        
+
+       
+
         nav a:hover::after, nav a.active::after {
+
             width: 60%;
+
         }
-        
+
+       
+
         .mobile-menu-btn {
+
             display: none;
+
             background: none;
+
             border: none;
+
             color: white;
+
             font-size: 1.7rem;
+
             cursor: pointer;
+
             padding: 8px;
+
             z-index: 1001;
+
         }
-        
+
+       
+
         /* Hero Section - Enhanced with gradient animation */
+
         .hero {
+
             background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1683&q=80');
+
             background-size: cover;
+
             background-position: center;
+
             background-attachment: fixed;
+
             min-height: 85vh;
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             text-align: center;
+
             color: white;
+
             position: relative;
+
             padding: 40px 20px;
+
             overflow: hidden;
+
         }
-        
+
+       
+
         .hero::before {
+
             content: '';
+
             position: absolute;
+
             top: 0;
+
             left: 0;
+
             width: 100%;
+
             height: 100%;
-            background: linear-gradient(45deg, 
-                rgba(0, 53, 94, 0.4) 0%, 
-                rgba(0, 0, 0, 0.3) 50%, 
+
+            background: linear-gradient(45deg,
+
+                rgba(0, 53, 94, 0.4) 0%,
+
+                rgba(0, 0, 0, 0.3) 50%,
+
                 rgba(0, 180, 216, 0.4) 100%);
+
             z-index: 0;
+
             animation: gradientShift 15s ease infinite;
+
             background-size: 300% 300%;
+
         }
-        
+
+       
+
         .hero-content {
+
             max-width: 900px;
+
             padding: 0 20px;
+
             animation: fadeInUp 0.8s ease-out;
+
             position: relative;
+
             z-index: 2;
+
         }
-        
+
+       
+
         .hero h1 {
+
             font-size: 3.5rem;
+
             margin-bottom: 1.2rem;
+
             text-transform: uppercase;
+
             letter-spacing: 1.2px;
+
             text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+
             line-height: 1.2;
+
             font-weight: 800;
+
         }
-        
+
+       
+
         .hero h2 {
+
             font-size: 2.2rem;
+
             margin-bottom: 1.8rem;
+
             color: var(--secondary);
+
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+
             font-weight: 600;
+
         }
-        
+
+       
+
         .hero p {
+
             font-size: 1.25rem;
+
             margin-bottom: 2.5rem;
+
             max-width: 700px;
-            margin-left: auto;
+
+           margin-left: auto;
+
             margin-right: auto;
+
             opacity: 0.92;
+
             font-weight: 300;
+
         }
-        
+
+       
+
         .cta-button {
+
             display: inline-block;
+
             background: var(--gradient-accent);
+
             color: var(--dark);
+
             padding: 16px 40px;
+
             border-radius: 30px;
+
             text-decoration: none;
+
             font-weight: 700;
+
             font-size: 1.15rem;
+
             text-transform: uppercase;
+
             letter-spacing: 1.2px;
+
             transition: var(--transition);
+
             margin-top: 20px;
+
             box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+
             border: none;
+
             cursor: pointer;
+
             position: relative;
+
             overflow: hidden;
+
             z-index: 1;
+
         }
-        
+
+       
+
         .cta-button::before {
+
             content: '';
+
             position: absolute;
+
             top: 0;
+
             left: 0;
+
             width: 100%;
+
             height: 100%;
+
             background: linear-gradient(135deg, #FF8C00, #FFA41B);
+
             opacity: 0;
+
             transition: var(--transition);
+
             z-index: -1;
+
         }
-        
+
+       
+
         .cta-button:hover {
+
             transform: translateY(-5px) scale(1.05);
+
             box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+
         }
-        
+
+       
+
         .cta-button:hover::before {
+
             opacity: 1;
+
         }
-        
+
+       
+
         .scroll-indicator {
+
             position: absolute;
+
             bottom: 30px;
+
             left: 50%;
+
             transform: translateX(-50%);
+
             color: rgba(255, 255, 255, 0.8);
+
             font-size: 1.2rem;
+
             animation: bounce 2s infinite;
+
             z-index: 2;
+
         }
-        
+
+       
+
         /* About Section - Enhanced with new design */
+
         .about-section {
+
             padding: var(--section-spacing);
+
             background: white;
+
             position: relative;
+
             overflow: hidden;
+
         }
-        
+
+       
+
         .about-container {
+
             max-width: 1280px;
+
             margin: 0 auto;
+
             padding: 0 20px;
+
         }
-        
+
+       
+
         .section-title {
+
             text-align: center;
+
             margin-bottom: 4rem;
+
             color: var(--primary);
+
             position: relative;
+
         }
-        
+
+       
+
         .section-title h2 {
+
             font-size: 2.6rem;
+
             text-transform: uppercase;
+
             letter-spacing: 1.2px;
+
             position: relative;
+
             display: inline-block;
+
             padding-bottom: 25px;
+
             font-weight: 700;
+
         }
-        
+
+       
+
         .section-title h2::after {
+
             content: '';
+
             position: absolute;
+
             bottom: 0;
+
             left: 50%;
+
             transform: translateX(-50%);
+
             width: 120px;
+
             height: 5px;
+
             background: var(--secondary);
+
             border-radius: 3px;
+
         }
-        
+
+       
+
         .section-title p {
+
             font-size: 1.2rem;
+
             color: var(--gray);
+
             margin-top: 20px;
+
             max-width: 800px;
+
             margin-left: auto;
+
             margin-right: auto;
+
             line-height: 1.8;
+
         }
-        
+
+       
+
         .about-content {
+
             display: grid;
+
             grid-template-columns: 1fr 1fr;
+
             gap: 50px;
+
             align-items: center;
+
         }
-        
+
+       
+
         .about-text h3 {
+
             font-size: 1.9rem;
+
             color: var(--primary);
+
             margin-bottom: 25px;
+
             line-height: 1.4;
+
             position: relative;
+
             padding-left: 20px;
+
         }
-        
+
+       
+
         .about-text h3::before {
+
             content: '';
+
             position: absolute;
+
             left: 0;
+
             top: 10px;
+
             height: 60%;
+
             width: 5px;
+
             background: var(--secondary);
+
             border-radius: 3px;
+
         }
-        
+
+       
+
         .about-text p {
+
             margin-bottom: 25px;
+
             color: var(--gray);
+
             line-height: 1.9;
+
             font-size: 1.15rem;
+
         }
-        
+
+       
+
         .about-image {
-            background: var(--gradient-primary), url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'); 
-            background-size: cover; 
-            background-position: center; 
-            height: 450px;
-            border-radius: 16px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            padding: 40px;
-            box-shadow: var(--card-shadow);
-            position: relative;
-            overflow: hidden;
-            border: 3px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 87, 146, 0.9), rgba(0, 87, 146, 0.7));
-            z-index: 1;
-        }
-        
-        .about-image-content {
-            color: white; 
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            padding: 30px;
-        }
-        
-        .about-image-content h3 {
-            font-size: 2rem; 
-            margin-bottom: 25px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-            font-weight: 700;
-        }
-        
-        .about-image-content p {
-            font-size: 1.15rem;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-            line-height: 1.8;
-        }
-        
-        .companies-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 35px;
-            margin-top: 60px;
-        }
-        
-        .company-card {
-            background: white;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: var(--card-shadow);
-            transition: var(--transition);
-            border-left: 5px solid var(--secondary);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid #eaeaea;
-        }
-        
-        .company-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            border-color: var(--accent);
-        }
-        
-        .company-card h4 {
-            font-size: 1.35rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .company-card h4 i {
-            color: var(--secondary);
-            font-size: 1.5rem;
-        }
-        
-        .company-card p {
-            color: var(--gray);
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-        
-        /* Logo size adjustments */
-        .company-card .logo-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 15px;
-            height: 70px;
-        }
-        
-        .company-card .logo-container img {
-            max-height: 60px;
-            width: auto;
-            object-fit: contain;
-        }
-        
-        .company-card .established {
-            font-size: 0.9rem;
-            color: var(--primary);
-            font-weight: 600;
-            margin: 15px 0 10px;
-        }
-        
-        .company-card .brands {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 15px;
-        }
-        
-        .company-card .brand-tag {
-            background: rgba(17, 58, 89, 0.08);
-            color: var(--primary);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-        
-        .company-card .brand-tag:hover {
-            background: var(--accent);
-            color: white;
-            transform: translateY(-2px);
-        }
-        
-        /* Job Openings Section - Enhanced with new design */
-        .jobs-section {
-            padding: var(--section-spacing);
-            background: var(--light);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .jobs-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center/cover;
-            opacity: 0.03;
-            z-index: 0;
-        }
-        
-        .location-filter {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 40px;
-            padding: 0 20px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .filter-btn {
-            padding: 14px 28px;
-            background: white;
-            border: 2px solid #e2e8f0;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: 600;
-            font-size: 1.05rem;
-            min-width: 150px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .filter-btn:hover, .filter-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(8, 69, 116, 0.2);
-        }
-        
-        .jobs-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 35px;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .job-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-            transition: var(--transition);
-            position: relative;
-            border: 1px solid #e2e8f0;
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-        
-        .job-card.hidden {
-            opacity: 0;
-            transform: translateY(20px);
-            height: 0;
-            overflow: hidden;
-            margin: 0;
-            padding: 0;
-            border: none;
-        }
-        
-        .job-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            border-color: rgba(8, 69, 116, 0.2);
-        }
-        
-        .job-header {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 30px 25px;
-            text-align: center;
-            position: relative;
-        }
-        
-        .job-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,224L48,213.3C96,203,192,181,288,154.7C384,128,480,96,576,112C672,128,768,192,864,208C960,224,1056,192,1152,165.3C1248,139,1344,117,1392,106.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+
+            background: var(--gradient-primary), url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+
             background-size: cover;
-        }
-        
-        .company-info {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .company-logo-big, .company-logo-small {
-            display: flex;
-            justify-content: center;
-            gap: 18px;
-            margin-bottom: 20px;
-        }
-        
-        .company-logo-big i, .company-logo-small i {
-            font-size: 2.7rem;
-            color: var(--secondary);
-            background: rgba(255,255,255,0.2);
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-        
-        .job-card:hover .company-logo-big i, 
-        .job-card:hover .company-logo-small i {
-            transform: rotate(10deg);
-        }
-        
-        .company-name {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-        }
-        
-        .job-header h3 {
-            font-size: 1.15rem;
-            margin-bottom: 15px;
-            opacity: 0.92;
-            font-weight: 500;
-        }
-        
-        .job-location {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-size: 1rem;
-            opacity: 0.92;
-        }
-        
-        .job-location i {
-            color: var(--secondary);
-            font-size: 1.1rem;
-        }
-        
-        .job-body {
-            padding: 30px;
-        }
-        
-        .job-position {
-            margin-bottom: 25px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .job-position h4 {
-            font-size: 1.25rem;
-            margin-bottom: 18px;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .job-position h4 i {
-            color: var(--secondary);
-            font-size: 1.3rem;
-        }
-        
-        .job-positions-list {
-            list-style: none;
-        }
-        
-        .job-positions-list li {
-            padding: 12px 0;
-            border-bottom: 1px dashed #eee;
-            display: flex;
-            align-items: center;
-            font-size: 1.05rem;
-            transition: var(--transition);
-        }
-        
-        .job-positions-list li:hover {
-            background: rgba(8, 69, 116, 0.03);
-            padding-left: 12px;
-        }
-        
-        .job-positions-list li:last-child {
-            border-bottom: none;
-        }
-        
-        .job-positions-list li i {
-            color: var(--secondary);
-            margin-right: 12px;
-            min-width: 24px;
-            font-size: 1rem;
-        }
-        
-        .job-footer {
-            padding: 25px;
-            background: #f8fafc;
-            text-align: center;
-            border-top: 1px solid #e2e8f0;
-        }
-        
-        /* Department Sections - Enhanced with modern cards */
-        .department-section {
-            padding: var(--section-spacing);
-            background: linear-gradient(135deg, #f9fcff, #f0f7ff);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .department-container {
-            max-width: 850px;
-            margin: 0 auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-        
-        .department-content {
-            background: white;
-            border-radius: 20px;
-            padding: 50px;
-            margin-top: 25px;
-            box-shadow: var(--card-shadow);
-            border: 1px solid #e2e8f0;
-            position: relative;
-            overflow: hidden;
-            transition: var(--transition);
-        }
-        
-        .department-content:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-        }
-        
-        .department-dropdown {
-            margin: 30px 0;
-            text-align: left;
-        }
-        
-        .department-dropdown label {
-            display: block;
-            font-size: 1.15rem;
-            margin-bottom: 15px;
-            color: var(--primary);
-            font-weight: 600;
-            padding-left: 8px;
-        }
-        
-        .department-dropdown select {
-            width: 100%;
-            padding: 16px 22px;
-            border-radius: 12px;
-            border: 2px solid #e2e8f0;
-            font-size: 1.05rem;
-            color: var(--dark);
-            background: white;
-            transition: var(--transition);
-            appearance: none;
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23005792'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 20px center;
-            background-size: 18px;
-            font-family: 'Poppins', sans-serif;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-        }
-        
-        .department-dropdown select:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 4px rgba(0, 180, 216, 0.15);
-        }
-        
-        .department-dropdown select:hover {
-            border-color: var(--secondary);
-        }
-        
-        .department-cta {
-            margin-top: 35px;
-        }
-        
-        /* Employee Testimonials - Enhanced design */
-        .testimonials-section {
-            padding: var(--section-spacing);
-            background: var(--light);
-            position: relative;
-        }
-        
-        .testimonials-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 35px;
-            margin-top: 45px;
-        }
-        
-        .testimonial-card {
-            background: white;
+
+            background-position: center;
+
+            height: 450px;
+
             border-radius: 16px;
-            padding: 35px;
-            box-shadow: var(--card-shadow);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid #e2e8f0;
-            transition: var(--transition);
-            background: linear-gradient(135deg, #ffffff, #f8fafc);
-        }
-        
-        .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-        }
-        
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 7rem;
-            color: rgba(0, 87, 146, 0.05);
-            font-family: Georgia, serif;
-            line-height: 1;
-            z-index: 0;
-        }
-        
-        .testimonial-content {
-            position: relative;
-            z-index: 1;
-            margin-bottom: 30px;
-            font-style: italic;
-            color: var(--dark);
-            font-size: 1.1rem;
-            line-height: 1.9;
-        }
-        
-        .testimonial-author {
+
             display: flex;
+
             align-items: center;
-            gap: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .author-img {
-            width: 75px;
-            height: 75px;
-            border-radius: 50%;
-            background: var(--gradient-cyan);
-            display: flex;
-            align-items: center;
+
             justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.9rem;
-            flex-shrink: 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .author-info h4 {
-            font-size: 1.25rem;
-            color: var(--primary);
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
-        
-        .author-info p {
-            color: var(--gray);
-            font-size: 0.97rem;
-        }
-        
-        /* Google Form Section - Enhanced design */
-        .form-section {
-            padding: var(--section-spacing);
-            background: white;
-            position: relative;
-        }
-        
-        .form-container {
-            max-width: 950px;
-            margin: 0 auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-        
-        .form-wrapper {
-            background: white;
-            border-radius: 20px;
+
             padding: 40px;
-            margin-top: 35px;
+
             box-shadow: var(--card-shadow);
-            border: 1px solid #e2e8f0;
-            transition: var(--transition);
-            background: linear-gradient(135deg, #ffffff, #f8fafc);
-        }
-        
-        .form-wrapper:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-        }
-        
-        .form-preview {
-            background: linear-gradient(135deg, #f0f8ff, #e6f4ff);
-            border-radius: 16px;
-            padding: 50px 35px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            border: 2px dashed var(--accent);
-            transition: var(--transition);
-        }
-        
-        .form-preview:hover {
-            transform: scale(1.01);
-            background: linear-gradient(135deg, #e6f4ff, #d7eeff);
-        }
-        
-        .form-icon {
-            font-size: 4.5rem;
-            color: var(--primary);
-            margin-bottom: 25px;
-            transition: var(--transition);
-        }
-        
-        .form-preview:hover .form-icon {
-            transform: scale(1.1);
-        }
-        
-        .form-preview h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-        
-        .form-preview p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            max-width: 650px;
-            color: var(--gray);
-            line-height: 1.8;
-        }
-        
-        /* Apply Section - Enhanced with gradient */
-        .apply-section {
-            background: var(--gradient-primary);
-            padding: var(--section-spacing);
-            color: white;
-            text-align: center;
+
             position: relative;
+
             overflow: hidden;
+
+            border: 3px solid rgba(255, 255, 255, 0.2);
+
         }
-        
-        .apply-section::before {
+
+       
+
+        .about-image::before {
+
             content: '';
+
             position: absolute;
+
             top: 0;
+
             left: 0;
+
             width: 100%;
+
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center/cover;
-            opacity: 0.1;
-            z-index: 0;
-        }
-        
-        .apply-content {
-            max-width: 850px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
+
+            background: linear-gradient(135deg, rgba(62, 93, 116, 0.9), rgba(50, 85, 108, 0.7));
+
             z-index: 1;
+
         }
-        
-        .apply-content h2 {
-            font-size: 2.8rem;
-            margin-bottom: 1.8rem;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-        }
-        
-        .apply-content p {
-            font-size: 1.25rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.92;
-            max-width: 750px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.8;
-        }
-        
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 20px;
-            font-size: 1.2rem;
-            background: rgba(255,255,255,0.15);
-            padding: 20px 30px;
-            border-radius: 15px;
-            transition: var(--transition);
-            text-align: left;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .contact-item:hover {
-            background: rgba(255,255,255,0.25);
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-        }
-        
-        .contact-item i {
-            color: var(--secondary);
-            font-size: 1.7rem;
-            min-width: 45px;
-        }
-        
-        /* Footer - Enhanced design */
-        footer {
-            background: var(--dark);
+
+       
+
+        .about-image-content {
+
             color: white;
-            padding: 4rem 0 2rem;
-            position: relative;
-        }
-        
-        .footer-content {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-bottom: 3rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.8rem;
-            position: relative;
-            padding-bottom: 15px;
-        }
-        
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: var(--secondary);
-            border-radius: 2px;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 15px;
-        }
-        
-        .footer-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 1.05rem;
-            padding: 8px 0;
-        }
-        
-        .footer-links a:hover {
-            color: var(--secondary);
-            transform: translateX(8px);
-        }
-        
-        .footer-column p {
-            color: #cbd5e1;
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 25px;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 18px;
-            margin-top: 25px;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: rgba(255,255,255,0.12);
-            border-radius: 50%;
-            color: white;
-            transition: var(--transition);
-            font-size: 1.3rem;
-        }
-        
-        .social-links a:hover {
-            background: var(--secondary);
-            transform: translateY(-7px);
-        }
-        
-        .copyright {
+
             text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.15);
-            font-size: 1rem;
-            color: #94a3b8;
+
             position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
+
+            z-index: 2;
+
+            padding: 30px;
+
         }
-        
-        /* Floating Apply Button */
-        .floating-apply-btn {
-            display: none;
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--secondary);
-            color: var(--dark);
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.7rem;
-            text-decoration: none;
+
+       
+
+        .about-image-content h3 {
+
+            font-size: 2rem;
+
+            margin-bottom: 25px;
+
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+
+            font-weight: 700;
+
+        }
+
+       
+
+        .about-image-content p {
+
+            font-size: 1.15rem;
+
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+
+            line-height: 1.8;
+
+        }
+
+       
+
+        .companies-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+
+            gap: 35px;
+
+            margin-top: 60px;
+
+        }
+
+       
+
+        .company-card {
+
+            background: white;
+
+            border-radius: 16px;
+
+            padding: 30px;
+
+            box-shadow: var(--card-shadow);
+
             transition: var(--transition);
-            animation: pulse 2s infinite;
+
+            border-left: 5px solid var(--secondary);
+
+            position: relative;
+
+            overflow: hidden;
+
+            border: 1px solid #eaeaea;
+
         }
-        
-        .floating-apply-btn:hover {
-            transform: translateY(-7px) scale(1.1);
-            background: #ffb740;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
-            animation: none;
+
+       
+
+        .company-card:hover {
+
+            transform: translateY(-12px);
+
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+
+            border-color: var(--accent);
+
         }
-        
-        /* Scroll to top button */
-        .scroll-top {
-            position: fixed;
-            bottom: 110px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
+
+       
+
+        .company-card h4 {
+
+            font-size: 1.35rem;
+
+            color: var(--primary);
+
+            margin-bottom: 20px;
+
             display: flex;
+
             align-items: center;
+
+            gap: 12px;
+
+        }
+
+       
+
+        .company-card h4 i {
+
+            color: var(--secondary);
+
+            font-size: 1.5rem;
+
+        }
+
+       
+
+        .company-card p {
+
+            color: var(--gray);
+
+            font-size: 1.05rem;
+
+            line-height: 1.8;
+
+       }
+
+       
+
+        /* Logo size adjustments */
+
+        .company-card .logo-container {
+
+            display: flex;
+
             justify-content: center;
-            font-size: 1.3rem;
-            cursor: pointer;
-            z-index: 999;
-            opacity: 0;
-            transform: translateY(20px);
+
+            margin-bottom: 15px;
+
+            height: 70px;
+
+        }
+
+       
+
+        .company-card .logo-container img {
+
+            max-height: 60px;
+
+            width: auto;
+
+            object-fit: contain;
+
+        }
+
+       
+
+        .company-card .established {
+
+            font-size: 0.9rem;
+
+            color: var(--primary);
+
+            font-weight: 600;
+
+            margin: 15px 0 10px;
+
+        }
+
+       
+
+        .company-card .brands {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-top: 15px;
+
+        }
+
+       
+
+        .company-card .brand-tag {
+
+            background: rgba(17, 58, 89, 0.08);
+
+            color: var(--primary);
+
+            padding: 4px 10px;
+
+            border-radius: 20px;
+
+            font-size: 0.85rem;
+
+            font-weight: 500;
+
             transition: var(--transition);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
         }
-        
-        .scroll-top.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .scroll-top:hover {
+
+       
+
+        .company-card .brand-tag:hover {
+
             background: var(--accent);
+
+            color: white;
+
+            transform: translateY(-2px);
+
+        }
+
+       
+
+        /* Job Openings Section - Enhanced with new design */
+
+        .jobs-section {
+
+            padding: var(--section-spacing);
+
+            background: var(--light);
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+       
+
+        .jobs-section::before {
+
+            content: '';
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center/cover;
+
+            opacity: 0.03;
+
+            z-index: 0;
+
+        }
+
+       
+
+        .location-filter {
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 15px;
+
+            margin-bottom: 40px;
+
+            padding: 0 20px;
+
+            position: relative;
+
+            z-index: 1;
+
+        }
+
+       
+
+        .filter-btn {
+
+            padding: 14px 28px;
+
+            background: white;
+
+            border: 2px solid #e2e8f0;
+
+            border-radius: 30px;
+
+            cursor: pointer;
+
+            transition: var(--transition);
+
+            font-weight: 600;
+
+            font-size: 1.05rem;
+
+            min-width: 150px;
+
+            text-align: center;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+
+        }
+
+       
+
+        .filter-btn:hover, .filter-btn.active {
+
+            background: var(--primary);
+
+            color: white;
+
+            border-color: var(--primary);
+
             transform: translateY(-5px);
+
+            box-shadow: 0 10px 20px rgba(8, 69, 116, 0.2);
+
         }
+
+       
+
+        .jobs-container {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+
+            gap: 35px;
+
+            max-width: 1280px;
+
+            margin: 0 auto;
+
+            padding: 0 20px;
+
+            position: relative;
+
+            z-index: 1;
+
+        }
+
+       
+
+        .job-card {
+
+            background: white;
+
+            border-radius: 16px;
+
+            overflow: hidden;
+
+            box-shadow: var(--card-shadow);
+
+            transition: var(--transition);
+
+            position: relative;
+
+            border: 1px solid #e2e8f0;
+
+            opacity: 1;
+
+            transform: translateY(0);
+
+            transition: opacity 0.3s ease, transform 0.3s ease;
+
+        }
+
+       
+
+        .job-card.hidden {
+
+            opacity: 0;
+
+            transform: translateY(20px);
+
+            height: 0;
+
+            overflow: hidden;
+
+            margin: 0;
+
+            padding: 0;
+
+            border: none;
+
+        }
+
+       
+
+        .job-card:hover {
+
+            transform: translateY(-12px);
+
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+
+            border-color: rgba(8, 69, 116, 0.2);
+
+        }
+
+       
+
+        .job-header {
+
+            background: var(--gradient-primary);
+
+            color: white;
+
+            padding: 30px 25px;
+
+            text-align: center;
+
+            position: relative;
+
+        }
+
+       
+
+        .job-header::before {
+
+            content: '';
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,224L48,213.3C96,203,192,181,288,154.7C384,128,480,96,576,112C672,128,768,192,864,208C960,224,1056,192,1152,165.3C1248,139,1344,117,1392,106.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+
+            background-size: cover;
+
+        }
+
+       
+
+        .company-info {
+
+            position: relative;
+
+            z-index: 1;
+
+        }
+
+       
+
+        .company-logo-big, .company-logo-small {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 18px;
+
+            margin-bottom: 20px;
+
+        }
+
+       
+
+        .company-logo-big i, .company-logo-small i {
+
+            font-size: 2.7rem;
+
+            color: var(--secondary);
+
+            background: rgba(255,255,255,0.2);
+
+            width: 65px;
+
+            height: 65px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            transition: var(--transition);
+
+        }
+
+       
+
+        .job-card:hover .company-logo-big i,
+
+        .job-card:hover .company-logo-small i {
+
+            transform: rotate(10deg);
+
+        }
+
+       
+
+        .company-name {
+
+            font-size: 1.4rem;
+
+            font-weight: 700;
+
+            margin-bottom: 12px;
+
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+
+        }
+
+       
+
+        .job-header h3 {
+
+            font-size: 1.15rem;
+
+            margin-bottom: 15px;
+
+            opacity: 0.92;
+
+            font-weight: 500;
+
+        }
+
+       
+
+        .job-location {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            font-size: 1rem;
+
+            opacity: 0.92;
+
+        }
+
+       
+
+        .job-location i {
+
+            color: var(--secondary);
+
+            font-size: 1.1rem;
+
+        }
+
+       
+
+        .job-body {
+
+            padding: 30px;
+
+        }
+
+       
+
+        .job-position {
+
+            margin-bottom: 25px;
+
+            padding-bottom: 25px;
+
+            border-bottom: 1px solid #eee;
+
+        }
+
+       
+
+        .job-position h4 {
+
+            font-size: 1.25rem;
+
+            margin-bottom: 18px;
+
+            color: var(--primary);
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+       
+
+        .job-position h4 i {
+
+            color: var(--secondary);
+
+            font-size: 1.3rem;
+
+        }
+
+       
+
+        .job-positions-list {
+
+            list-style: none;
+
+        }
+
+       
+
+        .job-positions-list li {
+
+            padding: 12px 0;
+
+            border-bottom: 1px dashed #eee;
+
+            display: flex;
+
+            align-items: center;
+
+            font-size: 1.05rem;
+
+            transition: var(--transition);
+
+        }
+
+       
+
+        .job-positions-list li:hover {
+
+            background: rgba(8, 69, 116, 0.03);
+
+            padding-left: 12px;
+
+        }
+
+       
+
+        .job-positions-list li:last-child {
+
+            border-bottom: none;
+
+        }
+
+       
+
+        .job-positions-list li i {
+
+            color: var(--secondary);
+
+            margin-right: 12px;
+
+            min-width: 24px;
+
+            font-size: 1rem;
+
+        }
+
+       
+
+        .job-footer {
+
+            padding: 25px;
+
+            background: #f8fafc;
+
+            text-align: center;
+
+            border-top: 1px solid #e2e8f0;
+
+        }
+
+       
+
+        /* Department Sections - Enhanced with modern cards */
+
+        .department-section {
+
+            padding: var(--section-spacing);
+
+            background: linear-gradient(135deg, #f9fcff, #f0f7ff);
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+       
+
+        .department-container {
+
+            max-width: 850px;
+
+            margin: 0 auto;
+
+            padding: 0 20px;
+
+            text-align: center;
+
+        }
+
         
+
+        .department-content {
+
+            background: white;
+
+            border-radius: 20px;
+
+            padding: 50px;
+
+            margin-top: 25px;
+
+            box-shadow: var(--card-shadow);
+
+            border: 1px solid #e2e8f0;
+
+            position: relative;
+
+            overflow: hidden;
+
+            transition: var(--transition);
+
+        }
+
+       
+
+        .department-content:hover {
+
+            transform: translateY(-10px);
+
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+
+        }
+
+       
+
+        .department-dropdown {
+
+            margin: 30px 0;
+
+            text-align: left;
+
+        }
+
+       
+
+        .department-dropdown label {
+
+            display: block;
+
+            font-size: 1.15rem;
+
+            margin-bottom: 15px;
+
+            color: var(--primary);
+
+            font-weight: 600;
+
+            padding-left: 8px;
+
+        }
+
+       
+
+        .department-dropdown select {
+
+            width: 100%;
+
+            padding: 16px 22px;
+
+            border-radius: 12px;
+
+            border: 2px solid #e2e8f0;
+
+            font-size: 1.05rem;
+
+            color: var(--dark);
+
+            background: white;
+
+            transition: var(--transition);
+
+            appearance: none;
+
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23005792'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+
+            background-repeat: no-repeat;
+
+            background-position: right 20px center;
+
+            background-size: 18px;
+
+            font-family: 'Poppins', sans-serif;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+
+        }
+
+       
+
+        .department-dropdown select:focus {
+
+            outline: none;
+
+            border-color: var(--accent);
+
+            box-shadow: 0 0 0 4px rgba(0, 180, 216, 0.15);
+
+        }
+
+       
+
+        .department-dropdown select:hover {
+
+            border-color: var(--secondary);
+
+        }
+
+       
+
+        .department-cta {
+
+            margin-top: 35px;
+
+        }
+
+       
+
+        /* Employee Testimonials - Enhanced design */
+
+        .testimonials-section {
+
+            padding: var(--section-spacing);
+
+            background: var(--light);
+
+            position: relative;
+
+        }
+
+       
+
+        .testimonials-container {
+
+            max-width: 1280px;
+
+            margin: 0 auto;
+
+            padding: 0 20px;
+
+        }
+
+       
+
+        .testimonials-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+
+            gap: 35px;
+
+            margin-top: 45px;
+
+        }
+
+       
+
+        .testimonial-card {
+
+            background: white;
+
+            border-radius: 16px;
+
+            padding: 35px;
+
+            box-shadow: var(--card-shadow);
+
+            position: relative;
+
+            overflow: hidden;
+
+            border: 1px solid #e2e8f0;
+
+            transition: var(--transition);
+
+            background: linear-gradient(135deg, #ffffff, #f8fafc);
+
+        }
+
+       
+
+        .testimonial-card:hover {
+
+            transform: translateY(-10px);
+
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+
+        }
+
+       
+
+        .testimonial-card::before {
+
+            content: '"';
+
+            position: absolute;
+
+            top: 20px;
+
+            left: 20px;
+
+            font-size: 7rem;
+
+            color: rgba(0, 87, 146, 0.05);
+
+            font-family: Georgia, serif;
+
+            line-height: 1;
+
+            z-index: 0;
+
+        }
+
+       
+
+        .testimonial-content {
+
+            position: relative;
+
+            z-index: 1;
+
+            margin-bottom: 30px;
+
+            font-style: italic;
+
+            color: var(--dark);
+
+            font-size: 1.1rem;
+
+            line-height: 1.9;
+
+        }
+
+       
+
+        .testimonial-author {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+
+            position: relative;
+
+            z-index: 1;
+
+        }
+
+       
+
+        .author-img {
+
+            width: 75px;
+
+            height: 75px;
+
+            border-radius: 50%;
+
+            background: var(--gradient-cyan);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: white;
+
+            font-weight: bold;
+
+            font-size: 1.9rem;
+
+            flex-shrink: 0;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+        }
+
+       
+
+        .author-info h4 {
+
+            font-size: 1.25rem;
+
+            color: var(--primary);
+
+            margin-bottom: 6px;
+
+            font-weight: 600;
+
+        }
+
+       
+
+        .author-info p {
+
+            color: var(--gray);
+
+            font-size: 0.97rem;
+
+        }
+
+       
+
+        /* Google Form Section - Enhanced design */
+
+        .form-section {
+
+            padding: var(--section-spacing);
+
+            background: white;
+
+            position: relative;
+
+        }
+
+       
+
+        .form-container {
+
+            max-width: 950px;
+
+            margin: 0 auto;
+
+            padding: 0 20px;
+
+            text-align: center;
+
+        }
+
+       
+
+        .form-wrapper {
+
+            background: white;
+
+            border-radius: 20px;
+
+            padding: 40px;
+
+            margin-top: 35px;
+
+            box-shadow: var(--card-shadow);
+
+            border: 1px solid #e2e8f0;
+
+            transition: var(--transition);
+
+            background: linear-gradient(135deg, #ffffff, #f8fafc);
+
+        }
+
+       
+
+        .form-wrapper:hover {
+
+            transform: translateY(-10px);
+
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+
+        }
+
+       
+
+        .form-preview {
+
+            background: linear-gradient(135deg, #f0f8ff, #e6f4ff);
+
+            border-radius: 16px;
+
+            padding: 50px 35px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-direction: column;
+
+            border: 2px dashed var(--accent);
+
+            transition: var(--transition);
+
+        }
+
+       
+
+        .form-preview:hover {
+
+            transform: scale(1.01);
+
+            background: linear-gradient(135deg, #e6f4ff, #d7eeff);
+
+        }
+
+       
+
+        .form-icon {
+
+            font-size: 4.5rem;
+
+            color: var(--primary);
+
+            margin-bottom: 25px;
+
+            transition: var(--transition);
+
+        }
+
+       
+
+        .form-preview:hover .form-icon {
+
+            transform: scale(1.1);
+
+        }
+
+       
+
+        .form-preview h3 {
+
+            font-size: 2rem;
+
+            margin-bottom: 20px;
+
+            color: var(--primary);
+
+        }
+
+       
+
+        .form-preview p {
+
+            font-size: 1.2rem;
+
+            margin-bottom: 30px;
+
+            max-width: 650px;
+
+            color: var(--gray);
+
+            line-height: 1.8;
+
+        }
+
+       
+
+        /* Apply Section - Enhanced with gradient */
+
+        .apply-section {
+
+            background: var(--gradient-primary);
+
+            padding: var(--section-spacing);
+
+            color: white;
+
+            text-align: center;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+       
+
+        .apply-section::before {
+
+            content: '';
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center/cover;
+
+            opacity: 0.1;
+
+            z-index: 0;
+
+        }
+
+       
+
+        .apply-content {
+
+            max-width: 850px;
+
+            margin: 0 auto;
+
+            padding: 0 20px;
+
+            position: relative;
+
+            z-index: 1;
+
+        }
+
+       
+
+        .apply-content h2 {
+
+            font-size: 2.8rem;
+
+            margin-bottom: 1.8rem;
+
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+
+        }
+
+       
+
+        .apply-content p {
+
+            font-size: 1.25rem;
+
+            margin-bottom: 2.5rem;
+
+            opacity: 0.92;
+
+            max-width: 750px;
+
+            margin-left: auto;
+
+            margin-right: auto;
+
+            line-height: 1.8;
+
+        }
+
+       
+
+        .contact-info {
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            gap: 25px;
+
+            margin-top: 40px;
+
+            flex-wrap: wrap;
+
+            max-width: 700px;
+
+            margin-left: auto;
+
+            margin-right: auto;
+
+        }
+
+       
+
+        .contact-item {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: flex-start;
+
+            gap: 20px;
+
+            font-size: 1.2rem;
+
+            background: rgba(255,255,255,0.15);
+
+            padding: 20px 30px;
+
+            border-radius: 15px;
+
+            transition: var(--transition);
+
+            text-align: left;
+
+            backdrop-filter: blur(10px);
+
+            border: 1px solid rgba(255,255,255,0.2);
+
+            max-width: 600px;
+
+            margin: 0 auto;
+
+        }
+
+       
+
+        .contact-item:hover {
+
+            background: rgba(255,255,255,0.25);
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+
+        }
+
+       
+
+        .contact-item i {
+
+            color: var(--secondary);
+
+            font-size: 1.7rem;
+
+           min-width: 45px;
+
+        }
+
+       
+
+        /* Footer - Enhanced design */
+
+        footer {
+
+            background: var(--dark);
+
+            color: white;
+
+            padding: 4rem 0 2rem;
+
+            position: relative;
+
+        }
+
+       
+
+        .footer-content {
+
+            max-width: 1280px;
+
+            margin: 0 auto;
+
+            padding: 0 20px;
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+            gap: 40px;
+
+            margin-bottom: 3rem;
+
+            position: relative;
+
+            z-index: 1;
+
+        }
+
+       
+
+        .footer-column h3 {
+
+            font-size: 1.5rem;
+
+            margin-bottom: 1.8rem;
+
+            position: relative;
+
+            padding-bottom: 15px;
+
+        }
+
+       
+
+        .footer-column h3::after {
+
+            content: '';
+
+            position: absolute;
+
+            bottom: 0;
+
+            left: 0;
+
+            width: 60px;
+
+            height: 4px;
+
+            background: var(--secondary);
+
+            border-radius: 2px;
+
+        }
+
+       
+
+        .footer-links {
+
+            list-style: none;
+
+        }
+
+       
+
+        .footer-links li {
+
+            margin-bottom: 15px;
+
+        }
+
+       
+
+        .footer-links a {
+
+            color: #cbd5e1;
+
+            text-decoration: none;
+
+            transition: var(--transition);
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            font-size: 1.05rem;
+
+            padding: 8px 0;
+
+        }
+
+       
+
+        .footer-links a:hover {
+
+            color: var(--secondary);
+
+            transform: translateX(8px);
+
+        }
+
+       
+
+        .footer-column p {
+
+            color: #cbd5e1;
+
+            font-size: 1.05rem;
+
+            line-height: 1.8;
+
+            margin-bottom: 25px;
+
+        }
+
+       
+
+        .social-links {
+
+            display: flex;
+
+            gap: 18px;
+
+            margin-top: 25px;
+
+        }
+
+       
+
+        .social-links a {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 50px;
+
+            height: 50px;
+
+            background: rgba(255,255,255,0.12);
+
+            border-radius: 50%;
+
+            color: white;
+
+            transition: var(--transition);
+
+            font-size: 1.3rem;
+
+        }
+
+       
+
+        .social-links a:hover {
+
+            background: var(--secondary);
+
+            transform: translateY(-7px);
+
+        }
+
+       
+
+        .copyright {
+
+            text-align: center;
+
+            padding-top: 2rem;
+
+            border-top: 1px solid rgba(255,255,255,0.15);
+
+            font-size: 1rem;
+
+            color: #94a3b8;
+
+            position: relative;
+
+            z-index: 1;
+
+            max-width: 800px;
+
+            margin: 0 auto;
+
+        }
+
+       
+
+        /* Floating Apply Button */
+
+        .floating-apply-btn {
+
+            display: none;
+
+            position: fixed;
+
+            bottom: 30px;
+
+            right: 30px;
+
+            background: var(--secondary);
+
+            color: var(--dark);
+
+            width: 70px;
+
+            height: 70px;
+
+            border-radius: 50%;
+
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+
+            z-index: 1000;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 1.7rem;
+
+            text-decoration: none;
+
+            transition: var(--transition);
+
+            animation: pulse-orange 2s infinite;
+
+        }
+
+       
+
+        .floating-apply-btn:hover {
+
+            transform: translateY(-7px) scale(1.1);
+
+            background: #ffb740;
+
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+
+            animation: none;
+
+        }
+
+       
+
+        /* WhatsApp Floating Button */
+
+        .whatsapp-float {
+
+            position: fixed;
+
+            bottom: 30px;
+
+            left: 30px;
+
+            background: var(--whatsapp);
+
+            color: white;
+
+            width: 70px;
+
+            height: 70px;
+
+            border-radius: 50%;
+
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+
+            z-index: 1000;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 2.2rem;
+
+            text-decoration: none;
+
+            transition: var(--transition);
+
+            animation: pulse-whatsapp 2s infinite;
+
+        }
+
+       
+
+        .whatsapp-float:hover {
+
+            transform: translateY(-7px) scale(1.1);
+
+            background: #128C7E;
+
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+
+            animation: none;
+
+        }
+
+       
+
+        /* Scroll to top button */
+
+        .scroll-top {
+
+            position: fixed;
+
+            bottom: 110px;
+
+            right: 30px;
+
+            width: 50px;
+
+            height: 50px;
+
+            background: var(--primary);
+
+            color: white;
+
+           border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 1.3rem;
+
+            cursor: pointer;
+
+            z-index: 999;
+
+            opacity: 0;
+
+            transform: translateY(20px);
+
+            transition: var(--transition);
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+        }
+
+       
+
+        .scroll-top.visible {
+
+            opacity: 1;
+
+            transform: translateY(0);
+
+        }
+
+       
+
+        .scroll-top:hover {
+
+            background: var(--accent);
+
+            transform: translateY(-5px);
+
+        }
+
+       
+
         /* Animations */
+
         @keyframes fadeInUp {
+
             from {
+
                 opacity: 0;
+
                 transform: translateY(40px);
+
             }
+
             to {
+
                 opacity: 1;
+
                 transform: translateY(0);
+
             }
+
         }
-        
-        @keyframes pulse {
+
+       
+
+        @keyframes pulse-orange {
+
             0% {
+
                 box-shadow: 0 0 0 0 rgba(255, 164, 27, 0.7);
+
             }
+
             70% {
+
                 box-shadow: 0 0 0 18px rgba(255, 164, 27, 0);
+
             }
+
             100% {
+
                 box-shadow: 0 0 0 0 rgba(255, 164, 27, 0);
+
             }
+
         }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-20px);}
-            60% {transform: translateY(-10px);}
-        }
-        
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-8px); }
-            75% { transform: translateX(8px); }
-        }
-        
-        @keyframes gradientShift {
+
+       
+
+        @keyframes pulse-whatsapp {
+
             0% {
-                background-position: 0% 50%;
+
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+
             }
-            50% {
-                background-position: 100% 50%;
+
+            70% {
+
+                box-shadow: 0 0 0 18px rgba(37, 211, 102, 0);
+
             }
+
             100% {
+
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+
+            }
+
+        }
+
+       
+
+        @keyframes bounce {
+
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+
+            40% {transform: translateY(-20px);}
+
+            60% {transform: translateY(-10px);}
+
+        }
+
+       
+
+        @keyframes shake {
+
+            0%, 100% { transform: translateX(0); }
+
+            25% { transform: translateX(-8px); }
+
+            75% { transform: translateX(8px); }
+
+        }
+
+       
+
+        @keyframes gradientShift {
+
+            0% {
+
                 background-position: 0% 50%;
+
             }
+
+            50% {
+
+                background-position: 100% 50%;
+
+            }
+
+            100% {
+
+                background-position: 0% 50%;
+
+            }
+
         }
-        
+
+       
+
         /* Mobile-Specific Styles */
+
         @media (max-width: 1100px) {
+
             .jobs-container {
+
                 grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+
             }
-            
+
+           
+
             .testimonials-grid {
+
                 grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
             }
+
         }
-        
+
+       
+
         @media (max-width: 900px) {
+
             .about-content {
+
                 grid-template-columns: 1fr;
+
                 gap: 40px;
+
             }
+
             
+
             .about-image {
+
                 height: 400px;
+
             }
-            
+
+           
+
             .department-content {
+
                 padding: 35px;
+
             }
+
         }
-        
+
+       
+
         @media (max-width: 768px) {
+
             .header-container {
+
                 padding: 0 15px;
+
             }
-            
+
+           
+
             nav {
+
                 position: fixed;
+
                 top: 0;
+
                 left: 0;
+
                 right: 0;
+
                 height: 100vh;
+
                 background: var(--primary);
+
                 width: 100%;
+
                 display: none;
+
                 flex-direction: column;
+
                 justify-content: center;
+
                 align-items: center;
+
                 z-index: 999;
+
             }
-            
+
+           
+
             nav.show {
+
                 display: flex;
+
             }
-            
+
+           
+
             nav ul {
+
                 flex-direction: column;
+
                 padding: 0;
+
                 gap: 5px;
+
             }
-            
+
+           
+
             nav li {
+
                 margin: 0;
+
                 width: 100%;
+
                 text-align: center;
+
             }
-            
+
+           
+
             nav a {
+
                 display: block;
+
                 padding: 18px 25px;
+
                 border-radius: 0;
+
                 border-bottom: 1px solid rgba(255,255,255,0.1);
+
                 font-size: 1.2rem;
+
                 width: 100%;
+
             }
-            
+
+           
+
             .mobile-menu-btn {
+
                 display: block;
+
             }
-            
+
+           
+
             .hero {
+
                 min-height: 80vh;
+
             }
-            
+
+           
+
             .hero h1 {
+
                 font-size: 2.5rem;
+
             }
-            
+
+           
+
             .hero h2 {
+
                 font-size: 1.7rem;
+
             }
-            
+
+           
+
             .hero p {
+
                 font-size: 1.1rem;
+
             }
-            
+
+           
+
             .section-title h2 {
+
                 font-size: 2.2rem;
+
             }
-            
+
+           
+
             .section-title p {
+
                 font-size: 1.1rem;
+
             }
-            
+
+           
+
             .about-image {
+
                 height: 350px;
+
                 order: -1;
+
             }
-            
+
+           
+
             .companies-grid {
+
                 grid-template-columns: 1fr;
+
             }
-            
+
+           
+
             .location-filter {
+
                 gap: 10px;
+
             }
-            
+
+           
+
             .filter-btn {
+
                 padding: 12px 20px;
+
                 font-size: 1rem;
+
                 min-width: 130px;
+
             }
-            
+
+           
+
             .jobs-container {
+
                 grid-template-columns: 1fr;
+
             }
-            
+
+           
+
             .department-content {
+
                 padding: 35px 25px;
+
             }
-            
+
+           
+
             .form-preview {
+
                 padding: 35px 20px;
+
             }
-            
+
+           
+
             .form-preview h3 {
+
                 font-size: 1.8rem;
-            }
-            
+
+           }
+
+           
+
             .form-preview p {
+
                 font-size: 1.1rem;
+
             }
-            
+
+           
+
             .apply-content h2 {
+
                 font-size: 2.3rem;
+
             }
-            
+
+           
+
             .apply-content p {
+
                 font-size: 1.1rem;
+
             }
-            
+
+           
+
             .contact-item {
+
                 font-size: 1.1rem;
+
                 padding: 16px 25px;
+
             }
-            
-            .floating-apply-btn, .scroll-top {
+
+           
+
+            .floating-apply-btn, .scroll-top, .whatsapp-float {
+
                 width: 60px;
+
                 height: 60px;
+
                 font-size: 1.5rem;
+
                 bottom: 25px;
-                right: 25px;
+
             }
-            
+
+           
+
             .scroll-top {
+
                 bottom: 100px;
+
             }
-            
+
+           
+
             .floating-apply-btn {
+
                 display: flex;
+
+                right: 25px;
+
             }
+
+           
+
+            .whatsapp-float {
+
+                left: 25px;
+
+            }
+
         }
-        
+
+       
+
         @media (max-width: 480px) {
+
             .logo-text {
+
                 font-size: 1.3rem;
+
             }
-            
+
+           
+
             .logo-tagline {
+
                 font-size: 0.8rem;
+
             }
-            
+
+           
+
             .hero {
+
                 min-height: 85vh;
+
             }
-            
+
+           
+
             .hero h1 {
+
                 font-size: 2rem;
+
             }
-            
+
+           
+
             .hero h2 {
+
                 font-size: 1.4rem;
+
             }
-            
+
+           
+
             .cta-button {
+
                 padding: 14px 32px;
+
                 font-size: 1.05rem;
+
             }
-            
+
+           
+
             .section-title h2 {
+
                 font-size: 1.9rem;
+
                 padding-bottom: 20px;
+
             }
-            
+
+           
+
             .section-title h2::after {
+
                 width: 100px;
+
             }
-            
+
+           
+
             .about-image {
+
                 height: 300px;
+
             }
-            
+
+           
+
             .about-text h3 {
+
                 font-size: 1.7rem;
+
             }
-            
+
+           
+
             .filter-btn {
+
                 padding: 10px 16px;
+
                 font-size: 0.95rem;
+
                 min-width: 120px;
+
             }
-            
+
+           
+
             .department-dropdown select {
+
                 padding: 14px 18px;
+
             }
-            
+
+           
+
             .testimonial-card {
+
                 padding: 30px;
+
             }
-            
+
+           
+
             .form-preview {
+
                 padding: 30px 15px;
+
             }
-            
+
+           
+
             .contact-item {
+
                 font-size: 1rem;
+
                 padding: 14px 20px;
+
             }
+
         }
+
     </style>
+
 </head>
+
 <body>
+
     <!-- Header -->
+
     <header>
+
         <div class="header-container">
+
             <div class="logo">
+
                 <div class="img-container">
+
                     <img src="sarathy-group-logo.png" alt="Sarathy Group Logo" class="logo-img">
-                </div>
+
+               </div>
+
                 <div class="logo-text-container">
+
                     <div class="logo-text">SARATHY HR DEPARTMENT</div>
+
                     <div class="logo-tagline">Experience the new drive</div>
+
                 </div>
+
             </div>
+
             <button class="mobile-menu-btn" id="menuToggle">
+
                 <i class="fas fa-bars"></i>
+
             </button>
+
             <nav id="mainNav">
+
                 <ul>
+
                     <li><a href="#" class="active">Home</a></li>
+
                     <li><a href="#about">About Us</a></li>
+
                     <li><a href="#jobs">Job Openings</a></li>
+
                     <li><a href="#sales">Sales</a></li>
+
                     <li><a href="#service">Service</a></li>
+
                     <li><a href="#spareparts">Spare Parts</a></li>
+
                     <li><a href="#google-form">Apply Now</a></li>
+
                     <li><a href="#contact">Contact</a></li>
+
                 </ul>
+
             </nav>
+
         </div>
+
     </header>
 
+ 
+
     <!-- Hero Section -->
+
     <section class="hero">
+
         <div class="hero-content">
+
             <h1>WE ARE HIRING!</h1>
+
             <h2>Join Our Growing Team</h2>
-            <p>Sarathy Group is expanding and seeking talented individuals to join our team. We offer exciting career opportunities in the automotive industry with competitive benefits and a supportive work environment.</p>
+
+            <p>Sarathy Group is expanding and seeking talented individuals to join our team. Click the WhatsApp icon to connect with our HR Chatbot at 9037833865 and explore job openings instantly!</p>
+
             <a href="#jobs" class="cta-button">View Open Positions</a>
+
         </div>
+
         <div class="scroll-indicator">
+
             <i class="fas fa-chevron-down"></i>
+
         </div>
+
     </section>
+
+ 
+
+    <!-- WhatsApp Floating Button -->
+
+    <a href="https://wa.me/919037833865?text=Hi,%20I'm%20interested%20in%20job%20openings%20at%20Sarathy%20Group" class="whatsapp-float" target="_blank">
+
+        <i class="fab fa-whatsapp"></i>
+
+    </a>
+
+ 
 
     <!-- About Section -->
+
     <section class="about-section" id="about">
+
         <div class="about-container">
+
             <div class="section-title">
+
                 <h2>About Sarathy Group</h2>
+
                 <p>Leading the automotive industry with innovation and excellence</p>
+
             </div>
-            
+
+           
+
             <div class="about-content">
+
                 <div class="about-text">
+
                     <h3>Our Journey in the Automotive Industry</h3>
+
                     <p>Sarathy Group is a progressive automotive company with a strong presence across South India and expanding global aspirations. Since our establishment, we have remained committed to delivering exceptional customer service and innovative mobility solutions across a wide range of automotive segments.</p>
+
                     <p>With a growing footprint across domestic and international markets, Sarathy Group is steadily strengthening its reputation as a trusted and forward-thinking leader in the automotive industry.</p>
+
                     <p>Our unwavering dedication to excellence, customer satisfaction, and operational efficiency has positioned us among the most respected automotive enterprises in the region. We are focused on delivering exceptional value through ethical practices, advanced technology, and service excellence.</p>
+
                     <p>Through continuous innovation and strategic growth, Sarathy Group is actively shaping the future of the automotive industry—driving progress with integrity, reliability, and a customer-first approach.</p>
+
                 </div>
-                
+
+               
+
                 <div class="about-image">
+
                     <div class="about-image-content">
+
                         <h3>Our Mission</h3>
+
                         <p>To drive the future of mobility by blending cutting-edge technology with unmatched service.</p>
+
                     </div>
+
                 </div>
+
             </div>
-            
+
+           
+
             <div class="section-title" style="margin-top: 4rem;">
+
                 <h2>Our Companies</h2>
+
                 <p>Diverse portfolio of automotive businesses</p>
+
             </div>
-            
+
+           
+
             <div class="companies-grid">
+
                 <div class="company-card">
+
                     <div class="logo-container">
+
                         <img src="bajaj.png" alt="Sarathy Motors Logo">
+
                     </div>
+
                     <div class="card-content">
+
                         <h4><i class="fas fa-motorcycle"></i> SARATHY MOTORS</h4>
+
                         <p>Established in 1987 with extensive operations across South Kerala, India. Specializes in providing comprehensive automotive solutions with a strong focus on Maruti Suzuki vehicles and multi-brand two-wheelers including KTM, Bajaj, Triumph, and Ather.</p>
+
                         <div class="established">Established: 1987</div>
+
                         <div class="brands">
+
                             <span class="brand-tag">Bajaj</span>
+
                         </div>
+
                     </div>
+
                 </div>
-                
+
+               
+
                 <div class="company-card">
+
                     <div class="logo-container">
+
                         <img src="ktm.png" alt="Sarathy Bikes Logo">
+
                     </div>
+
                     <div class="card-content">
+
                         <h4><i class="fas fa-motorcycle"></i> SARATHY BIKES PRIVATE LIMITED</h4>
-                        <p>Specializing in two‑wheeler sales and services under the Sarathy brand, with a focus on Bajaj, KTM, Triumph, Husqvarna, and Chetak, operating across multiple locations in Kollam and surrounding areas.</p>
+
+                        <p>Specializing in two wheeler sales and services under the Sarathy brand, with a focus on Bajaj, KTM, Triumph, Husqvarna, and Chetak, operating across multiple locations in Kollam and surrounding areas.</p>
+
                         <div class="established">Private Limited Company</div>
+
                         <div class="brands">
+
                             <span class="brand-tag">KTM</span>
+
                             <span class="brand-tag">Triumph</span>
+
                             <span class="brand-tag">Husqvarna</span>
+
                             <span class="brand-tag">Chetak</span>
+
                         </div>
+
                     </div>
+
                 </div>
-                
+
+               
+
                 <div class="company-card">
+
                     <div class="logo-container">
+
                         <img src="Chetak-logo-2.png" alt="Sarathy Electric Bikes Logo">
+
                     </div>
+
                     <div class="card-content">
+
                         <h4><i class="fas fa-motorcycle"></i> SARATHY ELECTRIC BIKES PRIVATE LIMITED</h4>
+
                         <p>Established to meet the growing demand for sustainable mobility, Sarathy Electric Bikes offers premium electric two-wheelers under the Bajaj Chetak and Ather brands. Operating across key locations in South Kerala, they provide end-to-end EV solutions.</p>
+
                         <div class="established">Specialized in EV Solutions</div>
+
                         <div class="brands">
+
                             <span class="brand-tag">Ather</span>
+
                             <span class="brand-tag">chetak</span>
+
                             <span class="brand-tag">EV Charging</span>
+
                             <span class="brand-tag">Sustainable Mobility</span>
+
                         </div>
+
                     </div>
+
                 </div>
-                
+
+               
+
                 <div class="company-card">
+
                     <div class="logo-container">
+
                         <img src="arena-logo.webp" alt="Sarathy Auto Cars Logo">
+
                     </div>
+
                     <div class="card-content">
+
                         <h4><i class="fas fa-car-side"></i> SARATHY AUTO CARS</h4>
+
                         <p>Part of the Sarathy Group network, established in 1999, Sarathy Autocars is a trusted Maruti Suzuki dealership in Kollam and Thiruvananthapuram, offering a full range of sales, service, and certified pre-owned vehicles.</p>
+
                         <div class="established">Established: 1999</div>
+
                         <div class="brands">
+
                             <span class="brand-tag">Maruti Suzuki</span>
+
                             <span class="brand-tag">Sales</span>
+
                             <span class="brand-tag">Service</span>
+
                             <span class="brand-tag">True Value</span>
+
                             <span class="brand-tag">Pre-owned Vehicles</span>
+
                         </div>
+
                     </div>
+
                 </div>
-                
+
+               
+
                 <div class="company-card">
+
                     <div class="logo-container">
+
                         <img src="nexa3.png">
+
                     </div>
+
                     <div class="card-content">
+
                         <h4><i class="fas fa-car-side"></i> SARATHY CARS PRIVATE LIMITED</h4>
+
                         <p>Incorporated in August 2016, Sarathy Cars Pvt Ltd serves as the company behind Sarathy NEXA and Arena dealerships, operating under the Sarathy Group in Kollam and Thiruvananthapuram.</p>
+
                         <div class="established">Incorporated: 2016</div>
+
                         <div class="brands">
+
                             <span class="brand-tag">NEXA</span>
+
                             <span class="brand-tag">Arena</span>
+
                             <span class="brand-tag">Premium Dealership</span>
+
                             <span class="brand-tag">Kollam</span>
+
                             <span class="brand-tag">Thiruvananthapuram</span>
+
                         </div>
+
                     </div>
+
                 </div>
-                
+
+               
+
                 <div class="company-card">
+
                     <div class="logo-container">
+
                         <img src="arena-logo.webp">
+
                     </div>
+
                     <div class="card-content">
+
                         <h4><i class="fas fa-car-side"></i> SARATHY AUTODRIVES</h4>
-                        <p>Founded in 1999, Sarathy Autodrives is the dedicated Maruti Suzuki ARENA (and True Value pre‑owned) dealership under the Sarathy Group, offering a full spectrum of sales, service, and certified used car solutions.</p>
+
+                        <p>Founded in 1999, Sarathy Autodrives is the dedicated Maruti Suzuki ARENA (and True Value pre owned) dealership under the Sarathy Group, offering a full spectrum of sales, service, and certified used car solutions.</p>
+
                         <div class="established">Established: 1999</div>
+
                         <div class="brands">
+
                             <span class="brand-tag">Maruti Suzuki ARENA</span>
+
                             <span class="brand-tag">True Value</span>
+
                             <span class="brand-tag">Pre-owned Cars</span>
+
                             <span class="brand-tag">Sales & Service</span>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
+
     </section>
+
+ 
 
     <!-- Job Openings Section -->
+
     <section class="jobs-section" id="jobs">
+
         <div class="section-title">
+
             <h2>Current Job Openings</h2>
+
             <p>Explore opportunities at our different locations</p>
+
         </div>
-        
+
+       
+
         <div class="location-filter">
+
             <button class="filter-btn active" data-location="all">All Locations</button>
+
             <button class="filter-btn" data-location="kollam">Kollam</button>
-            <button class="filter-btn" data-location="chengannur">Chengannur</button>
+
+            <button class="filter-btn" data-location="kottarakkara">Kottarakkara</button>
+
             <button class="filter-btn" data-location="balaramapuram">Balaramapuram</button>
+
             <button class="filter-btn" data-location="varkala">Varkala</button>
+
         </div>
-        
+
+       
+
         <div class="jobs-container">
+
             <!-- Kollam Jobs -->
+
             <div class="job-card" data-location="kollam">
+
                 <div class="job-header">
+
                     <div class="company-info">
+
                         <div class="company-logo-big">
+
                             <i class="fas fa-motorcycle"></i>
-                            <i class="fas fa-car-side"></i>
                         </div>
-                        <div class="company-name">Sarathy Motors, Sarathy Autocars</div>
+
+                        <div class="company-name">Sarathy Motors</div>
+
                     </div>
+
                     <h3>Paravoor-Punalur-Kottarakkara-Bharanikkavu</h3>
+
                     <div class="job-location">
+
                         <i class="fas fa-map-marker-alt"></i>
+
                         <span>Kollam, India</span>
+
                     </div>
+
                 </div>
+
                 <div class="job-body">
+
                     <div class="job-position">
+
                         <h4><i class="fas fa-briefcase"></i> Available Positions</h4>
+
                         <ul class="job-positions-list">
+
                             <li><i class="fas fa-check-circle"></i> Sales Executive</li>
+
                             <li><i class="fas fa-check-circle"></i> Data Analyst</li>
+
                             <li><i class="fas fa-check-circle"></i> Service Advisor</li>
-                            <li><i class="fas fa-check-circle"></i> Accounts Manager</li>
+
+                            <li><i class="fas fa-check-circle"></i> Accounts Trainee</li>
+
                         </ul>
+
                     </div>
+
                 </div>
+
                 <div class="job-footer">
+
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank">
+
                         <i class="fas fa-paper-plane"></i> Apply Now
+
                     </a>
+
                 </div>
+
             </div>
 
-            <!-- Chengannur Jobs -->
-            <div class="job-card" data-location="chengannur">
+ 
+
+            <!-- Kollam, Kottarakkara Jobs -->
+
+            <div class="job-card" data-location="kottarakkara">
+
                 <div class="job-header">
+
                     <div class="company-info">
+
                         <div class="company-logo-small">
+
                             <i class="fas fa-motorcycle"></i>
+
                         </div>
-                       <div class="company-name">Ather</div>
+
+                       <div class="company-name">Sarathy Autocars</div>
+
                     </div>
-                    <h3>Chengannur</h3>
+
+                    <h3>Kottarakkara</h3>
+
                     <div class="job-location">
+
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Alappuzha, India</span>
+
+                        <span>Kollam, Kottarakkara, India</span>
+
                     </div>
+
                 </div>
+
                 <div class="job-body">
+
                     <div class="job-position">
+
                         <h4><i class="fas fa-briefcase"></i> Available Positions</h4>
+
                         <ul class="job-positions-list">
-                            <li><i class="fas fa-check-circle"></i> Spare In-Charge</li>
-                            <li><i class="fas fa-check-circle"></i> Accounts - Experienced</li>
-                            <li><i class="fas fa-check-circle"></i> EV Technician - Experienced</li>
+
+                            <li><i class="fas fa-check-circle"></i> Relationship Manager</li>
+
+                            <li><i class="fas fa-check-circle"></i> Sales Executive</li>
+
+                            <li><i class="fas fa-check-circle"></i> Trainee Sales Officer</li>
+
                             <li><i class="fas fa-check-circle"></i> Service Advisor - Experienced</li>
-                            <li><i class="fas fa-check-circle"></i> Customer Relations Executive</li>
+
+                            <li><i class="fas fa-check-circle"></i> Direct Sales Executive</li>
+
                         </ul>
+
                     </div>
+
                 </div>
+
                 <div class="job-footer">
+
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank">
+
                         <i class="fas fa-paper-plane"></i> Apply Now
+
                     </a>
+
                 </div>
+
             </div>
+
+ 
 
             <!-- Balaramapuram Jobs -->
+
             <div class="job-card" data-location="balaramapuram">
+
                 <div class="job-header">
+
                     <div class="company-info">
+
                         <div class="company-logo-small">
+
                             <i class="fas fa-motorcycle"></i>
+
                         </div>
+
                         <div class="company-name">Ather</div>
+
                     </div>
+
                     <h3>Balaramapuram, Neyyattinkara</h3>
+
                     <div class="job-location">
+
                         <i class="fas fa-map-marker-alt"></i>
+
                         <span>Thiruvananthapuram, India</span>
+
                     </div>
+
                 </div>
+
                 <div class="job-body">
+
                     <div class="job-position">
+
                         <h4><i class="fas fa-briefcase"></i> Available Positions</h4>
+
                         <ul class="job-positions-list">
+
                             <li><i class="fas fa-check-circle"></i> Sales Executive</li>
+
                             <li><i class="fas fa-check-circle"></i> Trainee</li>
+
                             <li><i class="fas fa-check-circle"></i> Billing Staff</li>
+
                             <li><i class="fas fa-check-circle"></i> Service Advisor</li>
+
                             <li><i class="fas fa-check-circle"></i> Data Analyst</li>
+
                         </ul>
+
                     </div>
+
                 </div>
+
                 <div class="job-footer">
+
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank">
+
                         <i class="fas fa-paper-plane"></i> Apply Now
+
                     </a>
+
                 </div>
+
             </div>
+
+ 
 
             <!-- Varkala Jobs -->
+
             <div class="job-card" data-location="varkala">
+
                 <div class="job-header">
+
                     <div class="company-info">
+
                         <div class="company-logo-small">
+
                             <i class="fas fa-motorcycle"></i>
+
                         </div>
+
                         <div class="company-name">Ather</div>
+
                     </div>
+
                     <h3>Varkala</h3>
+
                     <div class="job-location">
+
                         <i class="fas fa-map-marker-alt"></i>
+
                         <span>Thiruvananthapuram, India</span>
+
                     </div>
+
                 </div>
+
                 <div class="job-body">
+
                     <div class="job-position">
+
                         <h4><i class="fas fa-briefcase"></i> Available Positions</h4>
+
                         <ul class="job-positions-list">
+
                             <li><i class="fas fa-check-circle"></i> EV Technician - Experienced</li>
-                            <li><i class="fas fa-check-circle"></i> Housekeeping Staff</li>
-                            <li><i class="fas fa-check-circle"></i> Security Guard</li>
+
+                            <li><i class="fas fa-check-circle"></i> Service Advisor</li>
+
+                            <li><i class="fas fa-check-circle"></i> Trainee</li>
+
                             <li><i class="fas fa-check-circle"></i> Sales Associate</li>
+
                         </ul>
+
                     </div>
+
                 </div>
+
                 <div class="job-footer">
+
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank">
+
                         <i class="fas fa-paper-plane"></i> Apply Now
+
                     </a>
+
                 </div>
+
             </div>
+
         </div>
+
     </section>
+
+ 
 
     <!-- Sales Department Section -->
+
     <section class="department-section" id="sales">
+
         <div class="department-container">
+
             <div class="section-title">
+
                 <h2>Sales Department Opportunities</h2>
+
                 <p>Join our dynamic sales team and drive your career forward</p>
+
             </div>
-            
+
+           
+
             <div class="department-content">
+
                 <p>At Sarathy Group, our sales team is the driving force behind our success. We're looking for passionate individuals who can connect with customers and deliver exceptional automotive solutions. Select your desired position and apply today!</p>
-                
+
+               
+
                 <div class="department-dropdown">
+
                     <label for="sales-roles"><i class="fas fa-briefcase"></i> Choose a Sales Role:</label>
+
                     <select id="sales-roles" name="sales-roles">
+
                         <option value="" disabled selected>Select a position</option>
+
                         <option value="sales-trainee">Sales Trainee</option>
+
                         <option value="sdr">Sales Development Representative (SDR)</option>
+
                         <option value="sales-associate">Sales Associate</option>
+
                         <option value="sales-executive">Sales Executive</option>
+
                         <option value="senior-sales-manager">Senior Sales Manager</option>
+
                         <option value="regional-sales-manager">Regional Sales Manager</option>
+
                         <option value="sales-manager">Sales Manager</option>
+
                         <option value="director-sales">Director of Sales</option>
+
                         <option value="product-specialist">Product Specialist</option>
+
                         <option value="relationship-manager">Relationship Manager</option>
+
                         <option value="area-sales-manager">Area Sales Manager</option>
+
                         <option value="team-leader-sales">Team Leader - Sales</option>
+
                         <option value="bdm">Business Development Manager</option>
+
                     </select>
+
                     <div class="error-message" style="display:none; color:#e74c3c; margin-top:10px; font-weight:500;">
+
                         <i class="fas fa-exclamation-circle"></i> Please select a sales role
+
                     </div>
+
                 </div>
-                
+
+               
+
                 <div class="department-cta">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" 
-                       class="cta-button" 
+
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog"
+
+                       class="cta-button"
+
                        target="_blank"
+
                        id="sales-apply-btn">
+
                         <i class="fas fa-paper-plane"></i> Apply Now
+
                     </a>
+
                 </div>
+
             </div>
+
         </div>
+
     </section>
+
+ 
 
     <!-- Service Department Section -->
+
     <section class="department-section" id="service">
+
         <div class="department-container">
+
             <div class="section-title">
+
                 <h2>Service Department Opportunities</h2>
+
                 <p>Build your career with our expert service team and deliver excellence</p>
+
             </div>
 
+ 
+
             <div class="department-content">
+
                 <p>At Sarathy Group, our service department is committed to providing world-class vehicle care. We're on the lookout for dedicated individuals with a passion for automotive service and customer satisfaction. Select your desired role and apply today!</p>
 
+ 
+
                 <div class="department-dropdown">
+
                     <label for="service-roles"><i class="fas fa-tools"></i> Choose a Service Role:</label>
+
                     <select id="service-roles" name="service-roles">
+
                         <option value="" disabled selected>Select a position</option>
+
                         <option value="service-trainee">Service Trainee</option>
+
                         <option value="service-advisor">Service Advisor</option>
+
                         <option value="senior-service-advisor">Senior Service Advisor</option>
+
                         <option value="service-executive">Service Executive</option>
+
                         <option value="senior-technician">Senior Technician</option>
+
                         <option value="technician">Technician</option>
+
                         <option value="diagnostic-technician">Diagnostic Technician</option>
+
                         <option value="mechanic">Mechanic</option>
+
                         <option value="warranty-coordinator">Warranty Coordinator</option>
+
                         <option value="quality-controller">Quality Controller</option>
+
                         <option value="customer-service-executive">Customer Service Executive</option>
+
                         <option value="relationship-manager">Relationship Manager</option>
+
                         <option value="assistant-service-manager">Assistant Service Manager</option>
+
                         <option value="service-manager">Service Manager</option>
+
                         <option value="workshop-manager">Workshop Manager</option>
+
                         <option value="floor-supervisor">Floor Supervisor</option>
+
                         <option value="technical-lead">Technical Lead</option>
+
                         <option value="pickup-drop-driver">Pickup & Drop Driver</option>
+
                         <option value="internship-trainee">Trainee</option>
+
                     </select>
+
                     <div class="error-message" style="display:none; color:#e74c3c; margin-top:10px; font-weight:500;">
+
                         <i class="fas fa-exclamation-circle"></i> Please select a service role
+
                     </div>
+
                 </div>
 
+ 
+
                 <div class="department-cta">
+
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog"
+
                        class="cta-button"
+
                        target="_blank"
+
                        id="service-apply-btn">
+
                         <i class="fas fa-paper-plane"></i> Apply Now
+
                     </a>
+
                 </div>
+
             </div>
+
         </div>
+
     </section>
+
+ 
 
     <!-- Spare Parts Department Section -->
+
     <section class="department-section" id="spareparts">
+
         <div class="department-container">
+
             <div class="section-title">
+
                 <h2>Spare Parts Department Opportunities</h2>
+
                 <p>Join our Spare Parts team and ensure seamless parts operations</p>
+
             </div>
+
+ 
 
             <div class="department-content">
+
                 <p>At Sarathy Group, our Spare Parts team plays a critical role in delivering efficiency and quality. We are looking for enthusiastic and detail-oriented professionals to support our parts operations. Choose your desired role and apply today!</p>
 
+ 
+
                 <div class="department-dropdown">
+
                     <label for="spareparts-roles"><i class="fas fa-cogs"></i> Choose a Spare Parts Role:</label>
+
                     <select id="spareparts-roles" name="spareparts-roles">
+
                         <option value="" disabled selected>Select a position</option>
+
                         <option value="spareparts-sales-manager">Spare Parts Sales Manager</option>
+
                         <option value="spareparts-operations-manager">Spare Parts Operations Manager</option>
+
                         <option value="spareparts-inventory-manager">Spare Parts Inventory Manager</option>
+
                         <option value="spareparts-executive">Spare Parts Executive</option>
+
                         <option value="spareparts-sales-executive">Spare Parts Sales Executive</option>
+
                         <option value="spareparts-coordinator">Spare Parts Coordinator</option>
+
                         <option value="spareparts-trainee">Spare Parts Trainee</option>
+
                         <option value="spareparts-assistant">Spare Parts Assistant</option>
+
                         <option value="junior-spareparts-executive">Junior Spare Parts Executive</option>
+
                         <option value="spareparts-counter-assistant">Spare Parts Counter Assistant</option>
+
                     </select>
+
                     <div class="error-message" style="display:none; color:#e74c3c; margin-top:10px; font-weight:500;">
+
                         <i class="fas fa-exclamation-circle"></i> Please select a spare parts role
+
                     </div>
+
                 </div>
+
+ 
 
                 <div class="department-cta">
+
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog"
+
                        class="cta-button"
+
                        target="_blank"
+
                        id="spareparts-apply-btn">
+
                         <i class="fas fa-paper-plane"></i> Apply Now
+
                     </a>
+
                 </div>
+
             </div>
+
         </div>
+
     </section>
+
+ 
 
     <!-- Employee Testimonials Section -->
+
     <section class="testimonials-section">
+
         <div class="testimonials-container">
+
             <div class="section-title">
+
                 <h2>Employee Experiences</h2>
+
                 <p>Hear from our team members</p>
+
             </div>
-            
+
+           
+
             <div class="testimonials-grid">
+
                 <div class="testimonial-card">
+
                     <div class="testimonial-content">
+
                         "Working at Sarathy Group has been a transformative experience. The company's commitment to employee growth and the supportive work environment have helped me advance my career in the automotive industry."
+
                     </div>
+
                     <div class="testimonial-author">
+
                         <div class="author-img">RS</div>
+
                         <div class="author-info">
+
                             <h4>Rahul S.</h4>
+
                             <p>Senior Service Manager, 8 years at Sarathy</p>
+
                         </div>
+
                     </div>
+
                 </div>
-                
+
+               
+
                 <div class="testimonial-card">
+
                     <div class="testimonial-content">
+
                         "The training programs and opportunities for skill development at Sarathy are exceptional. I started as a Sales Trainee and within 3 years became a Team Lead. The growth potential here is real."
+
                     </div>
+
                     <div class="testimonial-author">
+
                         <div class="author-img">MM</div>
+
                         <div class="author-info">
+
                             <h4>Midhun M.</h4>
+
                             <p>Sales Team Lead, 4 years at Sarathy</p>
+
                         </div>
+
                     </div>
+
                 </div>
-                
+
+               
+
                 <div class="testimonial-card">
+
                     <div class="testimonial-content">
+
                         "What I appreciate most is the company culture. Sarathy truly values work-life balance and employee well-being. The management is approachable and genuinely cares about the team."
+
                     </div>
+
                     <div class="testimonial-author">
+
                         <div class="author-img">AK</div>
+
                         <div class="author-info">
+
                             <h4>Anil Kumar</h4>
+
                             <p>EV Technician, 2 years at Sarathy</p>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
+
         </div>
+
     </section>
+
+ 
 
     <!-- Google Form Section -->
+
     <section class="form-section" id="google-form">
+
         <div class="form-container">
+
             <div class="section-title">
+
                 <h2>Online Application Form</h2>
+
                 <p>Apply for your desired position using our secure Google Form</p>
+
             </div>
-            
+
+           
+
             <div class="form-wrapper">
+
                 <div class="form-preview">
+
                     <div class="form-icon">
+
                         <i class="fab fa-google"></i>
+
                     </div>
+
                     <h3>Sarathy Group Application Form</h3>
+
                     <p>Complete our online form to apply for any position. It only takes a few minutes to submit your application!</p>
+
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank">
+
                         <i class="fas fa-external-link-alt"></i> Open Application Form
+
                     </a>
+
                 </div>
+
             </div>
+
         </div>
+
     </section>
+
+ 
 
     <!-- Apply Section -->
+
     <section class="apply-section" id="apply">
+
         <div class="apply-content">
+
             <h2>How To Apply</h2>
+
             <p>Interested candidates are requested to apply using our online form or email their resume to the following address. Please mention the position and location you are applying for.</p>
-            
+
+           
+
             <div class="contact-info">
+
                 <div class="contact-item">
+
                     <i class="fas fa-envelope"></i>
+
                     <span>careers@sarathygroup.com</span>
+
                 </div>
+
                 <div class="contact-item">
-                    <i class="fas fa-phone"></i>
+
+                     <i class="fab fa-whatsapp"></i>
+
                     <span>+91 9037 2236 65</span>
+
                 </div>
+
                 <div class="contact-item">
+
                     <i class="fab fa-google"></i>
+
                     <span>Online Application Form</span>
+
                 </div>
+
                 <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Sarathy Group HQ, Kollam, Kerala</span>
+
+                    <i class="fab fa-whatsapp"></i>
+
+                    <span>Sarathy Job Chatbot: 9037833865</span>
+
                 </div>
+
+                <div class="contact-item">
+
+                    <i class="fas fa-map-marker-alt"></i>
+
+                    <span>Sarathy Group HQ, Kollam, Kerala</span>
+
+                </div>
+
             </div>
-            
+
+           
+
             <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="cta-button" target="_blank" style="margin-top: 40px;">
+
                 <i class="fas fa-paper-plane"></i> Apply via Google Form
+
             </a>
+
         </div>
+
     </section>
 
+ 
+
     <!-- Footer -->
+
     <footer id="contact">
+
         <div class="footer-content">
+
             <div class="footer-column">
+
                 <h3>About Sarathy Group</h3>
+
                 <p>Sarathy Group is a leading automotive company with a strong presence in Kerala. We are committed to excellence in customer service and innovation in the automotive industry.</p>
+
                 <div class="social-links">
+
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
+
                     <a href="#"><i class="fab fa-twitter"></i></a>
+
                     <a href="#"><i class="fab fa-instagram"></i></a>
+
                     <a href="#"><i class="fab fa-linkedin-in"></i></a>
+
                     <a href="#"><i class="fab fa-youtube"></i></a>
+
                 </div>
+
             </div>
-            
+
+           
+
             <div class="footer-column">
+
                 <h3>Quick Links</h3>
+
                 <ul class="footer-links">
+
                     <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+
                     <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+
                     <li><a href="#jobs"><i class="fas fa-chevron-right"></i> Job Openings</a></li>
+
                     <li><a href="#sales"><i class="fas fa-chevron-right"></i> Sales Department</a></li>
+
                     <li><a href="#service"><i class="fas fa-chevron-right"></i> Service Department</a></li>
+
                     <li><a href="#spareparts"><i class="fas fa-chevron-right"></i> Spare Parts Department</a></li>
+
                     <li><a href="#google-form"><i class="fas fa-chevron-right"></i> Apply Now</a></li>
+
                     <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+
                 </ul>
+
             </div>
-            
+
+           
+
             <div class="footer-column">
+
                 <h3>Contact Info</h3>
+
                 <ul class="footer-links">
+
                     <li><a href="#"><i class="fas fa-map-marker-alt"></i> Multiple Locations in Kerala</a></li>
+
                     <li><a href="mailto:careers@sarathygroup.com"><i class="fas fa-envelope"></i> careers@sarathygroup.com</a></li>
+
                     <li><a href="tel:+919037223665"><i class="fas fa-phone"></i> +91 9037 2236 65</a></li>
+
+                    <li><a href="https://wa.me/919037833865?text=Hi,%20I'm%20interested%20in%20job%20openings%20at%20Sarathy%20Group" target="_blank"><i class="fab fa-whatsapp"></i> HR Chatbot: 9037833865</a></li>
+
                     <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" target="_blank"><i class="fab fa-google"></i> Online Application</a></li>
+
                     <li><a href="#"><i class="fas fa-clock"></i> Mon-Sat: 9AM - 6PM</a></li>
+
                 </ul>
+
             </div>
+
         </div>
-        
+
+       
+
         <div class="copyright">
+
             <p>&copy; 2025 Sarathy Group. All Rights Reserved. | Designed for Automotive Excellence</p>
+
         </div>
+
     </footer>
 
+ 
+
     <!-- Floating Apply Button for Mobile -->
+
     <a href="https://docs.google.com/forms/d/e/1FAIpQLScSIJj_403mQ-cR_o30e7COExq79Ua3etjtFJwy8AvRCnQjMg/viewform?usp=dialog" class="floating-apply-btn" target="_blank">
+
         <i class="fas fa-paper-plane"></i>
+
     </a>
-    
+
+   
+
     <!-- Scroll to top button -->
+
     <div class="scroll-top" id="scrollTop">
+
         <i class="fas fa-arrow-up"></i>
+
     </div>
 
+ 
+
     <script>
-        // Wait for DOM to be fully loaded
+
+       // Wait for DOM to be fully loaded
+
         document.addEventListener('DOMContentLoaded', function() {
+
             // Mobile menu toggle
+
             const menuToggle = document.getElementById('menuToggle');
+
             const mainNav = document.getElementById('mainNav');
+
             const menuIcon = menuToggle.querySelector('i');
-            
+
+           
+
             menuToggle.addEventListener('click', function() {
+
                 mainNav.classList.toggle('show');
+
                 if (mainNav.classList.contains('show')) {
+
                     menuIcon.classList.remove('fa-bars');
+
                     menuIcon.classList.add('fa-times');
+
                 } else {
+
                     menuIcon.classList.remove('fa-times');
+
                     menuIcon.classList.add('fa-bars');
+
                 }
+
             });
-            
+
+           
+
             // Location filtering
+
             const filterBtns = document.querySelectorAll('.filter-btn');
+
             const jobCards = document.querySelectorAll('.job-card');
 
+ 
+
             filterBtns.forEach(btn => {
+
                 btn.addEventListener('click', () => {
+
                     // Remove active class from all buttons
+
                     filterBtns.forEach(b => b.classList.remove('active'));
+
                     // Add active class to clicked button
+
                     btn.classList.add('active');
-                    
+
+                   
+
                     const location = btn.getAttribute('data-location');
-                    
+
+                   
+
                     jobCards.forEach(card => {
+
                         if (location === 'all' || card.getAttribute('data-location') === location) {
+
                             card.style.display = 'block';
+
                             setTimeout(() => {
+
                                 card.classList.remove('hidden');
+
                             }, 10);
+
                         } else {
+
                             card.classList.add('hidden');
+
                             setTimeout(() => {
+
                                 card.style.display = 'none';
+
                             }, 400);
+
                         }
+
                     });
+
                 });
+
             });
-            
+
+           
+
             // Smooth scrolling for anchor links
+
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
                 anchor.addEventListener('click', function(e) {
+
                     // Close mobile menu if open
+
                     if (mainNav.classList.contains('show')) {
+
                         mainNav.classList.remove('show');
+
                         menuIcon.classList.remove('fa-times');
+
                         menuIcon.classList.add('fa-bars');
+
                     }
-                    
+
+                   
+
                     // Skip smooth scroll for external links
+
                     if (this.getAttribute('href').startsWith('#') && !this.getAttribute('target')) {
+
                         e.preventDefault();
-                        
+
+                       
+
                         const target = document.querySelector(this.getAttribute('href'));
+
                         if (target) {
+
                             const headerHeight = document.querySelector('header').offsetHeight;
+
                             const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+
                             const offsetPosition = targetPosition - headerHeight;
-                            
+
+                           
+
                             window.scrollTo({
+
                                 top: offsetPosition,
+
                                 behavior: 'smooth'
+
                             });
+
                         }
+
                     }
+
                 });
+
             });
-            
+
+           
+
             // Close menu when clicking outside
+
             document.addEventListener('click', function(e) {
-                if (mainNav.classList.contains('show') && 
-                   !mainNav.contains(e.target) && 
+
+                if (mainNav.classList.contains('show') &&
+
+                   !mainNav.contains(e.target) &&
+
                    !menuToggle.contains(e.target)) {
+
                     mainNav.classList.remove('show');
+
                     menuIcon.classList.remove('fa-times');
+
                     menuIcon.classList.add('fa-bars');
+
                 }
+
             });
-            
+
+           
+
             // Animation on scroll
+
             function animateOnScroll() {
+
                 const elements = document.querySelectorAll('.section-title, .company-card, .job-card, .testimonial-card, .department-content, .form-wrapper');
+
                 const scrollTop = document.getElementById('scrollTop');
-                
+
+               
+
                 elements.forEach(element => {
+
                     const elementPosition = element.getBoundingClientRect().top;
+
                     const screenPosition = window.innerHeight * 0.8;
-                    
+
+                   
+
                     if (elementPosition < screenPosition) {
+
                         element.style.opacity = '1';
+
                         element.style.transform = 'translateY(0)';
+
                     }
+
                 });
-                
+
+               
+
                 // Show scroll to top button
+
                 if (window.pageYOffset > 500) {
+
                     scrollTop.classList.add('visible');
+
                 } else {
+
                     scrollTop.classList.remove('visible');
+
                 }
+
             }
-            
+
+           
+
             // Set initial state for animated elements
+
             document.querySelectorAll('.section-title, .company-card, .job-card, .testimonial-card, .department-content, .form-wrapper').forEach(el => {
+
                 el.style.opacity = '0';
+
                 el.style.transform = 'translateY(40px)';
+
                 el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+
             });
-            
+
+           
+
             // Scroll to top functionality
+
             document.getElementById('scrollTop').addEventListener('click', () => {
+
                 window.scrollTo({
+
                     top: 0,
+
                     behavior: 'smooth'
+
                 });
+
             });
-            
+
+           
+
             // Department form validation
+
             function setupDepartmentValidation(department, applyBtnId) {
+
                 const roleSelect = document.getElementById(`${department}-roles`);
+
                 const errorMessage = roleSelect.nextElementSibling;
+
                 const applyBtn = document.getElementById(applyBtnId);
-                
+
+               
+
                 applyBtn.addEventListener('click', function(e) {
+
                     if (!roleSelect.value) {
+
                         e.preventDefault();
+
                         errorMessage.style.display = 'block';
+
                         roleSelect.style.animation = 'shake 0.5s';
+
                         setTimeout(() => {
+
                             roleSelect.style.animation = '';
+
                         }, 500);
-                        
+
+                       
+
                         // Scroll to the dropdown
+
                         roleSelect.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
                     }
+
                 });
-                
+
+               
+
                 // Hide error when selection changes
+
                 roleSelect.addEventListener('change', function() {
+
                     if (roleSelect.value) {
+
                         errorMessage.style.display = 'none';
+
                     }
+
                 });
+
             }
-            
+
+           
+
             // Initialize department validations
+
             setupDepartmentValidation('sales', 'sales-apply-btn');
+
             setupDepartmentValidation('service', 'service-apply-btn');
+
             setupDepartmentValidation('spareparts', 'spareparts-apply-btn');
-            
+
+           
+
             // Initialize
+
             window.addEventListener('scroll', animateOnScroll);
+
             animateOnScroll();
+
         });
+
     </script>
+
 </body>
+
 </html>
